@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/controller/user/LoginController.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/register.jsp</file>
             <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/login.jsp</file>
             <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/controller/user/MainController.java</file>
-=======
-            <file>file:/E:/Project/Jewelry_Auction_Platform/Jewelry_Auction_Platform/web/WEB-INF/web.xml</file>
-            <file>file:/E:/Project/Jewelry_Auction_Platform/Jewelry_Auction_Platform/web/home.jsp</file>
-            <file>file:/E:/Project/Jewelry_Auction_Platform/Jewelry_Auction_Platform/src/java/controller/user/MainController.java</file>
-            <file>file:/E:/Project/Jewelry_Auction_Platform/Jewelry_Auction_Platform/web/login.jsp</file>
-            <file>file:/E:/Project/Jewelry_Auction_Platform/Jewelry_Auction_Platform/src/java/controller/user/LoginController.java</file>
->>>>>>> 775093c2e804684f7942e298ce563ca65e16353c
         </group>
     </open-files>
 </project-private>
