@@ -1,3 +1,78 @@
-h1{
-    color: red;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+.login-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+.login-card h1 {
+    text-align: center;
+    color: #333;
+}
+.login-card input[type="text"], .login-card input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.login-card input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-card a {
+    color: blue;
+    text-decoration: none;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+.register-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+.register-card h1 {
+    text-align: center;
+    color: #333;
+}
+.register-card input[type="text"], .register-card input[type="email"], .register-card input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.register-card input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register-card a {
+    color: blue;
+    text-decoration: none;
 }
