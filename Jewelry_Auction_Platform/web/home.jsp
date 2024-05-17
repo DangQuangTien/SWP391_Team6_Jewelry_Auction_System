@@ -5,12 +5,14 @@
     <title>Jewelry Auctions Online</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="component/home.css">       
+    <link rel="stylesheet" href="component/home.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">  
     <!-- Include Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="component/test.js"></script>
+    
 </head>
 <body>
     <header>
@@ -20,7 +22,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">                   
+
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home</a>
                     </li>
@@ -36,6 +39,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="register.jsp">Register</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
+                        <div id="bell-box" style="display: none;">
+                            <!--cho thong tin cap nhat cua ben user vao day-->                           
+                        </div>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search for anything" aria-label="Search">
@@ -44,6 +53,8 @@
             </div>
         </nav>
     </header>
+    
+    
 
     <main class="container mt-4">
         <section class="banner mb-4">
@@ -90,6 +101,7 @@
 
     <footer class="bg-light text-center py-3">
         <div>
+            <h6>Jewelry Auction </h6>
             <a href="register.jsp">Register</a> |
             <a href="login.jsp">Login</a> |
             <a href="#">Help & FAQ</a> |
