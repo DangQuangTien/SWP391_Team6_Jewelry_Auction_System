@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e3dcdc;
 }
 
 header {
-    background-color: #c8bdbd;
-    color: #ffffff;
+    background-color: #d6a9a9;
+    color: #eee2e2;
     padding: 10px 0;
 }
 
@@ -15,11 +15,11 @@ header nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;   
 }
 
 header nav ul li a {
-    color: #ffffff;
+    color: #5f4c4c;
     text-decoration: none;
 }
 
@@ -31,32 +31,79 @@ header nav ul li a {
 
 .banner {
     width: 1000%;
-    height: 220px;
+    height: 250px;
     background-image: url('https://thegoldmarket.co.uk/wp-content/uploads/2016/12/jewellery-banner-1024x250.jpg');
     background-size: cover;
     background-attachment: fixed; 
 }
 
-.upcoming-auction {   
-    height: 200px;
+.upcoming-auction {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
 }
+
+.auction-item {
+    display: flex;
+    align-items: center;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    padding:10px;
+    margin-bottom: 1px;
+}
+
+.auction-item img {
+    max-width: 100px;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h3 {
+    margin: 0;
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+  .auction-image {
+    width: 150px; 
+    height: auto;
+    margin-right: 20px; 
+  }
+
+  .auction-info {
+    flex: 1;
+  }
 
 .contact {
     margin-top: 20px;
 }
 
 footer {
-    background-color: #333;
-    color: #ffffff;
+    width: 100%;
+    height: 20px;
+    background-color: #d6a9a9;
+    color: #812626;
     text-align: center;
     padding: 10px 0;
 }
 
 footer a {
-    color: #ffffff;
+    color: #5f4c4c;
     text-decoration: none;
     margin: 0 10px;
 }
