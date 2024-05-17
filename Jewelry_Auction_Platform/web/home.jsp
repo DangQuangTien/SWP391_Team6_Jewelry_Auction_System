@@ -14,7 +14,7 @@
                     <li><a href="#">Auction</a></li>
                     <li><a href="#">Sell</a></li>
                     <li><a href="login.jsp">Login</a></li>
-                    <li><a href="redirect.jsp"></a>Register</li>
+                    <li><a href="register.jsp">Register</a></li>
                       <div class="search-bar">
                 <input type="text" name="query" placeholder="Search for anything"/>
             </div>
@@ -24,7 +24,7 @@
         </header>
         <main>      
             <section class="banner">
-                <img src="add vao.jpg" alt="Banner Image">
+                <img src="https://thegoldmarket.co.uk/wp-content/uploads/2016/12/jewellery-banner-1024x250.jpg" alt="Banner Image">
             </section>
             
             <section class="upcoming-auction">
