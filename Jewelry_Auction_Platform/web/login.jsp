@@ -7,9 +7,11 @@
     </head>
     <body>
         <div class="login-card">
+            <a href="home.jsp">
             <h1>
                 Jewelry Auctions Online
             </h1>
+             </a>
             <form action="MainController" method="GET">
                 <input type="text" name="email" placeholder="Email address or username" autocomplete="username" required="required" autofocus="autofocus"/>
                 <input type="password" name="password" placeholder="Password" autocomplete="current-password" required="required"/>
