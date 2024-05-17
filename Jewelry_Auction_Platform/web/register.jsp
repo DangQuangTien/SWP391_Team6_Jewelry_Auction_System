@@ -7,7 +7,9 @@
     </head>
     <body>
         <div class="register-card">
-            <h1>Jewelry Auctions Online</h1>
+            <a href="home.jsp">
+               <h1>Jewelry Auctions Online</h1> 
+            </a>           
             <form action="MainController">
                 <input type="text" name="name" placeholder="Your full name" autocomplete="name" required="required" autofocus="autofocus"/>
                 <input type="email" name="email" placeholder="Email address" autocomplete="email" required="required"/>

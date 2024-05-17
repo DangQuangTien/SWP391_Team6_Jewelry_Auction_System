@@ -1,4 +1,3 @@
-<%@page import="java.time.LocalTime"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,9 +8,11 @@
     <body>
 
         <div class="login-card">
-            <h1>
+            <a href="home.jsp">
+              <h1>
                 Jewelry Auctions Online
-            </h1>
+              </h1> 
+            </a>
             <form action="MainController" method="GET">
                 <input type="text" name="email" placeholder="Email address or username" autocomplete="username" required="required" autofocus="autofocus"/>
                 <input type="password" name="password" placeholder="Password" autocomplete="current-password" required="required"/>
