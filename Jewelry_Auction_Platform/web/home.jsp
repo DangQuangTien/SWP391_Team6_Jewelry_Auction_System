@@ -24,16 +24,14 @@
         </header>
         <main>      
             <section class="banner">
-
-              
+                <img src="add vao.jpg" alt="Banner Image">
             </section>
+            
             <section class="upcoming-auction">
-                <h2>Upcoming Auction</h2>
-
-               
+                <h2>Upcoming Auction</h2>              
             </section>
             <section class="contact">
-            <h2>About US</h2>
+                <h2>About US</h2>
             Welcome to Jewelry Auctioned, your one stop online destination for all of 
             your jewelry requirements. Striving to deliver the very best discount
             jewelry direct to our customers, we offer a vast array of jewelry pieces 
