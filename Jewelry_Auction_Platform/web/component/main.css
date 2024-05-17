@@ -8,10 +8,14 @@ body {
 }
 .login-card {
     background-color: #fff;
-    padding: 20px;
+    padding: 80px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     width: 300px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 .login-card h1 {
     text-align: center;
@@ -47,7 +51,7 @@ body {
 }
 .register-card {
     background-color: #fff;
-    padding: 20px;
+    padding: 80px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     width: 300px;
@@ -75,4 +79,52 @@ body {
 .register-card a {
     color: blue;
     text-decoration: none;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+.card h1 {
+    text-align: center;
+    color: #333;
+}
+
+.card input[type="text"], .card input[type="email"], .card input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.card input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card a {
+    color: #0066cc; 
+    text-decoration: none;
+}
+
+.card a:hover, .card a:focus {
+    color: #004999; 
 }
