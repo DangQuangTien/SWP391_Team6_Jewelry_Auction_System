@@ -30,13 +30,15 @@ header nav ul li a {
 }
 
 .banner {
-    width: 100%;
-    height: 100px;
-    background-image: url('add vao.jpg');
+    width: 1000%;
+    height: 220px;
+    background-image: url('https://thegoldmarket.co.uk/wp-content/uploads/2016/12/jewellery-banner-1024x250.jpg');
     background-size: cover;
+    background-attachment: fixed; 
 }
 
-.upcoming-auction {
+.upcoming-auction {   
+    height: 200px;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
