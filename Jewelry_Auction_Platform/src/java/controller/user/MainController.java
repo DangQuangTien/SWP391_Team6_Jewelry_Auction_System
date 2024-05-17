@@ -6,6 +6,7 @@ package controller.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "MainController", urlPatterns = {"/MainController"})
 public class MainController extends HttpServlet {
+
+    private static final String LOGINCONTROLLER = "LoginController";
+    private static final String LOGOUTCONTROLLER = "logout";
+    private static final String SIGNUPCONTROLLER = "signup";
+    private static final String USERINFCONTROLLER = "getUserInformation";
+    private static final String UPDATEUSERCONTROLLER = "updateUser";
+    private static final String ADDRESSCONTROLLER = "getAddresses";
+    private static final String CHECKEXISTEDSTORECONTROLLER = "checkExistedStore";
+    private static final String ERRORPAGE = "error.html";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +42,36 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MainController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MainController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String action = request.getParameter("action");
+            String url = null;
+            switch (action) {
+                case "Log in":
+                    url = LOGINCONTROLLER;
+                    break;
+                case "Log out":
+                    url = LOGOUTCONTROLLER;
+                    break;
+                case "Register":
+                    url = SIGNUPCONTROLLER;
+                    break;
+                case "Profile":
+                    url = USERINFCONTROLLER;
+                    break;
+                case "Address":
+                    url = ADDRESSCONTROLLER;
+                    break;
+                case "Update":
+                    url = UPDATEUSERCONTROLLER;
+                    break;
+                case "Seller Center":
+                    url = CHECKEXISTEDSTORECONTROLLER;
+                    break;
+                default:
+                    url = ERRORPAGE;
+                    break;
+            }
+            RequestDispatcher dist = request.getRequestDispatcher(url);
+            dist.forward(request, response);
         }
     }
 

@@ -18,7 +18,7 @@
         %>
         <a href="home.jsp"><h1>Jewelry Auctions Online</h1></a>
         <h3>Your Treasure Hunt Starts Here!</h3>
-        <h4><%= greeting%></h4>
+        <h4><%= greeting %></h4>
         <form action="MainController"method="GET">
             <div>Email address or username</div>
             <input type="text" name="email" autocomplete="username" required="required" autofocus="autofocus"/><br><br>
