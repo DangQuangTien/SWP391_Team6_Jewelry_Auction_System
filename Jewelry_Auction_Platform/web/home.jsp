@@ -10,26 +10,45 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Auction</a></li>
-                    <li><a href="#">Sell</a></li>
+                    <li><a href="#">Home</a></li>|
+                    <li><a href="#">Auction</a></li>|
+                    <li><a href="#">Sell</a></li>|
                     <li><a href="login.jsp">Login</a></li>
                     <li><a href="register.jsp">Register</a></li>
                       <div class="search-bar">
-                <input type="text" name="query" placeholder="Search for anything"/>
-            </div>
+                      <input type="text" name="query" placeholder="Search for anything"/>
+                      </div>
                 </ul>
-            </nav>
-          
+            </nav>          
         </header>
         <main>      
             <section class="banner">
                 <img src="https://thegoldmarket.co.uk/wp-content/uploads/2016/12/jewellery-banner-1024x250.jpg" alt="Banner Image">
             </section>
+
+            <h2>Upcoming Auction</h2>
             
-            <section class="upcoming-auction">
-                <h2>Upcoming Auction</h2>              
+            <section class="upcoming-auction">              
+                <div class="auction-item">
+                    <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
+                    <div class="item-details">
+                        <h3>Tiny Crystal Heart Pendant Necklace in Rose Gold</h3>
+                        <p>Start: Wed, May 22, 12:00 PM GMT+3</p>
+                        <p>Auction ID: [159234]</p>
+                        <button>Notify me</button>
+                    </div>
+                </div>
+                <div class="auction-item">
+                    <img src="https://nhj.com.vn/wp-content/uploads/2019/04/vong-tay-vang-24k-8.jpg" alt="14K Rose Gold Full Round Moissanite Diamond Ring">
+                    <div class="item-details">
+                        <h3>14K Rose Gold Full Round Moissanite Diamond Ring</h3>
+                        <p>Start: Wed, May 22, 12:00 PM GMT+3</p>
+                        <p>Auction ID: [294819]</p>
+                        <button>Notify me</button>
+                    </div>
+                </div> 
             </section>
+
             <section class="contact">
                 <h2>About US</h2>
             Welcome to Jewelry Auctioned, your one stop online destination for all of 
