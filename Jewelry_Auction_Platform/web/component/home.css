@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
 }
 
 header {
-    background-color: #c8bdbd;
-    color: #ffffff;
+    background-color: #d6a9a9;
+    color: #eee2e2;
     padding: 10px 0;
 }
 
@@ -15,49 +15,119 @@ header nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 10px;
 }
 
 header nav ul li a {
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ffd700;
 }
 
 .main-card {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.banner {
-    width: 1000%;
-    height: 220px;
-    background-image: url('https://thegoldmarket.co.uk/wp-content/uploads/2016/12/jewellery-banner-1024x250.jpg');
-    background-size: cover;
-    background-attachment: fixed; 
-}
-
-.upcoming-auction {   
-    height: 200px;
+.card {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: row;
+}
+
+.card-img-top {
+    width: 50%; 
+    object-fit: cover; 
+}
+
+.card-body {
+    width: 50%; 
+
+
+.upcoming-auction {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.auction-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px);
+    margin-bottom: 20px;
+}
+
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.item-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 .contact {
-    margin-top: 20px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: #333;
-    color: #ffffff;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; 
+    color: #212529; 
     text-align: center;
-    padding: 10px 0;
 }
 
 footer a {
-    color: #ffffff;
+    color: #212529;
     text-decoration: none;
     margin: 0 10px;
 }
-     
+
+footer a:hover {
+    color: #007bff; 
+}
+}

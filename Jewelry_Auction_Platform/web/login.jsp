@@ -1,4 +1,3 @@
-<%@page import="java.time.LocalTime"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,34 +8,26 @@
     <body>
 
         <div class="login-card">
-            <%
-                LocalTime now = LocalTime.now();
-                String greeting = "Good evening!";
-                if (now.getHour() < 12) {
-                    greeting = "Good morning!";
-                } else if (now.getHour() < 17) {
-                    greeting = "Good afternoon!";
-                }
-
-            %>
-            <h1><%= greeting%></h1>
-            <a href="home.jsp"><h1>
-                    Jewelry Auctions Online
-                </h1>
+            <a href="home.jsp">
+                <h1>Jewelry Auctions Online</h1> 
             </a>
-            <form action="MainController" method="GET">
-                <input type="text" name="email" placeholder="Email address or username" autocomplete="username" required="required" autofocus="autofocus"/>
+            <p style="text-align: center;
+               color: #666;
+               font-size: 16px;
+               font-family: 'Arial', sans-serif;">Explore the World of Auctions with Us</p>
+            <form action="MainController" method="POST">
+                <input type="text" name="email" placeholder="Phone number/ Username/ Email" autocomplete="username" required="required" autofocus="autofocus"/>
                 <input type="password" name="password" placeholder="Password" autocomplete="current-password" required="required"/>
+                <br><br>
                 <input type="checkbox" name="remember" checked=""> Remember me
                 <a href="#forgot">
                     Forgot your password?
-                </a>
+                </a><br><br>
                 <input type="submit" name="action" value="Log in">
             </form>
-            <div>Don't have an account yet? 
-                <a href="register.jsp">
-                    Register instead
-                </a>
+            <br>
+            <div class="additional-links" class="register-link">
+                Don't have an account? <a href="register.jsp">Register instead</a>
             </div>
         </div>
     </body>
