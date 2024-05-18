@@ -72,6 +72,15 @@
                             <button class="btn btn-primary">Notify me</button>
                         </div>
                     </div>
+                    <div class="card">
+                        <img src="https://nhj.com.vn/wp-content/uploads/2019/04/vong-tay-vang-24k-8.jpg" class="card-img-top" alt="14K Rose Gold Full Round Moissanite Diamond Ring">
+                        <div class="card-body">
+                            <h5 class="card-title">14K Rose Gold Full Round Moissanite Diamond Ring</h5>
+                            <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
+                            <p class="card-text">Auction ID: 294819</p>
+                            <button class="btn btn-primary">Notify me</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="mySlides slide">
                     <div class="card">
@@ -83,6 +92,7 @@
                             <button class="btn btn-primary">Notify me</button>
                         </div>
                     </div>
+                    
                 </div>
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
