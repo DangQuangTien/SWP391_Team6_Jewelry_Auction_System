@@ -19,11 +19,7 @@
                 <input type="checkbox" name="agreed" checked=""> By registering, you confirm you are 18 years old or older, and you have read and agree to the ...
                 <input type="submit" name="action" value="Register">
             </form>
-            <div>Already registered?
-                 <a href="login.jsp">
-                    Log in instead
-                </a>
-            </div>
+            <div>Already registered? <a href="login.jsp">Log in instead</a></div>
         </div>
     </body>
 </html>

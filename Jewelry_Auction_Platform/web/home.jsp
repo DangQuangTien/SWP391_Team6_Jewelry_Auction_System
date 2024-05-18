@@ -15,32 +15,31 @@
                     <li><a href="#">Sell</a></li>
                     <li><a href="login.jsp">Login</a></li>
                     <li><a href="register.jsp">Register</a></li>
-                      <div class="search-bar">
-                <input type="text" name="query" placeholder="Search for anything"/>
-            </div>
+                    <div class="search-bar">
+                        <input type="text" name="query" placeholder="Search for anything"/>
+                    </div>
                 </ul>
             </nav>
-          
         </header>
         <main>      
             <section class="banner">
                 <img src="https://thegoldmarket.co.uk/wp-content/uploads/2016/12/jewellery-banner-1024x250.jpg" alt="Banner Image">
             </section>
-            
+
             <section class="upcoming-auction">
                 <h2>Upcoming Auction</h2>              
             </section>
             <section class="contact">
                 <h2>About US</h2>
-            Welcome to Jewelry Auctioned, your one stop online destination for all of 
-            your jewelry requirements. Striving to deliver the very best discount
-            jewelry direct to our customers, we offer a vast array of jewelry pieces 
-            and precious gemstones to suit anyone's style. Our verified manufacturers 
-            and wholesalers from around the world discount their quality jewelry pieces
-            for sale exclusively here on Jewelry Auctioned. This means that you can purchase 
-            top quality authentic jewelry direct from international manufacturers for a fraction 
-            of the price. All of our incredible sellers have undergone a rigorous application
-            process to ensure they meet our high level of standards here at Jewelry Auctioned.
+                Welcome to Jewelry Auctioned, your one stop online destination for all of 
+                your jewelry requirements. Striving to deliver the very best discount
+                jewelry direct to our customers, we offer a vast array of jewelry pieces 
+                and precious gemstones to suit anyone's style. Our verified manufacturers 
+                and wholesalers from around the world discount their quality jewelry pieces
+                for sale exclusively here on Jewelry Auctioned. This means that you can purchase 
+                top quality authentic jewelry direct from international manufacturers for a fraction 
+                of the price. All of our incredible sellers have undergone a rigorous application
+                process to ensure they meet our high level of standards here at Jewelry Auctioned.
             </section>
         </main>
         <footer>
