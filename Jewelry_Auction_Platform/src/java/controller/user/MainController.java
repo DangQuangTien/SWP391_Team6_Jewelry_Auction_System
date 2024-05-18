@@ -21,13 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController extends HttpServlet {
 
     private static final String LOGINCONTROLLER = "LoginController";
-    private static final String LOGOUTCONTROLLER = "logout";
-    private static final String SIGNUPCONTROLLER = "signup";
-    private static final String USERINFCONTROLLER = "getUserInformation";
-    private static final String UPDATEUSERCONTROLLER = "updateUser";
-    private static final String ADDRESSCONTROLLER = "getAddresses";
-    private static final String CHECKEXISTEDSTORECONTROLLER = "checkExistedStore";
-    private static final String ERRORPAGE = "error.html";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,31 +36,12 @@ public class MainController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             String action = request.getParameter("action");
-            String url = null;
+            String url = "/WEB-INF/jsp/index.jsp";
             switch (action) {
                 case "Log in":
                     url = LOGINCONTROLLER;
                     break;
-                case "Log out":
-                    url = LOGOUTCONTROLLER;
-                    break;
-                case "Register":
-                    url = SIGNUPCONTROLLER;
-                    break;
-                case "Profile":
-                    url = USERINFCONTROLLER;
-                    break;
-                case "Address":
-                    url = ADDRESSCONTROLLER;
-                    break;
-                case "Update":
-                    url = UPDATEUSERCONTROLLER;
-                    break;
-                case "Seller Center":
-                    url = CHECKEXISTEDSTORECONTROLLER;
-                    break;
                 default:
-                    url = ERRORPAGE;
                     break;
             }
             RequestDispatcher dist = request.getRequestDispatcher(url);
