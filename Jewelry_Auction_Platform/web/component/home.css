@@ -88,7 +88,7 @@ header nav ul li a:hover {
         transform: translateX(0);
         opacity: 1; 
     }
-    99.999% {
+    99.999999999% {
         transform: translateX(70%);
         opacity: 0;
     }
