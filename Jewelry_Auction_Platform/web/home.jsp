@@ -54,8 +54,6 @@
         </nav>
     </header>
     
-    
-
     <main class="container mt-4">
         <section class="banner mb-4">
             <img src="https://www.limelight.pk/cdn/shop/collections/1200x330-Jewelry.webp?v=1674559019" class="img-fluid" alt="Banner Image">
