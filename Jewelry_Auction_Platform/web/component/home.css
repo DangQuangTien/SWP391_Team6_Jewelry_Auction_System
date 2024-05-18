@@ -54,6 +54,7 @@ header nav ul li a:hover {
 .card-body {
     width: 50%; 
 
+
 .upcoming-auction {
     display: flex;
     flex-wrap: wrap;
@@ -72,7 +73,6 @@ header nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-
 .item-details {
     flex-grow: 1;
 }
@@ -89,7 +89,7 @@ header nav ul li a:hover {
 }
 
 button {
-    background-color: #debbc3;
+    background-color: #d8bac1;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -99,7 +99,7 @@ button {
 }
 
 button:hover {
-    background-color: #a17474;
+    background-color: #67575b;
 }
 
 .contact {
