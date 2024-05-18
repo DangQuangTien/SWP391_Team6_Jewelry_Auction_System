@@ -66,7 +66,8 @@ header nav ul li a:hover {
 }
 
 .mySlides {
-    display: none;
+    display:inline;
+    justify-content: right;
     width: 100%;
     transition: transform 5s ease-in-out, opacity 1s ease-in-out;
     -webkit-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
@@ -112,14 +113,14 @@ header nav ul li a:hover {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #d7b2b2;
     color: #fff;
     border: none;
     border-radius: 4px;
     padding: 8px 12px;
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 35px;
+    width: 100px;
     margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
@@ -128,7 +129,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ddc7c7;
 }
 
 .contact {
@@ -158,5 +159,5 @@ footer a {
 }
 
 footer a:hover {
-    color: #007bff;
+    color: #a98585;
 }
