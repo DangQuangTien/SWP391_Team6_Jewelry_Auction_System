@@ -16,6 +16,7 @@ header nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 header nav ul li {
@@ -47,60 +48,103 @@ header nav ul li a:hover {
 }
 
 .card-img-top {
-    width: 50%; 
-    object-fit: cover; 
+    width: 50%;
+    object-fit: cover;
 }
 
 .card-body {
-    width: 50%; 
-
-
-.upcoming-auction {
+    width: 50%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.auction-item {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(50% - 20px);
-    margin-bottom: 20px;
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+    transition: transform 5s ease-in-out, opacity 1s ease-in-out;
+    -webkit-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
+    -moz-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
+    -ms-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
+    -o-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
+}
+
+@keyframes slideInOut {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    30% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    70% {
+        transform: translateX(0);
+        opacity: 1; 
+    }
+    99.999% {
+        transform: translateX(70%);
+        opacity: 0;
+    }
 }
 
 
-.item-details {
-    flex-grow: 1;
+.slide {
+    display: block;
+    animation: slideInOut 3s infinite alternate;
+    -webkit-animation: slideInOut 3s infinite alternate;
 }
 
-.item-details h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: #333;
-}
 
-.item-details p {
-    margin: 5px 0;
-    color: #666;
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
+.prev, .next {
     cursor: pointer;
-    transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.6s ease;
+    user-select: none;
+    border-radius: 0 3px 3px 0;
 }
 
-button:hover {
-    background-color: #0056b3;
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot-container {
+    text-align: center;
+    padding: 20px 0;
+    background: #ddd;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
 }
 
 .contact {
@@ -114,11 +158,13 @@ button:hover {
 footer {
     position: relative;
     left: 0;
+    margin-top: 20px;
     bottom: 0;
     width: 100%;
-    background-color: #f8f9fa; 
-    color: #212529; 
+    background-color: #f8f9fa;
+    color: #212529;
     text-align: center;
+    padding: 10px 0;
 }
 
 footer a {
@@ -128,6 +174,5 @@ footer a {
 }
 
 footer a:hover {
-    color: #007bff; 
-}
+    color: #007bff;
 }
