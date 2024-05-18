@@ -87,15 +87,26 @@
                 </div>
             </div>
         </section>
-
         <section class="contact mt-5">
             <h2>About Us</h2>
-            <p>Welcome to Jewelry Auctioned, your one-stop online destination for all of 
-                your jewelry requirements. Striving to deliver the very best discount jewelry 
-                direct to our customers, we offer a vast array of jewelry pieces and precious 
-                gemstones to suit anyone's style. Our verified manufacturers and wholesalers 
-                from around the world discount their quality jewelry pieces for sale exclusively 
-                here on Jewelry Auctioned. This means that you can purchase top-quality authentic jewelry direct from international manufacturers for a fraction of the price. All of our incredible sellers have undergone a rigorous application process to ensure they meet our high level of standards here at Jewelry Auctioned.</p>
+            <p>Welcome to Jewelry Auctioned! We offer a wide range of
+                discounted jewelry and gemstones directly from verified 
+                manufacturers worldwide. Shop top-quality pieces at 
+                a fraction of the price. Our sellers meet high standards 
+                through a rigorous application process. </p>
+        </section>
+
+        </section>
+        <section class="contact mt-5">
+            <h2>Contact </h2>
+            <p>We welcome your feedback and encourage you to share your thoughts. 
+                Feel free to ask questions, tell us what you like, 
+                and let us know how we can improve. Your input is valuable to us!
+            <p>
+                Phone Support : +849872539999 Available 7 days a week, 
+                9:00 am - 5:30 pm (EST)Email Support: support@jewelryauction.com 
+                fill out the form below.
+            </p>
         </section>
     </main>
 
