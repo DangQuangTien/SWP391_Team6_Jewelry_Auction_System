@@ -60,15 +60,19 @@ header nav ul li a:hover {
 }
 
 .slideshow-container {
+    display: flex;
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
+    gap: 20px;
 }
+
 
 .mySlides {
     display:inline;
     justify-content: right;
     width: 100%;
+    margin: auto;
     transition: transform 5s ease-in-out, opacity 1s ease-in-out;
     -webkit-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
     -moz-transition: transform 5s ease-in-out, opacity 1s ease-in-out;
