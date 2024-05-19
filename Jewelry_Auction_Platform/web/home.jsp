@@ -40,7 +40,7 @@
                         </li>
                         <% } else { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=Profile"><%= username %></a>
+                            <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                         </li>
                         <% } %>
                         <li class="nav-item">

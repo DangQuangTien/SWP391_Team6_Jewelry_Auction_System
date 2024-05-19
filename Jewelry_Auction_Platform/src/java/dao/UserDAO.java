@@ -5,6 +5,7 @@
 package dao;
 
 import dto.UserDTO;
+import entity.user.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +32,32 @@ public class UserDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new UserDTO(rs.getString("USERNAME"), rs.getString("PASSWORD"), rs.getInt("IS_ADMIN"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return null;
+    }
+
+    public User getInformation(String username) {
+        String query = "SELECT * FROM USERS WHERE USERNAME = ?";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new User(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getDate(8),
+                        rs.getDate(9),
+                        rs.getString(10),
+                        rs.getInt(11));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             ex.getMessage();
