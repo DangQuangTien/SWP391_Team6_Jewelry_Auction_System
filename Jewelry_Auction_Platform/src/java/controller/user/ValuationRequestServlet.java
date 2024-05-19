@@ -6,7 +6,6 @@ package controller.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,11 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
-
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String VALUATION_REQUEST_CONTROLLER = "ValuationRequestServlet";
+@WebServlet(name = "ValuationRequestServlet", urlPatterns = {"/ValuationRequestServlet"})
+public class ValuationRequestServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,20 +32,16 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            String url = "/WEB-INF/jsp/index.jsp";
-            switch (action) {
-                case "Log in":
-                    url = LOGIN_CONTROLLER;
-                    break;
-                case "Submit Valuation Request":
-                    url = VALUATION_REQUEST_CONTROLLER;
-                    break;
-                default:
-                    break;
-            }
-            RequestDispatcher dist = request.getRequestDispatcher(url);
-            dist.forward(request, response);
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ValuationRequestServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ValuationRequestServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

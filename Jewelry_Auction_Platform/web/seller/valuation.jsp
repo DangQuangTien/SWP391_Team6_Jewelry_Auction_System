@@ -15,7 +15,7 @@
         <a href="../home.jsp"><h1>Jewelry &amp; Watch Valuation</h1></a>
         <p>Welcome to our quote / valuation request page</p>
         <h3>Ready to submit your valuation request?</h3>
-        <form action="MainController" method="POST" enctype="multipart/form-data">
+        <form action="../MainController?" method="POST" enctype="multipart/form-data">
             Name<br>
             <input type="text" name="name" value="" placeholder="Enter your name above" required=""/><br><br>
             Email<br>
