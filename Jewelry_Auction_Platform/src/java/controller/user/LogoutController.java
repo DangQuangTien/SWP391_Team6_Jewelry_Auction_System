@@ -12,18 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author User
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
-
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT_CONTROLLER = "LogoutController";
-    private static final String PROFILE_CONTROLLER = "ProfileController";
-    private static final String VALUATION_REQUEST_CONTROLLER = "ValuationRequestServlet";
+@WebServlet(name = "LogoutController", urlPatterns = {"/LogoutController"})
+public class LogoutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,25 +34,9 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            String url = "/WEB-INF/jsp/index.jsp";
-            switch (action) {
-                case "Log in":
-                    url = LOGIN_CONTROLLER;
-                    break;
-                case "Log out":
-                    url = LOGOUT_CONTROLLER;
-                    break;
-                case "Profile":
-                    url = PROFILE_CONTROLLER;
-                    break;
-                case "Submit Valuation Request":
-                    url = VALUATION_REQUEST_CONTROLLER;
-                    break;
-                default:
-                    break;
-            }
-            RequestDispatcher dist = request.getRequestDispatcher(url);
+            HttpSession session = request.getSession();
+            session.invalidate();
+            RequestDispatcher dist = request.getRequestDispatcher("login.jsp");
             dist.forward(request, response);
         }
     }

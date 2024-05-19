@@ -4,6 +4,8 @@
  */
 package controller.user;
 
+import dao.UserDAO;
+import entity.user.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -17,13 +19,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
-
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT_CONTROLLER = "LogoutController";
-    private static final String PROFILE_CONTROLLER = "ProfileController";
-    private static final String VALUATION_REQUEST_CONTROLLER = "ValuationRequestServlet";
+@WebServlet(name = "ProfileController", urlPatterns = {"/ProfileController"})
+public class ProfileController extends HttpServlet {
+    
+    private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
+    private static final String USER_PAGE = "/bidder/profile.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,26 +38,21 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            String url = "/WEB-INF/jsp/index.jsp";
-            switch (action) {
-                case "Log in":
-                    url = LOGIN_CONTROLLER;
-                    break;
-                case "Log out":
-                    url = LOGOUT_CONTROLLER;
-                    break;
-                case "Profile":
-                    url = PROFILE_CONTROLLER;
-                    break;
-                case "Submit Valuation Request":
-                    url = VALUATION_REQUEST_CONTROLLER;
-                    break;
-                default:
-                    break;
+            String username = request.getParameter("username");
+            String url = ERROR_PAGE;
+            UserDAO dao = new UserDAO();
+            try {
+                User user = dao.getInformation(username);
+                if (user != null){
+                    request.setAttribute("USER_DATA", user);
+                    url = USER_PAGE;
+                }
+            } catch (Exception ex) {
+                ex.getMessage();
+            } finally {
+                RequestDispatcher dist = request.getRequestDispatcher(url);
+                dist.forward(request, response);
             }
-            RequestDispatcher dist = request.getRequestDispatcher(url);
-            dist.forward(request, response);
         }
     }
 
