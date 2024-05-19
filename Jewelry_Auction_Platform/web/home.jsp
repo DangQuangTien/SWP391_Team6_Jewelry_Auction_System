@@ -158,41 +158,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom Javascript -->
         <!-- Slideshow -->
-    <script type="text/javascript">
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = slideIndex - 1; i < slideIndex + 1; i++) {
-            if (slides[i]) {
-                slides[i].style.display = "block";
-            }
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        dots[slideIndex - 1].className += " active";
-    }
-    setInterval(function() {
-        plusSlides(2); // Change slide every 3 seconds
-    }, 3000);
-</script>
+        <script src="javascript/home.js"></script>
 
 </body>
 </html>
