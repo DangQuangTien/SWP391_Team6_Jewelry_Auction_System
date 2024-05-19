@@ -25,6 +25,7 @@ public class LoginController extends HttpServlet {
 
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
     private static final String HOME_PAGE = "home.jsp";
+    private static final String LOGIN_PAGE = "login.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,6 +50,11 @@ public class LoginController extends HttpServlet {
                 if (user != null) {
                     session.setAttribute("USERNAME", user.getUsername());
                     url = HOME_PAGE;
+                } else {
+                    request.setAttribute("LOGIN_ERROR", "Invalid Login credentials!");
+                    request.setAttribute("username", email);
+                    request.setAttribute("password", password);
+                    url = LOGIN_PAGE;
                 }
             } catch (Exception ex) {
                 ex.getMessage();
