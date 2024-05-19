@@ -13,6 +13,7 @@
         String username = (String)session.getAttribute("USERNAME");
     %>
     <body>
+        <!-- START OF HEADER -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Jewelry Auctions</a>
@@ -60,7 +61,8 @@
                 </div>
             </nav>
         </header>
-
+        
+        <!-- END OF HEADER -->
         <main class="container mt-4">
             <section class="banner mb-4">
                 <img src="https://www.limelight.pk/cdn/shop/collections/1200x330-Jewelry.webp?v=1674559019" class="img-fluid" alt="Banner showcasing various jewelry pieces">
@@ -141,6 +143,7 @@
                 <p>Fill out the form below for more assistance.</p>
             </section>
         </main>
+        <!-- START OF FOOTER -->
 
         <footer class="bg-light text-center py-3">
             <div>
@@ -152,6 +155,8 @@
                 <a href="#">Sitemap</a>
             </div>
         </footer>
+        <!-- END OF FOOTER -->
+
     <!-- Include Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
