@@ -1,3 +1,6 @@
+<%@page import="dao.UserDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entity.product.Category"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,8 +12,11 @@
         <link rel="stylesheet" href="component/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     </head>
-    <% 
-        String username = (String)session.getAttribute("USERNAME");
+    <%
+        String username = (String) session.getAttribute("USERNAME");
+        ArrayList<Category> listCategory = new ArrayList<>();
+        UserDAO dao = new UserDAO();
+        listCategory = dao.displayCategories();
     %>
     <body>
         <!-- START OF HEADER -->
@@ -31,18 +37,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="seller/valuation.jsp">Sell</a>
                         </li>
-                        <% if (username == null){ %>
+                        <% if (username == null) { %>
                         <li class="nav-item">
                             <a class="nav-link" href="login.jsp">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.jsp">Register</a>
                         </li>
-                        <% } else { %>
+                        <% } else {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
+                            <a class="nav-link" href="MainController?action=Profile&username=<%= username%>"><%= username%></a>
                         </li>
-                        <% } %>
+                        <% }%>
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
                             <div id="bell-box" style="display: none;">
@@ -61,13 +67,20 @@
                 </div>
             </nav>
         </header>
-        
+
         <!-- END OF HEADER -->
         <main class="container mt-4">
             <section class="banner mb-4">
                 <img src="https://www.limelight.pk/cdn/shop/collections/1200x330-Jewelry.webp?v=1674559019" class="img-fluid" alt="Banner showcasing various jewelry pieces">
             </section>
-
+            
+            <h2>Top Categories</h2>
+            <% if (listCategory != null){ %>
+            <% for (Category category : listCategory){ %>
+            <div>
+                <%= category.getCategoryName() %>
+            </div>
+            <% } } %>
             <h2>Upcoming Auction</h2>
             <section class="upcoming-auction">
                 <div class="container">
@@ -140,7 +153,7 @@
                     <span class="dot" onclick="currentSlide(2)"></span>
                 </div>
             </section>
-            
+
 
             <section class="contact mt-5">
                 <h2>About Us</h2>
@@ -170,15 +183,15 @@
         </footer>
         <!-- END OF FOOTER -->
 
-    <!-- Include Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom Javascript -->
+        <!-- Include Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Custom Javascript -->
         <!-- Slideshow -->
         <script src="javascript/home.js"></script>
 
-</body>
+    </body>
 </html>
 
 

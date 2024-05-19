@@ -5,6 +5,7 @@
 package dao;
 
 import dto.UserDTO;
+import entity.product.Category;
 import entity.user.User;
 import entity.user.ValuationRequest;
 import java.sql.Connection;
@@ -112,4 +113,26 @@ public class UserDAO {
         }
         return null;
     }
+
+    public ArrayList<Category> displayCategories() {
+        ArrayList<Category> listCategory = new ArrayList<>();
+        String query = "SELECT * FROM CATEGORY";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Category category = new Category();
+                category.setCategoryID(rs.getString(1));
+                category.setCategoryName(rs.getString(2));
+                listCategory.add(category);
+            }
+            return listCategory;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
 }
