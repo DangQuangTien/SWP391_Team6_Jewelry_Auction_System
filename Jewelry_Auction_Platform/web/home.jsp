@@ -80,7 +80,7 @@
                                 <p class="card-text">Auction ID: 159234</p>
                                 <button class="btn btn-primary">Notify me</button>
                             </div>
-                        </div>
+                        </div>                       
                     </div>
                     <div class="mySlides slide">
                         <div class="card">
