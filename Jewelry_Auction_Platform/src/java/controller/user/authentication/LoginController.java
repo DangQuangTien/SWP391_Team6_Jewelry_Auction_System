@@ -26,6 +26,7 @@ public class LoginController extends HttpServlet {
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
     private static final String HOME_PAGE = "home.jsp";
     private static final String LOGIN_PAGE = "login.jsp";
+    private static final String ADMIN_PAGE = "/admin/portal.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,8 +49,13 @@ public class LoginController extends HttpServlet {
             try {
                 UserDTO user = dao.checkLogin(email, password);
                 if (user != null) {
-                    session.setAttribute("USERNAME", user.getUsername());
-                    url = HOME_PAGE;
+                    if (user.getIs_admin() != 1) {
+                        session.setAttribute("USERNAME", user.getUsername());
+                        url = HOME_PAGE;
+                    } else {
+                        session.setAttribute("USERNAME", user.getUsername());
+                        url = ADMIN_PAGE;
+                    }
                 } else {
                     request.setAttribute("LOGIN_ERROR", "Invalid Login credentials!");
                     request.setAttribute("username", email);

@@ -30,7 +30,7 @@ public class UserDAO {
             ps.setString(2, password);
             rs = ps.executeQuery();
             while (rs.next()) {
-                return new UserDTO(rs.getString("USERNAME"), rs.getString("PASSWORD"));
+                return new UserDTO(rs.getString("USERNAME"), rs.getString("PASSWORD"), rs.getInt("IS_ADMIN"));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             ex.getMessage();
