@@ -23,8 +23,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
-    private static final String ERRORPAGE = "/WEB-INF/jsp/index.jsp";
-    private static final String HOMEPAGE = "home.jsp";
+    private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
+    private static final String HOME_PAGE = "home.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,13 +42,13 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String url = ERRORPAGE;
+            String url = ERROR_PAGE;
             UserDAO dao = new UserDAO();
             try {
                 UserDTO user = dao.checkLogin(email, password);
                 if (user != null) {
                     session.setAttribute("USERNAME", user.getUsername());
-                    url = HOMEPAGE;
+                    url = HOME_PAGE;
                 }
             } catch (Exception ex) {
                 ex.getMessage();
