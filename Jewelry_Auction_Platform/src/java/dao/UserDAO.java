@@ -6,10 +6,12 @@ package dao;
 
 import dto.UserDTO;
 import entity.user.User;
+import entity.user.ValuationRequest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import utils.DBUtils;
 
 /**
@@ -60,6 +62,50 @@ public class UserDAO {
                         rs.getInt(11));
             }
         } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return null;
+    }
+
+    public boolean sendValuationRequest(String name, String email, String phoneNumber, String communication, String photos, String userID) {
+        String query = "INSERT INTO VALUATION ([NAME], EMAIL, PHONENUMBER, COMMUNICATION, PHOTOS, USERID) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, phoneNumber);
+            ps.setString(4, communication);
+            ps.setString(5, photos);
+            ps.setString(6, userID);
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return false;
+    }
+    
+    public ArrayList<ValuationRequest> displayValuationRequest(){
+        ArrayList<ValuationRequest> listRequest = new ArrayList<>();
+        String query = "SELECT * FROM VALUATION";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                ValuationRequest valuation = new ValuationRequest();
+                valuation.setName(rs.getString(2));
+                valuation.setEmail(rs.getString(3));
+                valuation.setPhoneNumber(rs.getString(4));
+                valuation.setCommunication(rs.getString(5));
+                valuation.setPhotos(rs.getString(6));
+                valuation.setUserID(rs.getString(7));
+                valuation.setStatus(rs.getInt(8));
+                listRequest.add(valuation);
+            }
+            return  listRequest;
+        } catch (Exception ex){
             ex.getMessage();
         }
         return null;
