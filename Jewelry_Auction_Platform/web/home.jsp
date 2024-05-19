@@ -70,48 +70,60 @@
 
             <h2>Upcoming Auction</h2>
             <section class="upcoming-auction">
-                <div class="slideshow-container">
-                    <div class="mySlides slide">
-                        <div class="card">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" class="card-img-top" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
-                            <div class="card-body">
-                                <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
-                                <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
-                                <p class="card-text">Auction ID: 159234</p>
-                                <button class="btn btn-primary">Notify me</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mySlides slide">
+                                <div class="card mb-4">
+                                    <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" class="card-img-top" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
+                                        <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
+                                        <p class="card-text">Auction ID: 159234</p>
+                                        <button class="btn btn-primary">Notify me</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mySlides slide">
+                                <div class="card mb-4">
+                                    <img src="https://nhj.com.vn/wp-content/uploads/2019/04/vong-tay-vang-24k-8.jpg" class="card-img-top" alt="14K Rose Gold Full Round Moissanite Diamond Ring">
+                                    <div class="card-body">
+                                        <h5 class="card-title">14K Rose Gold Full Round Moissanite Diamond Ring</h5>
+                                        <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
+                                        <p class="card-text">Auction ID: 294819</p>
+                                        <button class="btn btn-primary">Notify me</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="mySlides slide">
-                        <div class="card">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" class="card-img-top" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
-                            <div class="card-body">
-                                <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
-                                <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
-                                <p class="card-text">Auction ID: 159234</p>
-                                <button class="btn btn-primary">Notify me</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mySlides slide">
+                                <div class="card mb-4">
+                                    <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" class="card-img-top" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
+                                        <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
+                                        <p class="card-text">Auction ID: 159234</p>
+                                        <button class="btn btn-primary">Notify me</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mySlides slide">
-                        <div class="card">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" class="card-img-top" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
-                            <div class="card-body">
-                                <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
-                                <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
-                                <p class="card-text">Auction ID: 159234</p>
-                                <button class="btn btn-primary">Notify me</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mySlides slide">
-                        <div class="card">
-                            <img src="https://nhj.com.vn/wp-content/uploads/2019/04/vong-tay-vang-24k-8.jpg" class="card-img-top" alt="14K Rose Gold Full Round Moissanite Diamond Ring">
-                            <div class="card-body">
-                                <h5 class="card-title">14K Rose Gold Full Round Moissanite Diamond Ring</h5>
-                                <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
-                                <p class="card-text">Auction ID: 294819</p>
-                                <button class="btn btn-primary">Notify me</button>
+                        <div class="col-md-6">
+                            <div class="mySlides slide">
+                                <div class="card mb-4">
+                                    <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" class="card-img-top" alt="Tiny Crystal Heart Pendant Necklace in Rose Gold">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
+                                        <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
+                                        <p class="card-text">Auction ID: 159234</p>
+                                        <button class="btn btn-primary">Notify me</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,6 +140,7 @@
                     <span class="dot" onclick="currentSlide(2)"></span>
                 </div>
             </section>
+            
 
             <section class="contact mt-5">
                 <h2>About Us</h2>
