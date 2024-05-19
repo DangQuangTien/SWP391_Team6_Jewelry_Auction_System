@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,6 +39,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession();
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String url = ERRORPAGE;
@@ -45,6 +47,7 @@ public class LoginController extends HttpServlet {
             try {
                 UserDTO user = dao.checkLogin(email, password);
                 if (user != null) {
+                    session.setAttribute("USERNAME", user.getUsername());
                     url = HOMEPAGE;
                 }
             } catch (Exception ex) {
