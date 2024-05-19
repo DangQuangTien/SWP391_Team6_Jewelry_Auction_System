@@ -51,6 +51,7 @@ public class LoginController extends HttpServlet {
                 if (user != null) {
                     if (user.getIs_admin() != 1) {
                         session.setAttribute("USERNAME", user.getUsername());
+                        session.setAttribute("USERID", user.getUserID());
                         url = HOME_PAGE;
                     } else {
                         session.setAttribute("USERNAME", user.getUsername());

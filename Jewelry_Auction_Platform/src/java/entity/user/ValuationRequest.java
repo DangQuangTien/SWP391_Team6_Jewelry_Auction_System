@@ -9,11 +9,13 @@ package entity.user;
  * @author User
  */
 public class ValuationRequest {
+
     private String valuationID;
     private String name;
     private String email;
     private String phoneNumber;
     private String communication;
+    private String description;
     private String photos;
     private String userID;
     private int status;
@@ -21,12 +23,13 @@ public class ValuationRequest {
     public ValuationRequest() {
     }
 
-    public ValuationRequest(String valuationID, String name, String email, String phoneNumber, String communication, String photos, String userID, int status) {
+    public ValuationRequest(String valuationID, String name, String email, String phoneNumber, String communication, String description, String photos, String userID, int status) {
         this.valuationID = valuationID;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.communication = communication;
+        this.description = description;
         this.photos = photos;
         this.userID = userID;
         this.status = status;
@@ -95,7 +98,13 @@ public class ValuationRequest {
     public void setStatus(int status) {
         this.status = status;
     }
-    
-    
-    
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

@@ -9,7 +9,7 @@ package dto;
  * @author User
  */
 public class UserDTO {
-
+    private String userID;
     private String username;
     private String password;
     private int is_admin;
@@ -17,7 +17,8 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(String username, String password, int is_admin) {
+    public UserDTO(String userID, String username, String password, int is_admin) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.is_admin = is_admin;
@@ -47,4 +48,13 @@ public class UserDTO {
         this.is_admin = is_admin;
     }
 
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    
 }

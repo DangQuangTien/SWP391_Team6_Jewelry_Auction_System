@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -46,7 +47,7 @@ public class ValuationRequestServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            String url = ERROR_PAGE; 
+            String url = ERROR_PAGE;
             boolean isMultipart = ServletFileUpload.isMultipartContent(request);
             try {
                 if (!isMultipart) {
@@ -77,7 +78,7 @@ public class ValuationRequestServlet extends HttpServlet {
                                     imageDir.mkdirs();
                                 }
 
-                                String RealPath = getServletContext().getRealPath("/") + "images\\" + fileName;
+                                String RealPath = "E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/images/" + fileName;
                                 File savedFile = new File(RealPath);
                                 item.write(savedFile);
                             } catch (Exception e) {
@@ -86,16 +87,17 @@ public class ValuationRequestServlet extends HttpServlet {
                         }
                     }//end while
                     //get Parameter
-                    
+                    HttpSession session = request.getSession();
                     String name = (String) params.get("name");
                     String email = (String) params.get("email");
                     String phone = (String) params.get("phone");
                     String communication = (String) params.get("communication");
                     String photos = "images/" + fileName;
                     String description = (String) params.get("description");
+                    String userID = (String) session.getAttribute("USERID");
                     try {
                         UserDAO dao = new UserDAO();
-                        boolean result = dao.sendValuationRequest(name, email, phone, communication, photos, "U0");
+                        boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
                         if (result) {
                             url = HOME_PAGE;
                         }
