@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+    <!-- START OF HEADER -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Jewelry Auctions</a>
@@ -36,6 +37,8 @@
         </div>
     </nav>
 </header>
+
+    <!-- END OF HEADER -->
 
 <main class="container mt-4">
     <h1>Jewelry &amp; Watch Valuation</h1>
@@ -88,16 +91,21 @@
     </form>
 </main>
 
-<footer class="bg-light text-center py-3">
-    <div>
-        <h6>Jewelry Auction</h6>
-        <a href="register.jsp">Register</a> |
-        <a href="login.jsp">Login</a> |
-        <a href="#">Help & FAQ</a> |
-        <a href="#">Support</a> |
-        <a href="#">Sitemap</a>
-    </div>
-</footer>
+    <!-- START OF FOOTER -->
+
+    <footer class="bg-light text-center py-3">
+        <div>
+            <h6>Jewelry Auction</h6>
+            <a href="register.jsp">Register</a> |
+            <a href="login.jsp">Login</a> |
+            <a href="#">Help & FAQ</a> |
+            <a href="#">Support</a> |
+            <a href="#">Sitemap</a>
+        </div>
+    </footer>
+
+    <!-- END OF FOOTER -->
+
 <!-- Include Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
