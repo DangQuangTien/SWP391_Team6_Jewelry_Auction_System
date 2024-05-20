@@ -29,16 +29,19 @@
                     <th>Email</th>
                     <th>Phone number</th>
                     <th>Communication</th>
+                    <th>Description</th>
                     <th>Photos</th>
                 </tr>
             </thead>
             <tbody>
                 <% for (ValuationRequest r : listRequest){ %>
-                <tr>
+             <tr>
+                 <<form action=""></form>>
                     <td><%= r.getName() %></td>
                     <td><%= r.getEmail() %></td>
                     <td><%= r.getPhoneNumber() %></td>
                     <td><%= r.getCommunication() %></td>
+                    <td><%= r.getDescription() %></td>
                     <td><img style="width: 100px; height: 100px" src="<%= r.getPhotos() %>"></td>
                 </tr>
                 <% } %>

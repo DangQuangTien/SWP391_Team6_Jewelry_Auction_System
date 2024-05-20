@@ -87,7 +87,7 @@
             <input type="text" class="form-control" id="description" name="description">
             <small class="form-text text-muted">Please briefly describe your jewelry and/or watches in the field above.</small>
         </div>
-        <button type="submit" class="btn btn-primary" name="action" value="Submit Valuation Request">Submit Valuation Request</button>
+        <button type="submit" class="btn btn-primary" name="action" value="">Submit Valuation Request</button>
     </form>
 </main>
 
