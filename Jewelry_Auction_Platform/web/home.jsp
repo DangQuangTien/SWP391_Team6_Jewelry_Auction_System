@@ -32,7 +32,7 @@
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Auction</a>
+                            <a class="nav-link" href="Auction.jsp">Auction</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="seller/valuation.jsp">Sell</a>
@@ -171,7 +171,7 @@
         </main>
         <!-- START OF FOOTER -->
 
-        <footer class="bg-light text-center py-3">
+       <footer class="bg-light text-center py-3">
             <div>
                 <h6>Jewelry Auction</h6>
                 <a href="register.jsp">Register</a> |
