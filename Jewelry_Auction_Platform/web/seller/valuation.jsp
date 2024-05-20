@@ -30,7 +30,7 @@
                     <a class="nav-link" href="../home.jsp">Home</a>
                 </li>                
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Auction</a>
+                    <a class="nav-link" href="../Auction.jsp">Auction</a>
                 </li>
                 <!-- You can remove the login and register links from the valuation page -->
             </ul>
