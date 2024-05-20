@@ -173,7 +173,7 @@
 
        <footer class="bg-light text-center py-3">
             <div>
-                <h6>Jewelry Auction</h6>
+               <h6>Jewelry Auction</h6>
                 <a href="register.jsp">Register</a> |
                 <a href="login.jsp">Login</a> |
                 <a href="#">Help & FAQ</a> |
