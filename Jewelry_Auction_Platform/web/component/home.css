@@ -145,6 +145,7 @@ button:hover {
 
 .contact {
     margin-top: 40px;
+    margin-bottom: 40px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -210,10 +211,10 @@ footer a:hover {
 .auction-item {
     padding: 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    flex: 0 0 48%;
+    flex: 0 0 100%;
     margin-bottom: 20px;
 }
 
@@ -221,25 +222,24 @@ footer a:hover {
     width: 100%;
     max-width: 1200px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
 .auction-item img {
-    width: 50%;
+    max-width: 100%;
     height: auto;
     object-fit: cover;
 }
 
 .auction-item .card-body {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 10px;
 }
-
 .auction-item .card-title {
     font-size: 18px;
     margin: 10px 0;
@@ -250,11 +250,21 @@ footer a:hover {
 }
 
 .auction-item button {
+    display: block;
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
     margin-bottom: 10px;
-    width: 80%;
+    width: 60%;
+    margin: auto;
+}
+
+.auction-item img, .auction-item .card-body {
+    width: 50%;
+}
+
+.auction-item .card {
+    flex-direction: row;
 }
 
 .item-container {
