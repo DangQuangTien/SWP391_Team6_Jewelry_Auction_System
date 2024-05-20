@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="home.jsp">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Auction.jsp">Auction</a>
@@ -86,6 +86,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Auction Items</h1>
                 </div>
+                <div class="container-fluid">
                 <div class="row item-container">
                     <div class="col-md-6 auction-item">
                         <div class="card mb-4 shadow-sm">
@@ -136,8 +137,9 @@
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+             </div>
+          </main>
+      </div>
     </div>
 
     <footer class="bg-light text-center py-3">
@@ -154,6 +156,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="component/auction.js"></script>
+    <script src="component/Auction.js"></script>
 </body>
 </html>
