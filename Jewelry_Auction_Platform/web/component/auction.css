@@ -1,115 +1,64 @@
-/* General body styles */
-body.myBody { 
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-}
-
-/* Header styles */
-header {
-    background-color: #d6a9a9;
-    color: #eee2e2;
-    padding: 4px 0;
-    position: fixed;
-    width: 100%;
+.vertical-nav {
+    position: sticky;
     top: 0;
-    z-index: 1;
+    width: 200px; 
+    flex-shrink: 0; 
 }
-
-/* Navigation menu styles */
-header nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;   
+.vertical-nav .navbar-nav .nav-link {
+    text-align: left; 
 }
-
-header nav ul li {
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-header nav ul li a:hover {
-    color: #ffd700;
-}
-
-/* Sidebar menu styles */
-ul.myMenu { 
-    list-style-type: none; 
-    margin: 0; 
-    padding: 0; 
-    width: 25%; 
-    background-color: #e6b0b0; 
-    position: fixed; 
-    height: 100%; 
-    overflow: auto;
-    margin-top: 60px;
-}
-
-ul.myMenu li a.myLink {   
-    display: block; 
-    color: #0a0101; 
-    padding:10px 10px; 
-    text-decoration: none;
-}
-
-ul.myMenu li a.myLink.active { 
-    background-color: #e5959c; 
-    font-weight: bold; 
-    color: rgb(20, 2, 2);
-}
-
-ul.myMenu li a.myLink:hover:not(.active) { 
-    background-color: #baa1a9; 
-    font-weight: bold; 
-    color: rgb(12, 1, 1);
-}
-
 .auction-item {
-    position: absolute;
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 180px;
-    background-color: #fff;
-    border-radius: 8px;
-    justify-content: right;
-    width: 100%;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px); 
 }
-
-/* Footer styles */
-footer {
-    position: fixed;
-    left: 0;
-    margin-top: 20px;
-    bottom: 0;
+.auction-item img {
     width: 100%;
-    background-color: #f8f9fa;
-    color: #212529;
+    height: auto;
+}
+.auction-item h2 {
+    font-size: 20px;
+}
+.auction-item p {
+    font-size: 16px;
+}
+.auction-item button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 24px;
     text-align: center;
-    padding: 10px 0;
-}
-footer a {
-    color: #212529;
     text-decoration: none;
-    margin: 0 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
-footer a:hover {
-    color: #a98585;
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1; 
+    justify-content: space-around; 
 }
 
-/* Form styles */
-form.form-inline.my-2.my-lg-0 {
-    width: 75%;
-    margin: auto;
+.auction-item img {
+    max-width: 100%; 
+    max-height: 200px; 
+    object-fit: contain;
 }
 
-
-
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        "navbar items"
+        "navbar items";
+    grid-template-columns: 200px 1fr; /* Set the width of the navbar to 200px and the rest to the items */
+}
+.item-container {
+    grid-area: items; /* Assign the items to the items area */
+    display: flex;
+    flex-wrap: wrap; /* Allow the items to wrap onto the next line */
+    justify-content: space-around; /* Distribute the items evenly in the container */
+}
