@@ -1,8 +1,12 @@
+/* HOME CSS STYLE */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -31,6 +35,10 @@ header nav ul li a {
 
 header nav ul li a:hover {
     color: #ffd700;
+}
+
+.container-fluid {
+    flex: 1;
 }
 
 .main-card {
@@ -67,9 +75,8 @@ header nav ul li a:hover {
     gap: 20px;
 }
 
-
 .mySlides {
-    display:inline;
+    display: inline;
     justify-content: right;
     width: 100%;
     margin: auto;
@@ -91,7 +98,7 @@ header nav ul li a:hover {
     }
     70% {
         transform: translateX(0);
-        opacity: 1; 
+        opacity: 1;
     }
     99.999999999% {
         transform: translateX(70%);
@@ -145,15 +152,21 @@ button:hover {
 }
 
 footer {
-    position: relative;
-    left: 0;
-    margin-top: 20px;
-    bottom: 0;
-    width: 100%;
     background-color: #f8f9fa;
     color: #212529;
     text-align: center;
     padding: 10px 0;
+    margin-top: 30px;
+    border-top: 1px solid #ddd; 
+}
+
+footer {
+    background-color: #f8f9fa;
+    color: #212529;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 0;
+    border-top: 1px solid #ddd; 
 }
 
 footer a {
@@ -164,4 +177,88 @@ footer a {
 
 footer a:hover {
     color: #a98585;
+}
+
+/* AUCTION CSS STYLE */
+.sidebar {
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-sticky {
+    padding-top: 20px;
+}
+
+.sidebar .sidebar-heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+.sidebar .nav-link {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+.sidebar .form-control {
+    margin-bottom: 1rem;
+}
+
+.auction-item {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+
+.auction-item .card {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.auction-item img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+.auction-item .card-body {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.auction-item .card-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.auction-item .card-text {
+    font-size: 14px;
+}
+
+.auction-item button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
