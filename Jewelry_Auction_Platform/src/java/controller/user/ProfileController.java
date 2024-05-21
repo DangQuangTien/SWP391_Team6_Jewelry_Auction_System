@@ -4,8 +4,6 @@
  */
 package controller.user;
 
-import dao.UserDAO;
-import entity.user.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -40,19 +38,19 @@ public class ProfileController extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
             String url = ERROR_PAGE;
-            UserDAO dao = new UserDAO();
-            try {
-                User user = dao.getInformation(username);
-                if (user != null){
-                    request.setAttribute("USER_DATA", user);
-                    url = USER_PAGE;
-                }
-            } catch (Exception ex) {
-                ex.getMessage();
-            } finally {
-                RequestDispatcher dist = request.getRequestDispatcher(url);
-                dist.forward(request, response);
-            }
+//            UserDAO dao = new UserDAO();
+//            try {
+//                User user = dao.getInformation(username);
+//                if (user != null){
+//                    request.setAttribute("USER_DATA", user);
+//                    url = USER_PAGE;
+//                }
+//            } catch (Exception ex) {
+//                ex.getMessage();
+//            } finally {
+//                RequestDispatcher dist = request.getRequestDispatcher(url);
+//                dist.forward(request, response);
+//            }
         }
     }
 

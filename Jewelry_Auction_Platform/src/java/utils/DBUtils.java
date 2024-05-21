@@ -11,11 +11,11 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Hoa Doan
+ * @author User
  */
 public class DBUtils {
 //    Do not change this code
-    private static final String DB_NAME = "JewelryAuctionSystem";
+    private static final String DB_NAME = "Jewelry_Auction_System";
     private static final String DB_USER_NAME = "SA";
     private static final String DB_PASSWORD = "12345";
 

@@ -9,43 +9,20 @@ package dto;
  * @author User
  */
 public class UserDTO {
+
     private String userID;
     private String username;
-    private String password;
-    private int is_admin;
+    private String email;
+    private String role;
 
     public UserDTO() {
     }
 
-    public UserDTO(String userID, String username, String password, int is_admin) {
+    public UserDTO(String userID, String username, String email, String role) {
         this.userID = userID;
         this.username = username;
-        this.password = password;
-        this.is_admin = is_admin;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getIs_admin() {
-        return is_admin;
-    }
-
-    public void setIs_admin(int is_admin) {
-        this.is_admin = is_admin;
+        this.email = email;
+        this.role = role;
     }
 
     public String getUserID() {
@@ -56,5 +33,28 @@ public class UserDTO {
         this.userID = userID;
     }
 
-    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }
