@@ -1,4 +1,4 @@
-<%@page import="dao.UserDAO"%>
+<%@page import="dao.UserDAOImpl"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.product.Category"%>
 <!DOCTYPE html>
@@ -13,10 +13,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     </head>
     <%
-        String username = (String) session.getAttribute("USERNAME");
-        ArrayList<Category> listCategory = new ArrayList<>();
-        UserDAO dao = new UserDAO();
-        listCategory = dao.displayCategories();
+        String username = (String)session.getAttribute("USERNAME");
     %>
     <body>
         <!-- START OF HEADER -->
@@ -37,18 +34,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="seller/selling.html">Sell</a>
                         </li>
-                        <% if (username == null) { %>
+                        <% if (username == null){ %>
                         <li class="nav-item">
                             <a class="nav-link" href="login.jsp">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.jsp">Register</a>
                         </li>
-                        <% } else {%>
+                        <% } else { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=Profile&username=<%= username%>"><%= username%></a>
+                            <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                         </li>
-                        <% }%>
+                        <% } %>
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
                             <div id="bell-box" style="display: none;">
@@ -73,14 +70,9 @@
             <section class="banner mb-4">
                 <img src="https://www.limelight.pk/cdn/shop/collections/1200x330-Jewelry.webp?v=1674559019" class="img-fluid" alt="Banner showcasing various jewelry pieces">
             </section>
-            
+
             <h2>Top Categories</h2>
-            <% if (listCategory != null){ %>
-            <% for (Category category : listCategory){ %>
-            <div>
-                <%= category.getCategoryName() %>
-            </div>
-            <% } } %>
+
             <h2>Upcoming Auction</h2>
             <section class="upcoming-auction">
                 <div class="container">
@@ -171,9 +163,9 @@
         </main>
         <!-- START OF FOOTER -->
 
-       <footer class="bg-light text-center py-3">
+        <footer class="bg-light text-center py-3">
             <div>
-               <h6>Jewelry Auction</h6>
+                <h6>Jewelry Auction</h6>
                 <a href="register.jsp">Register</a> |
                 <a href="login.jsp">Login</a> |
                 <a href="#">Help & FAQ</a> |

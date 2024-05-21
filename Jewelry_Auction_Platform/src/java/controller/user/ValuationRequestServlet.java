@@ -4,7 +4,6 @@
  */
 package controller.user;
 
-import dao.UserDAO;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -96,11 +95,11 @@ public class ValuationRequestServlet extends HttpServlet {
                     String description = (String) params.get("description");
                     String userID = (String) session.getAttribute("USERID");
                     try {
-                        UserDAO dao = new UserDAO();
-                        boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
-                        if (result == false) {
-                            url = HOME_PAGE;
-                        }
+//                        UserDAO dao = new UserDAO();
+//                        boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
+//                        if (result == false) {
+//                            url = HOME_PAGE;
+//                        }
                     } catch (Exception ex) {
                         ex.getMessage();
                     }

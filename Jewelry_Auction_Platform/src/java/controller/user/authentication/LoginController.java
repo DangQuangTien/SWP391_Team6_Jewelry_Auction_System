@@ -4,7 +4,7 @@
  */
 package controller.user.authentication;
 
-import dao.UserDAO;
+import dao.UserDAOImpl;
 import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,10 +23,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
-    private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
+    private static final String ADMIN_PAGE = "/admin/admin.jsp";
     private static final String HOME_PAGE = "home.jsp";
-    private static final String LOGIN_PAGE = "login.jsp";
-    private static final String ADMIN_PAGE = "/admin/portal.jsp";
+    private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,32 +41,33 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-            String email = request.getParameter("email");
+            String username = request.getParameter("email");
             String password = request.getParameter("password");
             String url = ERROR_PAGE;
-            UserDAO dao = new UserDAO();
+            UserDAOImpl dao = new UserDAOImpl();
             try {
-                UserDTO user = dao.checkLogin(email, password);
+                UserDTO user = dao.checkLogin(username, password);
                 if (user != null) {
-                    if (user.getIs_admin() != 1) {
-                        session.setAttribute("USERNAME", user.getUsername());
-                        session.setAttribute("USERID", user.getUserID());
-                        url = HOME_PAGE;
-                    } else {
-                        session.setAttribute("USERNAME", user.getUsername());
-                        url = ADMIN_PAGE;
+                    String role = user.getRole();
+                    switch (role) {
+                        case "Admin":
+                            url = ADMIN_PAGE;
+                            session.setAttribute("USERNAME", user.getUsername());
+                            break;
+                        case "Member":
+                            url = HOME_PAGE;
+                            session.setAttribute("USERNAME", user.getUsername());
+                            break;
+                        default:
+                            throw new AssertionError();
                     }
-                } else {
-                    request.setAttribute("LOGIN_ERROR", "Invalid Login credentials!");
-                    request.setAttribute("username", email);
-                    request.setAttribute("password", password);
-                    url = LOGIN_PAGE;
                 }
             } catch (Exception ex) {
                 ex.getMessage();
+            } finally {
+                RequestDispatcher dist = request.getRequestDispatcher(url);
+                dist.forward(request, response);
             }
-            RequestDispatcher dist = request.getRequestDispatcher(url);
-            dist.forward(request, response);
         }
     }
 
