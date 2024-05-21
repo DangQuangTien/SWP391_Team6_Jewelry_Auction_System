@@ -209,13 +209,13 @@ footer a:hover {
 }
 
 .auction-item {
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     flex: 0 0 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .auction-item .card {
@@ -238,11 +238,11 @@ footer a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 .auction-item .card-title {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .auction-item .card-text {
@@ -254,7 +254,7 @@ footer a:hover {
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     width: 60%;
     margin: auto;
 }
