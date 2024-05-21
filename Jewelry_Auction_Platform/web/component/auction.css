@@ -1,10 +1,12 @@
 /* AUCTION CSS STYLE */
-
 .sidebar {
+    height: 480px;
     position: sticky;
     top: 0;
     padding-top: 20px;
     border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-bottom-right-radius: 10px;
 }
 
 .sidebar-sticky {
@@ -101,4 +103,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 10px;
+}
+
+.auction-item {
+        flex: 0 0 100%;
 }
