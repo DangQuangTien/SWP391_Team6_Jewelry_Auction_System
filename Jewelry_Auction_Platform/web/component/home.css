@@ -39,6 +39,8 @@ header nav ul li a:hover {
 
 .container-fluid {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-card {
