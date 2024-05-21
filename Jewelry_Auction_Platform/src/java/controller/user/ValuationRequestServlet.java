@@ -32,7 +32,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class ValuationRequestServlet extends HttpServlet {
 
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
-    private static final String HOME_PAGE = "home.jsp";
+    private static final String HOME_PAGE = "/seller/request.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -98,7 +98,7 @@ public class ValuationRequestServlet extends HttpServlet {
                     try {
                         UserDAO dao = new UserDAO();
                         boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
-                        if (result) {
+                        if (result == false) {
                             url = HOME_PAGE;
                         }
                     } catch (Exception ex) {

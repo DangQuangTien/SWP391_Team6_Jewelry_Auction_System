@@ -16,7 +16,7 @@
         <title>Admin</title>
     </head>
     <body>
-        <% 
+        <%
             ArrayList<ValuationRequest> listRequest = new ArrayList<>();
             UserDAO dao = new UserDAO();
             listRequest = dao.displayValuationRequest();
@@ -31,22 +31,26 @@
                     <th>Communication</th>
                     <th>Description</th>
                     <th>Photos</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <% for (ValuationRequest r : listRequest){ %>
-             <tr>
-                 <<form action=""></form>>
-                    <td><%= r.getName() %></td>
-                    <td><%= r.getEmail() %></td>
-                    <td><%= r.getPhoneNumber() %></td>
-                    <td><%= r.getCommunication() %></td>
-                    <td><%= r.getDescription() %></td>
-                    <td><img style="width: 100px; height: 100px" src="<%= r.getPhotos() %>"></td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
-
-    </body>
+                <% for (ValuationRequest r : listRequest) {%>
+                <tr>
+            <form action="MainController">
+                <td><%= r.getName()%></td>
+                <td><%= r.getEmail()%></td>
+                <td><%= r.getPhoneNumber()%></td>
+                <td><%= r.getCommunication()%></td>
+                <td><%= r.getDescription()%></td>
+                <td><img style="width: 100px; height: 100px" src="<%= r.getPhotos()%>"></td>
+                <td style="color: green"><%= (r.getStatus() != 1)? "Pending..." : "Done!" %></td>
+                <td><input type="submit" name="action" value="Valuate"></td>
+            </form>
+        </tr>
+        <% }%>
+    </tbody>
+</table>
+</body>
 </html>
