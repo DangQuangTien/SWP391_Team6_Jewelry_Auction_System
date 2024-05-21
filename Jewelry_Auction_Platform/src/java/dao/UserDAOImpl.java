@@ -89,8 +89,9 @@ public class UserDAOImpl implements UserDao {
         }
         return null;
     }
-    
-    public ArrayList<Category> displayCategories() {
+
+    @Override
+    public ArrayList<Category> listCategory() {
         ArrayList<Category> listCategory = new ArrayList<>();
         String query = "SELECT * FROM CATEGORY";
         try {

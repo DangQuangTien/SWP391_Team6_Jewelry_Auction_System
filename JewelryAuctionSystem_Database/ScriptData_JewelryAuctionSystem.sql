@@ -68,6 +68,28 @@ create table [Admin] (
 	userID varchar(50) not null,
 	constraint fk_admin_userID foreign key (userID) references Users(userID)
 )
+create sequence categoryID_sequence
+start with 0
+increment by 1;
+go
+create table category (
+    categoryID nvarchar(50) not null primary key,
+    categoryName nvarchar(255) not null,
+    parentID nvarchar(50),
+    [active] bit default 1,
+    foreign key (parentID) references category(categoryID)
+);
+go
+create trigger autogenerate_categoryID on category instead of insert
+as 
+begin
+	declare @newcategoryID nvarchar(50);
+	set  @newcategoryID = 'category' + cast(next value for categoryID_sequence as nvarchar(50));
+	insert into category (categoryID, categoryname)
+    select @newcategoryID, categoryname
+    from inserted;
+end;
+go
 
 
 
