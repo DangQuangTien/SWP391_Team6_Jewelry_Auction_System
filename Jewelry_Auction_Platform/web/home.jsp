@@ -35,7 +35,7 @@
                             <a class="nav-link" href="#">Auction</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="seller/valuation.jsp">Sell</a>
+                            <a class="nav-link" href="seller/selling.html">Sell</a>
                         </li>
                         <% if (username == null) { %>
                         <li class="nav-item">
