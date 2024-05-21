@@ -23,18 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="seller/valuation.jsp">Sell</a>
                     </li>
-                    <% if (username == null) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.jsp">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.jsp">Register</a>
-                    </li>
-                    <% } else { %>
                     <li class="nav-item">
                         <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                     </li>
-                    <% } %>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
                         <div id="bell-box" style="display: none;">
@@ -55,8 +46,8 @@
     </header>
 
     <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="row">            
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">               
                 <div class="sidebar-sticky">
                     <h5 class="sidebar-heading">Categories</h5>
                     <ul class="nav flex-column">
