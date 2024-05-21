@@ -11,3 +11,14 @@ insert into Users (username, email, [password]) values ('user', 'user123@gmail.c
 insert into [Admin] (adminID, userID) values ('Admin01', 'User0');
 insert into [Member] (memberID, userID) values ('Member01', 'User1');
 select tk.userID, tk.username, tk.password, vt.role_name from Users tk, [Role] vt where vt.roleID = tk.roleID and tk.username = 'user' and tk.password = '123'
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Bracelet')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Brooch')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Earrings')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Loose Stone')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Misc')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Necklace')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Pendant')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Ring')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Set')
+INSERT INTO CATEGORY (CATEGORYNAME) VALUES (N'Watch')
+select * from category

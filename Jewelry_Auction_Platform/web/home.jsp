@@ -11,9 +11,35 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="component/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <style>
+            .category-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around; /* Distributes items evenly with space around them */
+                gap: 20px; /* Adds spacing between items */
+                padding: 20px;
+                background-color: #f0f0f0; /* Light background for the container */
+            }
+
+            .category-name {
+                font-family: 'Arial, sans-serif';
+                font-size: 24px;
+                color: #333; /* A dark gray color */
+                background-color: #f9f9f9; /* A light gray background */
+                padding: 10px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                flex: 1 1 200px; /* Allows items to grow and shrink, minimum width of 200px */
+                max-width: 300px; /* Optional: to limit the maximum width */
+            }
+
+        </style>
     </head>
     <%
-        String username = (String)session.getAttribute("USERNAME");
+        String username = (String) session.getAttribute("USERNAME");
+        UserDAOImpl dao = new UserDAOImpl();
+        ArrayList<Category> listCategory = dao.listCategory();
     %>
     <body>
         <!-- START OF HEADER -->
@@ -34,16 +60,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="seller/selling.html">Sell</a>
                         </li>
-                        <% if (username == null){ %>
+                        <% if (username == null) { %>
                         <li class="nav-item">
                             <a class="nav-link" href="login.jsp">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.jsp">Register</a>
                         </li>
-                        <% } else { %>
+                        <% } else {%>
                         <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
+                            <a class="nav-link" href="MainController?action=Profile&username=<%= username%>"><%= username%></a>
                         </li>
                         <% } %>
                         <li class="nav-item">
@@ -72,7 +98,15 @@
             </section>
 
             <h2>Top Categories</h2>
-
+            <% if (listCategory != null) { %>
+            <div class="category-container">
+                <% for (Category category : listCategory) {%>
+                <div class="category-name">
+                    <%= category.getCategoryName()%>
+                </div>
+                <% } %>
+            </div>
+            <% }%>
             <h2>Upcoming Auction</h2>
             <section class="upcoming-auction">
                 <div class="container">
