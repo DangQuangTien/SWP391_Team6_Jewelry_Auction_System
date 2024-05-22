@@ -17,6 +17,3 @@ The platform displays auction introduction information, allows filtering by cate
 D. Administrator:
 
 Administrators can set the welcome screen, declare and assign user permissions, send notifications to bidders, display the auction schedule, and manage detailed information about bidders, sellers, and auctioneers. They can also track bidding auctions and view dashboard statistics data of successful and failed auctions. Administrators have the ability to manage products, departments, users, bids, and generate reports.
-
-This refined description should give a more professional overview of your Jewelry Auction System. Let me know if you need further assistance!
-
