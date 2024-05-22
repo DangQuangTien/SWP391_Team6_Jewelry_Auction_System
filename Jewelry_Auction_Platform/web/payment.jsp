@@ -67,6 +67,7 @@
             </div>
             <aside class="col-md-4">
                 <div class="card">
+                    
                     <div class="card-body">
                         <h2 class="card-title">PAYMENT DETAIL</h2>
                         <form>
@@ -95,6 +96,7 @@
                             <button type="button" class="btn btn-primary btn-block">CONFIRM</button>
                         </form>
                     </div>
+
                 </div>
             </aside>
         </div>
