@@ -1,0 +1,29 @@
+footer {
+    position: relative;
+    background-color: #fff;
+    color: #212529;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    border-top: 1px solid #ddd; 
+}
+
+footer {
+    background-color: #fff;
+    color: #212529;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 0;
+    border-top: 1px solid #ddd; 
+}
+
+footer a {
+    color: #212529;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #a98585;
+}
+

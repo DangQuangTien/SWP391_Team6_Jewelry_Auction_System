@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Jewelry Auction</title>
+    <link rel="stylesheet" type="text/css" href="component/header.css">
+    <link rel="stylesheet" type="text/css" href="component/footer.css">
     <link rel="stylesheet" type="text/css" href="component/payment.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -28,11 +30,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
-                        <div id="bell-box" style="display: none;">
-                            <!-- Notifications -->
-                            <button id="notificationButton">Show Notification</button>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="bell-icon" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="bell-icon">
+                            <button id="notificationButton" class="dropdown-item">Show Notification</button>
                             <div id="notificationPopup" class="popup">
                                 New message received!
                             </div>
@@ -47,32 +50,52 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container my-4">
         <div class="row">
-
             <div class="col-md-8">
-                <div class="product-display">
+                <div class="card product-display mb-4">
                     <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
-                    <div class="product-details">
-                        <h2>Auction ID : 17086</h2>
-                        <p>Bid : $800</p>
-                        <p>Category : Jewelry</p>
-                        <p>Shipment within 30 business days.</p>
-                        <p>Note : Auction fee will also be charged.</p>
-                        <a href="#">Read more about this auction</a>
+                    <div class="card-body">
+                        <h2 class="card-title">Auction ID : 17986</h2>
+                        <p class="card-text">Bid : $800</p>
+                        <p class="card-text">Category : Watch</p>
+                        <p class="card-text">Shipment within 30 business days.</p>
+                        <p class="card-text">Note : Auction fee will also be charged.</p>
+                        <a href="#" class="btn btn-primary">Read more about the said auction fee</a>
                     </div>
                 </div>
             </div>
-            
             <aside class="col-md-4">
-                <h2>PAYMENT DETAIL</h2>
-                <p>Payment method: Bank transfer</p>
-                <p>Our bank information (including fee)</p>
-                <p>Account number : **** * **** * **** *****</p>
-                <p>Account name : Official Platform of Jewelry Auction</p>
-                <p>Auction Fee: 10% of the final bid price = 80$</p>
-                <p>Note: System will check and tell you if the seller has received money.</p>
-                <button>CONFIRM</button>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">PAYMENT DETAIL</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="paymentMethod">Payment method</label>
+                                <select class="form-control" id="paymentMethod">
+                                    <option>Bank transfer</option>
+                                    <option>Credit Card</option>
+                                    <option>PayPal</option>
+                                    <option>Cryptocurrency</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Our bank information (including fee)</label>
+                                <p>Account number : xxxx - xxxx - xxxx - xxxx</p>
+                                <p>Account name : Official Platform of Jewelry Auction</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Auction Fee</label>
+                                <input type="text" class="form-control" value="10% of the final bid price = 80$" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Note</label>
+                                <p>System will check and tell you if the seller has received money.</p>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block">CONFIRM</button>
+                        </form>
+                    </div>
+                </div>
             </aside>
         </div>
     </main>
@@ -92,7 +115,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="javascript/Auction.js"></script>
-    
 </body>
 </html>
