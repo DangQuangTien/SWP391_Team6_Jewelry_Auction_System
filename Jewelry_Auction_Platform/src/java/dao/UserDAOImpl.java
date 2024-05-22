@@ -19,14 +19,14 @@ import utils.DBUtils;
  * @author User
  */
 public class UserDAOImpl implements UserDao {
-    
+
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    
+
     @Override
     public UserDTO checkLogin(String username, String password) {
-        String query = "select tk.userID, tk.username, tk.password, vt.role_name from Users tk, [Role] vt where vt.roleID = tk.roleID and tk.username = ? and tk.password = ?";
+        String query = "select tk.userID, tk.username, vt.role_name from Users tk, [Role] vt where vt.roleID = tk.roleID and tk.username = ? and tk.password = ?";
         try {
             conn = DBUtils.getConnection();
             ps = conn.prepareStatement(query);
@@ -34,16 +34,14 @@ public class UserDAOImpl implements UserDao {
             ps.setString(2, password);
             rs = ps.executeQuery();
             while (rs.next()) {
-                return new UserDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                return new UserDTO(rs.getString(1), rs.getString(2), rs.getString(3));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             ex.getMessage();
         }
         return null;
     }
-    
-    
-    
+
     public boolean sendValuationRequest(String name, String email, String phoneNumber, String communication, String description, String photos, String userID) {
         String query = "INSERT INTO VALUATION ([NAME], EMAIL, PHONENUMBER, COMMUNICATION, [DESCRIPTION], PHOTOS, USERID) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -63,7 +61,7 @@ public class UserDAOImpl implements UserDao {
         }
         return false;
     }
-    
+
     public ArrayList<ValuationRequest> displayValuationRequest() {
         ArrayList<ValuationRequest> listRequest = new ArrayList<>();
         String query = "SELECT * FROM VALUATION";
@@ -105,7 +103,7 @@ public class UserDAOImpl implements UserDao {
                 listCategory.add(category);
             }
             return listCategory;
-            
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -113,7 +111,30 @@ public class UserDAOImpl implements UserDao {
     }
 
     @Override
-    public boolean insertValuationRequest(String name, String email, String phone, String communicationMethod, String photos, String description) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean insertValuationRequest(String name, String email, String phone, String communicationMethod, String photos, String description, String username) {
+        boolean flag = true;
+        String query = "insert into valuation ([name], email, phonenumber, communication, photos, [description], memberId) values (?, ?, ?, ?, ?, ?, (select m.memberID from Users u, [Member] m where u.userID = m.userID and u.username = ?))";
+        if (username.equals("Guest")) {
+            query = "insert into valuation ([name], email, phonenumber, communication, photos, [description]) values (?, ?, ?, ?, ?, ?)";
+            flag = false;
+        }
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, phone);
+            ps.setString(4, communicationMethod);
+            ps.setString(5, photos);
+            ps.setString(6, description);
+            if (flag != false) {
+                ps.setString(7, username);
+            }
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return false;
     }
 }

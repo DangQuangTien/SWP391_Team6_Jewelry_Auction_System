@@ -4,6 +4,7 @@
  */
 package controller.user;
 
+import dao.UserDAOImpl;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -70,13 +71,10 @@ public class ValuationRequestServlet extends HttpServlet {
                             try {
                                 String itemName = item.getName();
                                 fileName = itemName.substring(itemName.lastIndexOf("\\") + 1);
-
-                                // Tạo thư mục images nếu chưa tồn tại
                                 File imageDir = new File(getServletContext().getRealPath("/") + "images");
                                 if (!imageDir.exists()) {
                                     imageDir.mkdirs();
                                 }
-
                                 String RealPath = "E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/images/" + fileName;
                                 File savedFile = new File(RealPath);
                                 item.write(savedFile);
@@ -93,11 +91,20 @@ public class ValuationRequestServlet extends HttpServlet {
                     String communication = (String) params.get("communication");
                     String photos = "images/" + fileName;
                     String description = (String) params.get("description");
+                    String username = (String) session.getAttribute("USERNAME");
+                    UserDAOImpl dao = new UserDAOImpl();
                     try {
-                        //boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
-                        //if (result == false) {
-                        url = HOME_PAGE;
-                        // }
+                        boolean result;
+                        if (username != null) {
+                            result = dao.insertValuationRequest(name, email, phone, communication, photos, description, username);
+                        } else {
+                            result = dao.insertValuationRequest(name, email, phone, communication, photos, description, "Guest");
+                        }
+                        if (result == true) {
+                            url = HOME_PAGE;
+                        } else {
+                            url = ERROR_PAGE;
+                        }
                     } catch (Exception ex) {
                         ex.getMessage();
                     }
