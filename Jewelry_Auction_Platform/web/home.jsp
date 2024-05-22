@@ -9,8 +9,11 @@
         <title>Jewelry Auctions Online</title>
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="component/home.css">
+        <link rel="stylesheet" type="text/css" href="component/home.css">
+        <link rel="stylesheet" type="text/css" href="component/header.css">
+        <link rel="stylesheet" type="text/css" href="component/footer.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<<<<<<< HEAD
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <style>
             .category-container {
@@ -36,6 +39,8 @@
             }
 
         </style>
+=======
+>>>>>>> b946e39853626fe38567410ab88f3c02eea1b887
     </head>
     <%
         String username = (String) session.getAttribute("USERNAME");
@@ -96,7 +101,6 @@
                 </div>
             </nav>
         </header>
-
         <!-- END OF HEADER -->
         <main class="container mt-4">
             <section class="banner mb-4">
