@@ -93,13 +93,11 @@ public class ValuationRequestServlet extends HttpServlet {
                     String communication = (String) params.get("communication");
                     String photos = "images/" + fileName;
                     String description = (String) params.get("description");
-                    String userID = (String) session.getAttribute("USERID");
                     try {
-//                        UserDAO dao = new UserDAO();
-//                        boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
-//                        if (result == false) {
-//                            url = HOME_PAGE;
-//                        }
+                        //boolean result = dao.sendValuationRequest(name, email, phone, communication, description, photos, userID);
+                        //if (result == false) {
+                        url = HOME_PAGE;
+                        // }
                     } catch (Exception ex) {
                         ex.getMessage();
                     }

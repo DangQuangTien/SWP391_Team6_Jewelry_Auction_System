@@ -11,25 +11,26 @@ import java.util.Date;
  * @author User
  */
 public class Member {
+
     private String memberID;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String gender;
     private Date DOB;
-    private String avartar;
+    private String avatar;
 
     public Member() {
     }
 
-    public Member(String memberID, String firstName, String lastName, String phoneNumber, String gender, Date DOB, String avartar) {
+    public Member(String memberID, String firstName, String lastName, String phoneNumber, String gender, Date DOB, String avatar) {
         this.memberID = memberID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.DOB = DOB;
-        this.avartar = avartar;
+        this.avatar = avatar;
     }
 
     public String getMemberID() {
@@ -81,12 +82,11 @@ public class Member {
     }
 
     public String getAvartar() {
-        return avartar;
+        return avatar;
     }
 
     public void setAvartar(String avartar) {
-        this.avartar = avartar;
+        this.avatar = avartar;
     }
-    
-    
+
 }

@@ -111,4 +111,9 @@ public class UserDAOImpl implements UserDao {
         }
         return null;
     }
+
+    @Override
+    public boolean insertValuationRequest(String name, String email, String phone, String communicationMethod, String photos, String description) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
