@@ -12,7 +12,8 @@
         <title>Jewelry Auctions Online</title>
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../component/home.css">
+        <link rel="stylesheet" type="text/css" href="../component/header.css">
+        <link rel="stylesheet" type="text/css" href="../component/footer.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <!-- Include AngularJS -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -197,7 +198,11 @@
                     <input type="text" class="form-control" id="description" name="description" ng-model="user.description">
                     <small class="form-text text-muted">Please briefly describe your jewelry and/or watches in the field above.</small>
                 </div>
+<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary" ng-disabled="valuationForm.$invalid">Submit Valuation Request</button>
+=======
+                <input type="submit" class="btn btn-primary" name="action" value="Submit Valuation Request">
+>>>>>>> b946e39853626fe38567410ab88f3c02eea1b887
             </form>
             <br>
         </main>

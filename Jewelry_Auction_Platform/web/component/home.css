@@ -1,41 +1,4 @@
 /* HOME CSS STYLE */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    background-color: #d6a9a9;
-    color: #eee2e2;
-    padding: 10px 0;
-}
-
-header nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
-
-header nav ul li {
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-header nav ul li a:hover {
-    color: #ffd700;
-}
 
 .container-fluid {
     flex: 1;
@@ -49,7 +12,11 @@ header nav ul li a:hover {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
 
 .card {
@@ -125,22 +92,6 @@ header nav ul li a:hover {
     color: #666;
 }
 
-button {
-    background-color: #d7b2b2;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
-    height: 35px;
-    width: 100px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
 button:hover {
     background-color: #ddc7c7;
 }
@@ -152,32 +103,33 @@ button:hover {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }
 
-footer {
-    background-color: #f8f9fa;
-    color: #212529;
+
+/* CATEGORY */
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    gap: 20px; 
+    padding: 20px;
+    background-color: #f0f0f0; 
+}
+
+.category-name {
+    font-family: 'Arial, sans-serif';
+    font-size: 24px;
+    color: #333; 
+    background-color: #f9f9f9; 
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 10px 0;
-    margin-top: 30px;
-    border-top: 1px solid #ddd; 
-}
-
-footer {
-    background-color: #f8f9fa;
-    color: #212529;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 0;
-    border-top: 1px solid #ddd; 
-}
-
-footer a {
-    color: #212529;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer a:hover {
-    color: #a98585;
+    flex: 1 1 200px; 
+    max-width: 300px; 
 }
