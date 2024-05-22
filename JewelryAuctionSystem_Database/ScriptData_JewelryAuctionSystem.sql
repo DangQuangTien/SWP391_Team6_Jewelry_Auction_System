@@ -51,6 +51,32 @@ create table [Member] (
 	avatar nvarchar(255),
 	constraint fk_member_userID foreign key (userID) references Users(userID)
 )
+go
+create sequence addressID_sequence
+start with 0
+increment by 1;
+go
+create table [Address](
+	addressID varchar(50) not null primary key,
+	street nvarchar(255) not null,
+	city nvarchar(255) not null,
+	[state] nvarchar(255) not null,
+	zipcode varchar(50) not null,
+	country nvarchar(255) not null,
+	memberID varchar(50) not null
+	constraint fk_memberID foreign key (memberID) references [Member](memberID)
+) 
+GO
+create trigger autogenerate_addressID on [Address] instead of insert
+as 
+begin
+	declare @newaddressID varchar(50);
+	set  @newaddressID = 'Address' + cast(next value for addressID_sequence as varchar(50));
+	insert into [Address] (addressID, street, city, [state], zipcode, country, memberID)
+    select @newaddressID, street, city, [state], zipcode, country, memberID
+    from inserted;
+end;
+go
 create table Staff (
 	staffID varchar(50) not null primary key,
 	userID varchar(50) not null,
@@ -90,6 +116,33 @@ begin
     from inserted;
 end;
 go
+
+create sequence valuationId_sequence
+start with 0
+increment by 1;
+go
+create table valuation (
+	valuationId varchar(50) not null primary key,
+	[name] nvarchar(255) not null, 
+	email nvarchar(255) not null,
+	phonenumber varchar(20) not null,
+	communication varchar(100),
+	[description] nvarchar(max),
+	photos varchar(255),
+	memberId varchar(50),
+	foreign key (memberId) references [Member](memberId),
+	status bit default 0
+)
+go
+create trigger autogenerate_valuationId on valuation instead of insert
+as 
+begin
+	declare @newvaluationId nvarchar(50);
+	set  @newvaluationId = 'val' + cast(next value for valuationId_sequence as nvarchar(50));
+	insert into valuation (valuationId, [name], email, phonenumber, communication, [description], photos, memberId)
+    select @newvaluationId, [name], email, phonenumber, communication, [description], photos, memberId
+    from inserted;
+end;
 
 
 

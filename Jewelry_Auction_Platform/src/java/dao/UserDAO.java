@@ -16,5 +16,5 @@ public interface UserDao {
 
     UserDTO checkLogin(String username, String password);
     ArrayList<Category> listCategory ();
-    boolean insertValuationRequest(String name, String email, String phone, String communicationMethod, String photos, String description);
+    boolean insertValuationRequest(String name, String email, String phone, String communicationMethod, String photos, String description, String memberID);
 }

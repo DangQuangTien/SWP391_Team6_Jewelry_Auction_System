@@ -24,6 +24,8 @@ import javax.servlet.http.HttpSession;
 public class LoginController extends HttpServlet {
 
     private static final String ADMIN_PAGE = "/admin/admin.jsp";
+    private static final String STAFF_PAGE = "/staff/staff.jsp";
+    private static final String MANAGER_PAGE = "/manager/manager.jsp";
     private static final String HOME_PAGE = "home.jsp";
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
 
@@ -56,6 +58,14 @@ public class LoginController extends HttpServlet {
                             break;
                         case "Member":
                             url = HOME_PAGE;
+                            session.setAttribute("USERNAME", user.getUsername());
+                            break;
+                        case "Staff":
+                            url = STAFF_PAGE;
+                            session.setAttribute("USERNAME", user.getUsername());
+                            break;
+                        case "Manager":
+                            url = MANAGER_PAGE;
                             session.setAttribute("USERNAME", user.getUsername());
                             break;
                         default:
