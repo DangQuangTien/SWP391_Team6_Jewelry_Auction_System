@@ -8,59 +8,67 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-          <!-- START OF HEADER -->
-          <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Jewelry Auctions</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Auction.jsp">Auction</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="seller/selling.html">Sell</a>
-                        </li>
-                        <% if (username == null) { %>
+    <!-- START OF HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Jewelry Auctions</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.jsp">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Auction.jsp">Auction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="seller/selling.html">Sell</a>
+                    </li>
+                    <!-- JSP Conditional Rendering -->
+                    <%
+                        String username = (String) session.getAttribute("USERNAME");
+                        if (username == null) {
+                    %>
                         <li class="nav-item">
                             <a class="nav-link" href="login.jsp">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.jsp">Register</a>
                         </li>
-                        <% } else {%>
+                    <%
+                        } else {
+                    %>
                         <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=Profile&username=<%= username%>"><%= username%></a>
+                            <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                         </li>
-                        <% } %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
-                            <div id="bell-box" style="display: none;">
-                                <!-- Notifications -->
-                                <button id="notificationButton">Show Notification</button>
-                                <div id="notificationPopup" class="popup">
-                                    New message received!
-                                </div>
+                    <%
+                        }
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
+                        <div id="bell-box" style="display: none;">
+                            <!-- Notifications -->
+                            <button id="notificationButton">Show Notification</button>
+                            <div id="notificationPopup" class="popup">
+                                New message received!
                             </div>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search for anything" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
-        </header>
-        <!-- END OF HEADER -->
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for anything" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!-- END OF HEADER -->
 
     <div class="container-fluid">
-        <div class="row">            
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">               
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h5 class="sidebar-heading">Categories</h5>
                     <ul class="nav flex-column">
@@ -91,63 +99,28 @@
                     <h1 class="h2">Auction Items</h1>
                 </div>
                 <div class="container-fluid">
-                <div class="row item-container">
-                    <div class="col-md-6 auction-item">
-                        <div class="card mb-4 shadow-sm">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
-                            <div class="card-body">
-                                <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
-                                <p class="card-text">Product Brand: IWC</p>
-                                <p class="card-text">Auction ID: 15678</p>
-                                <p class="card-text">Time left: 4d 20h</p>
-                                <button class="btn btn-primary">Bid Now</button>
+                    <div class="row item-container">
+                        <!-- Example auction item -->
+                        <div class="col-md-6 auction-item">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
+                                <div class="card-body">
+                                    <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
+                                    <p class="card-text">Product Brand: IWC</p>
+                                    <p class="card-text">Auction ID: 15678</p>
+                                    <p class="card-text">Time left: 4d 20h</p>
+                                    <button class="btn btn-primary">Bid Now</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 auction-item">
-                        <div class="card mb-4 shadow-sm">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
-                            <div class="card-body">
-                                <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
-                                <p class="card-text">Product Brand: IWC</p>
-                                <p class="card-text">Auction ID: 15678</p>
-                                <p class="card-text">Time left: 4d 20h</p>
-                                <button class="btn btn-primary">Bid Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 auction-item">
-                        <div class="card mb-4 shadow-sm">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
-                            <div class="card-body">
-                                <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
-                                <p class="card-text">Product Brand: IWC</p>
-                                <p class="card-text">Auction ID: 15678</p>
-                                <p class="card-text">Time left: 4d 20h</p>
-                                <button class="btn btn-primary">Bid Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 auction-item">
-                        <div class="card mb-4 shadow-sm">
-                            <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
-                            <div class="card-body">
-                                <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
-                                <p class="card-text">Product Brand: IWC</p>
-                                <p class="card-text">Auction ID: 15678</p>
-                                <p class="card-text">Time left: 4d 20h</p>
-                                <button class="btn btn-primary">Bid Now</button>
-                            </div>
-                        </div>
+                        <!-- Repeat similar blocks for more auction items -->
                     </div>
                 </div>
-             </div>
-          </main>
-      </div>
+            </main>
+        </div>
     </div>
 
     <!-- START OF FOOTER -->
-
     <footer class="bg-light text-center py-3">
         <div>
             <h6>Jewelry Auction</h6>
