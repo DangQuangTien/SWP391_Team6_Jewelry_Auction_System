@@ -9,32 +9,10 @@
         <title>Jewelry Auctions Online</title>
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="component/home.css">
+        <link rel="stylesheet" type="text/css" href="component/home.css">
+        <link rel="stylesheet" type="text/css" href="component/header.css">
+        <link rel="stylesheet" type="text/css" href="component/footer.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <style>
-            .category-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around; /* Distributes items evenly with space around them */
-                gap: 20px; /* Adds spacing between items */
-                padding: 20px;
-                background-color: #f0f0f0; /* Light background for the container */
-            }
-
-            .category-name {
-                font-family: 'Arial, sans-serif';
-                font-size: 24px;
-                color: #333; /* A dark gray color */
-                background-color: #f9f9f9; /* A light gray background */
-                padding: 10px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                text-align: center;
-                flex: 1 1 200px; /* Allows items to grow and shrink, minimum width of 200px */
-                max-width: 300px; /* Optional: to limit the maximum width */
-            }
-
-        </style>
     </head>
     <%
         String username = (String) session.getAttribute("USERNAME");
@@ -90,7 +68,6 @@
                 </div>
             </nav>
         </header>
-
         <!-- END OF HEADER -->
         <main class="container mt-4">
             <section class="banner mb-4">

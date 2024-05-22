@@ -13,7 +13,8 @@
         <title>Jewelry Auctions Online</title>
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../component/home.css">
+        <link rel="stylesheet" type="text/css" href="../component/header.css">
+        <link rel="stylesheet" type="text/css" href="../component/footer.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     </head>
     <body>
@@ -86,7 +87,7 @@
                     <label for="description">Description</label>
                     <input type="text" class="form-control" id="description" name="description">
                     <small class="form-text text-muted">Please briefly describe your jewelry and/or watches in the field above.</small>
-                </div><br>
+                </div>
                 <input type="submit" class="btn btn-primary" name="action" value="Submit Valuation Request">
             </form>
         </main>
