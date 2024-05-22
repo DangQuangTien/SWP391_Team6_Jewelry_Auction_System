@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="component/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <style>
             .category-container {
                 display: flex;
@@ -38,8 +39,13 @@
     </head>
     <%
         String username = (String) session.getAttribute("USERNAME");
-        UserDAOImpl dao = new UserDAOImpl();
-        ArrayList<Category> listCategory = dao.listCategory();
+        ArrayList<Category> listCategory = new ArrayList<>();
+        try {
+            UserDAOImpl dao = new UserDAOImpl();
+            listCategory = dao.listCategory();
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the error
+        }
     %>
     <body>
         <!-- START OF HEADER -->
@@ -216,7 +222,6 @@
         <!-- Custom Javascript -->
         <!-- Slideshow -->
         <script src="javascript/home.js"></script>
-
     </body>
 </html>
 

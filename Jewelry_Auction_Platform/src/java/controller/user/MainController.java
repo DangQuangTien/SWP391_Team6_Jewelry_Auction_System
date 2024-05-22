@@ -23,8 +23,6 @@ public class MainController extends HttpServlet {
     private static final String LOGIN_CONTROLLER = "LoginController";
     private static final String LOGOUT_CONTROLLER = "LogoutController";
     private static final String PROFILE_CONTROLLER = "ProfileController";
-    private static final String VALUATION_REQUEST_CONTROLLER = "ValuationRequestServlet";
-    private static final String PROCESS_VALUATION_REQUEST_CONTROLLER = "ProcessValuationRequestController";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,12 +51,6 @@ public class MainController extends HttpServlet {
                     break;
                 case "Sell":
                     url = "/seller/selling.html";
-                    break;
-                case "Submit Valuation Request":
-                    url = VALUATION_REQUEST_CONTROLLER;
-                    break;
-                case "Valuate":
-                    url = PROCESS_VALUATION_REQUEST_CONTROLLER;
                     break;
                 default:
                     break;
