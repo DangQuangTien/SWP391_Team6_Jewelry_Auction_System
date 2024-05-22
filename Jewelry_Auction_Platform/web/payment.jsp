@@ -30,12 +30,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="bell-icon" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="bell-icon">
-                            <button id="notificationButton" class="dropdown-item">Show Notification</button>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
+                        <div id="bell-box" style="display: none;">
+                            <!-- Notifications -->
+                            <button id="notificationButton">Show Notification</button>
                             <div id="notificationPopup" class="popup">
                                 New message received!
                             </div>
@@ -50,10 +49,10 @@
         </nav>
     </header>
 
-    <main class="container my-4">
+    <main class="container my-4 flex-grow-1">
         <div class="row">
-            <div class="col-md-8">
-                <div class="card product-display mb-4">
+            <div class="col-md-6 mb-4">
+                <div class="card product-display">
                     <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
                     <div class="card-body">
                         <h2 class="card-title">Auction ID : 17986</h2>
@@ -65,9 +64,8 @@
                     </div>
                 </div>
             </div>
-            <aside class="col-md-4">
+            <aside class="col-md-6 mb-4">
                 <div class="card">
-                    
                     <div class="card-body">
                         <h2 class="card-title">PAYMENT DETAIL</h2>
                         <form>
@@ -96,14 +94,12 @@
                             <button type="button" class="btn btn-primary btn-block">CONFIRM</button>
                         </form>
                     </div>
-
                 </div>
             </aside>
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-light text-center py-3">
+    <!-- START OF FOOTER -->
+    <footer class="bg-light text-center py-3 mt-auto">
         <div>
             <h6>Jewelry Auction</h6>
             <a href="register.jsp">Register</a> |
@@ -113,9 +109,11 @@
             <a href="#">Sitemap</a>
         </div>
     </footer>
+    <!-- END OF FOOTER -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="javascript/home.js"></script>
 </body>
 </html>

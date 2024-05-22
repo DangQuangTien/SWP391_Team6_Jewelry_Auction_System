@@ -2,13 +2,12 @@
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    margin-bottom: 0;
+    max-width: 100%; 
+    margin-bottom: 20px; 
 }
 
 .product-display img {
-    width: 80%;
+    width: 100%; 
     height: auto;
     border-radius: 8px 8px 0 0;
     display: block;
@@ -17,8 +16,6 @@
 
 .product-display .card-body {
     padding: 20px;
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 .card-title {
@@ -30,7 +27,14 @@
     margin-bottom: 1rem;
 }
 
-.btn-primary {
-    background-color: #4CAF50;
-    color: white;
+.container {
+    padding: 15px; 
+}
+
+.card {
+    margin-bottom: 20px; 
+}
+
+.card-body {
+    padding: 20px; 
 }
