@@ -198,11 +198,7 @@
                     <input type="text" class="form-control" id="description" name="description" ng-model="user.description">
                     <small class="form-text text-muted">Please briefly describe your jewelry and/or watches in the field above.</small>
                 </div>
-<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary" ng-disabled="valuationForm.$invalid">Submit Valuation Request</button>
-=======
-                <input type="submit" class="btn btn-primary" name="action" value="Submit Valuation Request">
->>>>>>> b946e39853626fe38567410ab88f3c02eea1b887
             </form>
             <br>
         </main>
