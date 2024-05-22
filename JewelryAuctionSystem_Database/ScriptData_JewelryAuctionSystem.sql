@@ -143,7 +143,7 @@ begin
     select @newvaluationId, [name], email, phonenumber, communication, [description], photos, memberId
     from inserted;
 end;
-
+select * from valuation
 
 
 

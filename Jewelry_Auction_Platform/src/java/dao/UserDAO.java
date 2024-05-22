@@ -6,6 +6,7 @@ package dao;
 
 import dto.UserDTO;
 import entity.product.Category;
+import entity.valuation.Valuation;
 import java.util.ArrayList;
 
 /**
@@ -17,4 +18,5 @@ public interface UserDao {
     UserDTO checkLogin(String username, String password);
     ArrayList<Category> listCategory ();
     boolean insertValuationRequest(String name, String email, String phone, String communicationMethod, String photos, String description, String memberID);
+    ArrayList<Valuation> displayValuationRequest();
 }
