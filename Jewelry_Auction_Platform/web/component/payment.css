@@ -44,12 +44,7 @@ aside {
 }
 
 footer {
-    background-color: #f8f8f8;
-    padding: 10px;
-    text-align: center;
-    position: absolute; 
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
 
 footer ul {
