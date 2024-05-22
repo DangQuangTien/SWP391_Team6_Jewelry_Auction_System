@@ -6,7 +6,7 @@ package dao;
 
 import dto.UserDTO;
 import entity.product.Category;
-import entity.user.ValuationRequest;
+import entity.valuation.Valuation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,46 +42,27 @@ public class UserDAOImpl implements UserDao {
         return null;
     }
 
-    public boolean sendValuationRequest(String name, String email, String phoneNumber, String communication, String description, String photos, String userID) {
-        String query = "INSERT INTO VALUATION ([NAME], EMAIL, PHONENUMBER, COMMUNICATION, [DESCRIPTION], PHOTOS, USERID) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        try {
-            conn = DBUtils.getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, name);
-            ps.setString(2, email);
-            ps.setString(3, phoneNumber);
-            ps.setString(4, communication);
-            ps.setString(5, description);
-            ps.setString(6, photos);
-            ps.setString(7, userID);
-            int result = ps.executeUpdate();
-            return result > 0;
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.getMessage();
-        }
-        return false;
-    }
-
-    public ArrayList<ValuationRequest> displayValuationRequest() {
-        ArrayList<ValuationRequest> listRequest = new ArrayList<>();
+    @Override
+    public ArrayList<Valuation> displayValuationRequest() {
+        ArrayList<Valuation> lst = new ArrayList<>();
         String query = "SELECT * FROM VALUATION";
         try {
             conn = DBUtils.getConnection();
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                ValuationRequest valuation = new ValuationRequest();
-                valuation.setName(rs.getString(2));
-                valuation.setEmail(rs.getString(3));
-                valuation.setPhoneNumber(rs.getString(4));
-                valuation.setCommunication(rs.getString(5));
-                valuation.setDescription(rs.getString(6));
-                valuation.setPhotos(rs.getString(7));
-                valuation.setUserID(rs.getString(8));
-                valuation.setStatus(rs.getInt(9));
-                listRequest.add(valuation);
+                Valuation val = new Valuation();
+                val.setValuationID(rs.getString(1));
+                val.setName(rs.getString(2));
+                val.setEmail(rs.getString(3));
+                val.setPhone(rs.getString(4));
+                val.setCommunication(rs.getString(5));
+                val.setDescription(rs.getString(6));
+                val.setPhoto(rs.getString(7));
+                val.setStatus(rs.getInt(9));
+                lst.add(val);
             }
-            return listRequest;
+            return lst;
         } catch (ClassNotFoundException | SQLException ex) {
             ex.getMessage();
         }
@@ -104,8 +85,8 @@ public class UserDAOImpl implements UserDao {
             }
             return listCategory;
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
         }
         return null;
     }
