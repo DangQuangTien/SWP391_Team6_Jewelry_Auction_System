@@ -8,15 +8,6 @@ footer {
     border-top: 1px solid #ddd; 
 }
 
-footer {
-    background-color: #fff;
-    color: #212529;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 0;
-    border-top: 1px solid #ddd; 
-}
-
 footer a {
     color: #212529;
     text-decoration: none;
