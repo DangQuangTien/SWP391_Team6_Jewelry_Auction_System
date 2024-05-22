@@ -4,6 +4,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 300px;
+    margin-bottom: 0;
 }
 
 .product-display img {
@@ -12,7 +13,7 @@
     border-radius: 8px 8px 0 0;
     display: block;
     margin: 0 auto;
-    margin-bottom: 0;
+    
 
 }
 
