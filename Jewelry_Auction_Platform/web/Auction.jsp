@@ -66,7 +66,7 @@
     </header>
     <!-- END OF HEADER -->
 
-    <div class="container-fluid">
+    <div class="container-fluid flex-grow-1">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
@@ -121,7 +121,7 @@
     </div>
 
     <!-- START OF FOOTER -->
-    <footer class="bg-light text-center py-3">
+    <footer class="bg-light text-center py-3 mt-auto">
         <div>
             <h6>Jewelry Auction</h6>
             <a href="register.jsp">Register</a> |

@@ -204,17 +204,17 @@
         </main>
 
         <!-- START OF FOOTER -->
-        <footer class="bg-light text-center py-3">
-            <div>
-                <h6>Jewelry Auction</h6>
-                <a href="register.jsp">Register</a> |
-                <a href="login.jsp">Login</a> |
-                <a href="#">Help & FAQ</a> |
-                <a href="#">Support</a> |
-                <a href="#">Sitemap</a>
-            </div>
-        </footer>
-        <!-- END OF FOOTER -->
+    <footer class="bg-light text-center py-3 mt-auto">
+        <div>
+            <h6>Jewelry Auction</h6>
+            <a href="register.jsp">Register</a> |
+            <a href="login.jsp">Login</a> |
+            <a href="#">Help & FAQ</a> |
+            <a href="#">Support</a> |
+            <a href="#">Sitemap</a>
+        </div>
+    </footer>
+    <!-- END OF FOOTER -->
 
         <!-- Include Bootstrap JS and dependencies -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
