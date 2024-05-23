@@ -37,9 +37,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="register.jsp">Register</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sent_out.jsp">Put Your Item</a>
-                        </li>
                     <%
                         } else {
                     %>
