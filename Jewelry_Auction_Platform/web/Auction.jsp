@@ -139,4 +139,3 @@
     <script src="javascript/Auction.js"></script>
 </body>
 </html>
-as
