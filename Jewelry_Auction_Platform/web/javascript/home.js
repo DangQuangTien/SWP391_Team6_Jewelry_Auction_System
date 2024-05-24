@@ -49,5 +49,3 @@ document.getElementById('bell-icon').addEventListener('click', function() {
         bellBox.style.display = 'none';
     }
 });
-
-
