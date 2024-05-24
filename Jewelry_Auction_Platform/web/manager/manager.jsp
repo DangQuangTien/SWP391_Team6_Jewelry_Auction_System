@@ -9,9 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Manager</title>
+        <script>
+            function confirmLogout(event) {
+                if (!confirm("Are you sure you want to log out?")) {
+                    event.preventDefault();
+                }
+            }
+        </script>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Welcome back Manager</h1>
     </body>
+    <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
+        <input type="submit" name="action" value="Log out">
+    </form>
 </html>

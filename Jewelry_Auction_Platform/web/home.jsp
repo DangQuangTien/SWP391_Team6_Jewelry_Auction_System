@@ -21,28 +21,28 @@
             .category-container {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-around; /* Distributes items evenly with space around them */
-                gap: 20px; /* Adds spacing between items */
+                justify-content: space-around; 
+                gap: 20px; 
                 padding: 20px;
-                background-color: #f0f0f0; /* Light background for the container */
+                background-color: #f0f0f0;
             }
 
             .category-name {
                 font-family: 'Arial, sans-serif';
                 font-size: 24px;
-                color: #333; /* A dark gray color */
-                background-color: #f9f9f9; /* A light gray background */
+                color: #333;
+                background-color: #f9f9f9; 
                 padding: 10px 20px;
                 border-radius: 8px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 text-align: center;
-                flex: 1 1 200px; /* Allows items to grow and shrink, minimum width of 200px */
-                max-width: 300px; /* Optional: to limit the maximum width */
+                flex: 1 1 200px; 
+                max-width: 300px; 
             }
-
         </style>
     </head>
     <body>
+        <c:set var="dao" value="<%= new dao.UserDAOImpl() %>"/>
         <c:set var="username" value="${sessionScope.USERNAME}" />
         <c:set var="role" value="${sessionScope.ROLE}" />
         <c:set var="listCategory" value="${dao.listCategory()}" />
