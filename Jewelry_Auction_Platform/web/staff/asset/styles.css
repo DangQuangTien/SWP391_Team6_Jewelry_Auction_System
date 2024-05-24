@@ -9,51 +9,45 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
 }
-
-nav {
-    margin-bottom: 20px;
-}
-
-nav a {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #007bff;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
 h1 {
-    color: #333;
+    text-align: center;
 }
-
-button, input[type="submit"] {
-    margin-left: 10px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    padding: 5px 0;
-}
-
 form {
-    margin-bottom: 20px;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input[type="text"], textarea {
-    width: 100%;
-    padding: 8px;
+form div {
     margin-bottom: 10px;
 }
-
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.form-section {
+    display: none;
+}
