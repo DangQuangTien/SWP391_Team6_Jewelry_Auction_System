@@ -14,6 +14,43 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Staff</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+            h3 {
+                margin-bottom: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ccc;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            img {
+                max-width: 100px;
+                max-height: 100px;
+            }
+            .submit-btn {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .submit-btn:hover {
+                background-color: #45a049;
+            }
+        </style>
         <script>
             function confirmLogout(event) {
                 if (!confirm("Are you sure you want to log out?")) {
@@ -41,17 +78,17 @@
     <body>
         <h3>Good <%= greeting%> Welcome back Staff</h3>
         <form action="${pageContext.request.contextPath}/MainController" method="POST">
-            <input type="submit" name="action" value="Valuation Request"> 
+            <input type="submit" name="action" class="submit-btn" value="Valuation Request"> 
         </form>
     <br>
     <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
-        <input type="submit" name="action" value="Log out">
+        <input type="submit" name="action" class="submit-btn" value="Log out">
     </form>
     <br>
     <c:set var="listValuationRequest" value="${requestScope.listValuationRequest}"/>
     <c:if test="${not empty listValuationRequest}">
-        <h2>Valuation Request</h2>
-        <table border="1">
+        <h2>Valuation Requests</h2>
+        <table>
             <thead>
                 <tr>
                     <th>No</th>
@@ -65,34 +102,28 @@
                     <th>Action</th>
                 </tr>
             </thead>
-
             <tbody>
-
-                <c:forEach var="val" items="${listValuationRequest}">
+                <c:forEach var="val" items="${listValuationRequest}" varStatus="loop">
                     <tr>
-                <form action="${pageContext.request.contextPath}/staff/valuation.jsp">
-                    <td></td>
-                    <td><img style="width: 100px; height: 100px" src="${val.photo}"></td>
-                    <td>${val.name}</td>
-                    <td>${val.email}</td>
-                    <td>${val.phone}</td>
-                    <td>${val.communication}</td>
-                    <td>${val.description}</td>
-                    <input type="hidden" name="photoURL" value="${val.photo}">
-                    <td style="color: green">
-                        <c:choose>
-                            <c:when test="${val.status == 0}">
-                                Pending
-                            </c:when>
-                            <c:otherwise>
-                                done
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td><input type="submit" name="" value="Valuate"></td>
-                </form>
-            </c:forEach>
-        </tr>
+                        <td>${loop.index + 1}</td>
+                        <td><img src="${val.photo}" alt="Photo"></td>
+                        <td>${val.name}</td>
+                        <td>${val.email}</td>
+                        <td>${val.phone}</td>
+                        <td>${val.communication}</td>
+                        <td>${val.description}</td>
+                        <td style="color: ${val.status == 0 ? 'green' : 'red'}">${val.status == 0 ? 'Pending' : 'Done'}</td>
+                        <td>
+                            <form action="${pageContext.request.contextPath}/staff/valuation.jsp">
+                                <input type="hidden" name="photoURL" value="${val.photo}">
+                                <input type="hidden" name="valuationID" value="${val.valuationID}">
+                                <input type="submit" class="submit-btn" value="Valuate">
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </c:if>
 </tbody>
 </table>

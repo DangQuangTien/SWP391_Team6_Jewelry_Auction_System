@@ -13,10 +13,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Detail Valuation Jewelry</title>
+        <title>Valuation Form</title>
+        <link rel="stylesheet" type="text/css" href="asset/styles.css">
+        <script type="text/javascript" src="asset/app.js"></script>
     </head>
     <body>
-        <h1>Detail Valuation</h1>
+        <h1>Jewelry Appraisal</h1>
         <%
             String url = request.getParameter("photoURL");
             ArrayList<Category> listCategory = new ArrayList<>();
@@ -24,28 +26,152 @@
                 UserDAOImpl dao = new UserDAOImpl();
                 listCategory = dao.listCategory();
             } catch (Exception e) {
-                e.printStackTrace(); // Log the error
+                e.printStackTrace();
             }
         %>
-    <img style="width: 200px; height: 200px" src="${pageContext.request.contextPath}/<%= url%>"/>
-    <form>
-        Jewelry Name <input type="text" name="jewelryName" value=""> | 
-        Artist <input type="text" name="artist" value=""> |
-        Category <select name="category">
-            <% for (Category category : listCategory){ %>
-            <option><%= category.getCategoryName() %></option>
-            <% } %>
-        </select> |
-        Circa <input type="text" name="circa" value=""><br><br>
-        Material <input type="text" name="material" value=""> |
-        Dial <input type="text" name="dial" value=""> |
-        Dimension <input type="text" name="dimension" value=""> |
-        Size <input type="text" name="size" value=""><br><br>
-        Serial Number <input type="text" name="serialNumber" value=""> |
-        Reference Number <input type="text" name="referenceNumber" value=""> |
-        Caliber <input type="text" name="caliber" value=""> |
-        Movement <input type="text" name="movement" value=""><br><br>
-        Condition <input type="text" name="condition" value=""><br><br>
-    </form> 
+    <img style="width: 200px; height: 200px; display: block; margin: auto;" src="${pageContext.request.contextPath}/<%= url%>"/>
+    <form action="${pageContext.request.contextPath}/MainController">
+        <div>
+            <label for="category">Category</label>
+            <select id="category" name="category" onchange="showFormFields()">
+                <% for (Category category : listCategory) {%>
+                <option value="<%= category.getCategoryName()%>"><%= category.getCategoryName()%></option>
+                <% }%>
+            </select>
+        </div>
+        <div>
+            <label for="jewelryName">Jewelry Name</label>
+            <input type="text" id="jewelryName" name="jewelryName" value="">
+        </div>
+        <div>
+            <label for="artist">Artist</label>
+            <input type="text" id="artist" name="artist" value="">
+        </div>
+
+        <div id="watchFields" class="form-section">
+            <h3>Watch Details</h3>
+            <div>
+                <label for="circa">Circa</label>
+                <input type="text" id="circa" name="circa" value="">
+            </div>
+            <div>
+                <label for="material">Case Material</label>
+                <input type="text" id="material" name="material" value="">
+            </div>
+            <div>
+                <label for="dial">Dial</label>
+                <input type="text" id="dial" name="dial" value="">
+            </div>
+            <div>
+                <label for="braceletMaterial">Bracelet Material</label>
+                <input type="text" id="braceletMaterial" name="braceletMaterial" value="">
+            </div>
+            <div>
+                <label for="caseDimensions">Case Dimensions</label>
+                <input type="text" id="caseDimensions" name="caseDimensions" value="">
+            </div>
+            <div>
+                <label for="braceletSize">Bracelet Size</label>
+                <input type="text" id="braceletSize" name="braceletSize" value="">
+            </div>
+            <div>
+                <label for="serialNumber">Serial Number</label>
+                <input type="text" id="serialNumber" name="serialNumber" value="">
+            </div>
+            <div>
+                <label for="referenceNumber">Reference Number</label>
+                <input type="text" id="referenceNumber" name="referenceNumber" value="">
+            </div>
+            <div>
+                <label for="caliber">Caliber</label>
+                <input type="text" id="caliber" name="caliber" value="">
+            </div>
+            <div>
+                <label for="movement">Movement</label>
+                <input type="text" id="movement" name="movement" value="">
+            </div>
+            <div>
+                <label for="condition">Condition</label>
+                <input type="text" id="condition" name="condition" value="">
+            </div>
+            <div>
+                <label for="minPrice">Estimate</label>
+                <input type="number" id="minPrice" name="minPrice" placeholder="Min">
+                <input type="number" id="maxPrice" name="maxPrice" placeholder="Max">
+            </div>
+        </div>
+
+        <div id="braceletFields" class="form-section">
+            <h3>Details</h3>
+            <div>
+                <label for="braceletMetal">Metal</label>
+                <input type="text" id="braceletMetal" name="metal" value="">
+            </div>
+            <div>
+                <label for="braceletGemstones">Gemstone(s)</label>
+                <input type="text" id="braceletGemstones" name="gemstones" value="">
+            </div>
+            <div>
+                <label for="braceletMeasurements">Measurements</label>
+                <input type="text" id="braceletMeasurements" name="measurements" value="">
+            </div>
+            <div>
+                <label for="braceletWeight">Weight</label>
+                <input type="text" id="braceletWeight" name="weight" value="">
+            </div>
+            <div>
+                <label for="braceletCondition">Condition</label>
+                <input type="text" id="braceletCondition" name="condition" value="">
+            </div>
+            <div>
+                <label for="braceletStamped">Stamped</label>
+                <input type="text" id="braceletStamped" name="stamped" value="">
+            </div>
+            <div>
+                <label for="braceletMinPrice">Estimate</label>
+                <input type="number" id="braceletMinPrice" name="minPrice" placeholder="Min">
+                <input type="number" id="braceletMaxPrice" name="maxPrice" placeholder="Max">
+            </div>
+        </div>
+
+        <div id="ringFields" class="form-section">
+            <h3>Ring Details</h3>
+            <div>
+                <label for="ringMetal">Metal</label>
+                <input type="text" id="ringMetal" name="metal" value="">
+            </div>
+            <div>
+                <label for="ringGemstones">Gemstone(s)</label>
+                <input type="text" id="ringGemstones" name="gemstones" value="">
+            </div>
+            <div>
+                <label for="ringMeasurements">Measurements</label>
+                <input type="text" id="ringMeasurements" name="measurements" value="">
+            </div>
+            <div>
+                <label for="ringSize">Ring Size</label>
+                <input type="text" id="ringSize" name="ringSize" value="">
+            </div>
+            <div>
+                <label for="ringWeight">Weight</label>
+                <input type="text" id="ringWeight" name="weight" value=""/>
+            </div>
+            <div>
+                <label for="ringCondition">Condition</label>
+                <input type="text" id="ringCondition" name="condition" value="">
+            </div>
+            <div>
+                <label for="ringStamped">Stamped</label>
+                <input type="text" id="ringStamped" name="stamped" value="">
+            </div>
+            <div>
+                <label for="ringMinPrice">Estimate</label>
+                <input type="number" id="ringMinPrice" name="minPrice" placeholder="Min">
+                <input type="number" id="ringMaxPrice" name="maxPrice" placeholder="Max">
+            </div>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

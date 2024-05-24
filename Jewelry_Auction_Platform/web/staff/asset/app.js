@@ -2,5 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
+function showFormFields() {
+    var category = document.getElementById("category").value;
+    var watchFields = document.getElementById("watchFields");
+    var braceletFields = document.getElementById("braceletFields");
+    var ringFields = document.getElementById("ringFields");
 
+    watchFields.style.display = "none";
+    braceletFields.style.display = "none";
+    ringFields.style.display = "none";
+
+    if (category === "Watch") {
+        watchFields.style.display = "block";
+    } else if (category === "Ring") {
+        ringFields.style.display = "block";
+    } else {
+        braceletFields.style.display = "block";
+    }
+}
+window.onload = function () {
+    showFormFields();
+}
 
