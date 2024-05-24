@@ -16,13 +16,6 @@
         <title>Valuation Form</title>
         <link rel="stylesheet" type="text/css" href="asset/styles.css">
         <script type="text/javascript" src="asset/app.js"></script>
-        <script>
-            function confirmValuation(event) {
-                if (!confirm("Are you certain you want to send this appraisal?")) {
-                    event.preventDefault();
-                }
-            }
-        </script>
     </head>
     <body>
         <h1>Jewelry Appraisal</h1>
@@ -37,7 +30,7 @@
             }
         %>
     <img style="width: 200px; height: 200px; display: block; margin: auto;" src="${pageContext.request.contextPath}/<%= url%>"/>
-    <form action="${pageContext.request.contextPath}/MainController" onsubmit="confirmValuation(event)">
+    <form action="${pageContext.request.contextPath}/MainController">
         <div>
             <label for="category">Category</label>
             <select id="category" name="category" onchange="showFormFields()">
