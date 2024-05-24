@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Auctions</title>
     <link rel="stylesheet" type="text/css" href="component/header.css">
     <link rel="stylesheet" type="text/css" href="component/footer.css">
     <link rel="stylesheet" type="text/css" href="component/auction.css">
@@ -8,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- START OF HEADER -->
+    <!-- Header Section -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Jewelry Auctions</a>
@@ -64,10 +67,11 @@
             </div>
         </nav>
     </header>
-    <!-- END OF HEADER -->
 
+    <!-- Main Content -->
     <div class="container-fluid flex-grow-1">
         <div class="row">
+            <!-- Sidebar -->
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h5 class="sidebar-heading">Categories</h5>
@@ -94,13 +98,14 @@
                 </div>
             </nav>
 
+            <!-- Main Section -->
             <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Auction Items</h1>
                 </div>
                 <div class="container-fluid">
                     <div class="row item-container">
-                        <!-- Example auction item -->
+                        <!-- Example auction items, repeat as needed -->
                         <div class="col-md-6 auction-item">
                             <div class="card mb-4 shadow-sm">
                                 <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
@@ -113,6 +118,46 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6 auction-item">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
+                                <div class="card-body">
+                                    <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
+                                    <p class="card-text">Product Brand: IWC</p>
+                                    <p class="card-text">Auction ID: 15678</p>
+                                    <p class="card-text">Time left: 4d 20h</p>
+                                    <button class="btn btn-primary">Bid Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 auction-item">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
+                                <div class="card-body">
+                                    <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
+                                    <p class="card-text">Product Brand: IWC</p>
+                                    <p class="card-text">Auction ID: 15678</p>
+                                    <p class="card-text">Time left: 4d 20h</p>
+                                    <button class="btn btn-primary">Bid Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 auction-item">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
+                                <div class="card-body">
+                                    <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
+                                    <p class="card-text">Product Brand: IWC</p>
+                                    <p class="card-text">Auction ID: 15678</p>
+                                    <p class="card-text">Time left: 4d 20h</p>
+                                    <button class="btn btn-primary">Bid Now</button>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-6 auction-item">
                             <div class="card mb-4 shadow-sm">
                                 <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
@@ -127,12 +172,13 @@
                         </div>
                         <!-- Repeat similar blocks for more auction items -->
                     </div>
-                </div>
+                    <div class="pagination"></div>
+                </div>                
             </main>
         </div>
     </div>
 
-    <!-- START OF FOOTER -->
+    <!-- Footer Section -->
     <footer class="bg-light text-center py-3 mt-auto">
         <div>
             <h6>Jewelry Auction</h6>
@@ -143,11 +189,80 @@
             <a href="#">Sitemap</a>
         </div>
     </footer>
-    <!-- END OF FOOTER -->
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const itemsPerPage = 4;
+            const items = document.querySelectorAll(".auction-item");
+            const pagination = document.querySelector(".pagination");
+            let currentPage = 1;
+            const totalPages = Math.ceil(items.length / itemsPerPage);
+    
+            function showPage(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+    
+                items.forEach((item, index) => {
+                    if (index >= start && index < end) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            }
+    
+            function updatePagination() {
+                pagination.innerHTML = "";
+    
+                const prevButton = document.createElement("button");
+                prevButton.textContent = "Previous";
+                prevButton.disabled = currentPage === 1;
+                prevButton.addEventListener("click", () => {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        showPage(currentPage);
+                        updatePagination();
+                    }
+                });
+                pagination.appendChild(prevButton);
+    
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageButton = document.createElement("button");
+                    pageButton.textContent = i;
+                    if (i === currentPage) {
+                        pageButton.disabled = true;
+                    }
+                    pageButton.addEventListener("click", () => {
+                        currentPage = i;
+                        showPage(currentPage);
+                        updatePagination();
+                    });
+                    pagination.appendChild(pageButton);
+                }
+    
+                const nextButton = document.createElement("button");
+                nextButton.textContent = "Next";
+                nextButton.disabled = currentPage === totalPages;
+                nextButton.addEventListener("click", () => {
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        showPage(currentPage);
+                        updatePagination();
+                    }
+                });
+                pagination.appendChild(nextButton);
+            }
+    
+            showPage(currentPage);
+            updatePagination();
+        });
+    </script>
+    
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="javascript/Auction.js"></script>
 </body>
 </html>
+
