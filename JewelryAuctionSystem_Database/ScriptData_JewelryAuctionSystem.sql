@@ -133,7 +133,6 @@ create table valuation (
 	foreign key (memberId) references [Member](memberId),
 	status bit default 0
 )
-select * from valuation
 go
 create trigger autogenerate_valuationId on valuation instead of insert
 as 
@@ -154,8 +153,7 @@ create table Jewelry (
 	maxPrice decimal(18,2) not null,
 	dimesion nvarchar(255),
 	circa nvarchar(255),
-	valuationId varchar(50),
-	constraint fk_valuationId foreign key (valuationId) references valuation(valuationId)
+
 
 )
 
