@@ -80,7 +80,7 @@
             <li><a href="#user-support">User Support</a></li>
             <li><a href="#system-configuration">System Configuration</a></li>
             <li>
-                <form action="MainController" method="POST" onsubmit="confirmLogout(event)">
+                <form action="${pageContext.request.contextPath}/MainController" method="GET" onsubmit="confirmLogout(event)">
                     <input type="submit" name="action" value="Log out">
                 </form>
             </li>

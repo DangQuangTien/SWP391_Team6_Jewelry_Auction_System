@@ -143,7 +143,18 @@ begin
     select @newvaluationId, [name], email, phonenumber, communication, [description], photos, memberId
     from inserted;
 end;
-select * from valuation
+create table Jewelry (
+	jewelryID varchar(50) not null primary key,
+	categoryID nvarchar(50) not null,
+	jewelryCode nvarchar(50) not null,
+	jewelryName nvarchar(255) not null,
+	artist nvarchar(255),
+	minPrice decimal(18,2) not null,
+	maxPrice decimal(18,2) not null,
+	dimesion nvarchar(255),
+	circa nvarchar(255),
 
+
+)
 
 
