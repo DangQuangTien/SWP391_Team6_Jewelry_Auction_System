@@ -14,6 +14,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Staff</title>
+        <script>
+            function confirmLogout(event) {
+                if (!confirm("Are you sure you want to log out?")) {
+                    event.preventDefault();
+                }
+            }
+        </script>
     </head>
     <%
         String greeting = "day!";
@@ -36,6 +43,10 @@
         <form action="${pageContext.request.contextPath}/MainController" method="POST">
             <input type="submit" name="action" value="Valuation Request"> 
         </form>
+    <br>
+    <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
+        <input type="submit" name="action" value="Log out">
+    </form>
     <br>
     <c:set var="listValuationRequest" value="${requestScope.listValuationRequest}"/>
     <c:if test="${not empty listValuationRequest}">
