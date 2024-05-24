@@ -9,6 +9,7 @@
 <%@page import="java.time.LocalTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,51 +30,60 @@
         } catch (Exception ex) {
             ex.getMessage();
         }
-        //Display valuatio request
-        ArrayList<Valuation> listValuationRequest = (ArrayList<Valuation>) request.getAttribute("listValuationRequest");
-
     %>
     <body>
-        <h3>Good <%= greeting%> Welcome Staff</h3>
-        <form action="MainController" method="POST">
+        <h3>Good <%= greeting%> Welcome back Staff</h3>
+        <form action="${pageContext.request.contextPath}/MainController" method="POST">
             <input type="submit" name="action" value="Valuation Request"> 
         </form>
     <br>
-    <% if (listValuationRequest != null) { %>
-    <h2>Valuation Request</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Communication Preference</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% int i = 0;
-                    for (Valuation val : listValuationRequest) {%>
-            <tr>
-                <td><%= i++%></td>
-                <td><img style="width: 100px; height: 100px" src="<%= val.getPhoto()%>"></td>
-                <td><%= val.getName()%></td>
-                <td><%= val.getEmail()%></td>
-                <td><%= val.getPhone()%></td>
-                <td><%= val.getCommunication()%></td>
-                <td><%= val.getDescription()%></td>
-                <td><%= (val.getStatus() == 0) ? "Pending" : "Done"%></td>
-                <td>Valuate</td>
-            </tr>
-            <% } %>
-        </tbody>
-    </table>
-    <% } else { %>
-    <p style="color: red">Empty valuation request!</p>
-    <% }%>
+    <c:set var="listValuationRequest" value="${requestScope.listValuationRequest}"/>
+    <c:if test="${not empty listValuationRequest}">
+        <h2>Valuation Request</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Communication Preference</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <c:forEach var="val" items="${listValuationRequest}">
+                    <tr>
+                <form action="${pageContext.request.contextPath}/staff/valuation.jsp">
+                    <td></td>
+                    <td><img style="width: 100px; height: 100px" src="${val.photo}"></td>
+                    <td>${val.name}</td>
+                    <td>${val.email}</td>
+                    <td>${val.phone}</td>
+                    <td>${val.communication}</td>
+                    <td>${val.description}</td>
+                    <input type="hidden" name="photoURL" value="${val.photo}">
+                    <td style="color: green">
+                        <c:choose>
+                            <c:when test="${val.status == 0}">
+                                Pending
+                            </c:when>
+                            <c:otherwise>
+                                done
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td><input type="submit" name="" value="Valuate"></td>
+                </form>
+            </c:forEach>
+        </tr>
+    </c:if>
+</tbody>
+</table>
 </body>
 </html>

@@ -1,6 +1,9 @@
 <%@page import="dao.UserDAOImpl"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.product.Category"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,17 +42,11 @@
 
         </style>
     </head>
-    <%
-        String username = (String) session.getAttribute("USERNAME");
-        ArrayList<Category> listCategory = new ArrayList<>();
-        try {
-            UserDAOImpl dao = new UserDAOImpl();
-            listCategory = dao.listCategory();
-        } catch (Exception e) {
-            e.printStackTrace(); // Log the error
-        }
-    %>
     <body>
+        <c:set var="username" value="${sessionScope.USERNAME}" />
+        <c:set var="role" value="${sessionScope.ROLE}" />
+        <c:set var="listCategory" value="${dao.listCategory()}" />
+
         <!-- START OF HEADER -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -65,21 +62,34 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Auction.jsp">Auction</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="seller/selling.html">Sell</a>
-                        </li>
-                        <% if (username == null) { %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.jsp">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.jsp">Register</a>
-                        </li>
-                        <% } else {%>
-                        <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=Profile&username=<%= username%>"><%= username%></a>
-                        </li>
-                        <% } %>
+                        <c:if test="${role == 'Member' || role == null}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="seller/selling.html">Sell</a>
+                            </li>
+                        </c:if>
+                        <c:choose>
+                            <c:when test="${username == null}">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.jsp">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="register.jsp">Register</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <c:set var="url">
+                                    <c:choose>
+                                        <c:when test="${role == 'Member'}">bidder/profile.jsp</c:when>
+                                        <c:when test="${role == 'Staff'}">staff/staff.jsp</c:when>
+                                        <c:when test="${role == 'Manager'}">manager/manager.jsp</c:when>
+                                        <c:otherwise>admin/admin.jsp</c:otherwise>
+                                    </c:choose>
+                                </c:set>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="${url}">${username}</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
                             <div id="bell-box" style="display: none;">
@@ -105,15 +115,15 @@
             </section>
 
             <h2>Top Categories</h2>
-            <% if (listCategory != null) { %>
-            <div class="category-container">
-                <% for (Category category : listCategory) {%>
-                <div class="category-name">
-                    <%= category.getCategoryName()%>
+            <c:if test="${not empty listCategory}">
+                <div class="category-container">
+                    <c:forEach var="category" items="${listCategory}">
+                        <div class="category-name">
+                            ${category.categoryName}
+                        </div>
+                    </c:forEach>
                 </div>
-                <% } %>
-            </div>
-            <% }%>
+            </c:if>
             <h2>Upcoming Auction</h2>
             <section class="upcoming-auction">
                 <div class="container">
@@ -203,17 +213,17 @@
             </section>
         </main>
         <!-- START OF FOOTER -->
-    <footer class="bg-light text-center py-3 mt-auto">
-        <div>
-            <h6>Jewelry Auction</h6>
-            <a href="register.jsp">Register</a> |
-            <a href="login.jsp">Login</a> |
-            <a href="#">Help & FAQ</a> |
-            <a href="#">Support</a> |
-            <a href="#">Sitemap</a>
-        </div>
-    </footer>
-    <!-- END OF FOOTER -->
+        <footer class="bg-light text-center py-3 mt-auto">
+            <div>
+                <h6>Jewelry Auction</h6>
+                <a href="register.jsp">Register</a> |
+                <a href="login.jsp">Login</a> |
+                <a href="#">Help & FAQ</a> |
+                <a href="#">Support</a> |
+                <a href="#">Sitemap</a>
+            </div>
+        </footer>
+        <!-- END OF FOOTER -->
 
         <!-- Include Bootstrap JS and dependencies -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -6,8 +6,8 @@ package controller.user.authentication;
 
 import dao.UserDAOImpl;
 import dto.UserDTO;
-import java.io.IOException;
-import java.io.PrintWriter;
+import utils.RoleConstants;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -28,6 +30,7 @@ public class LoginController extends HttpServlet {
     private static final String MANAGER_PAGE = "/manager/manager.jsp";
     private static final String HOME_PAGE = "home.jsp";
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
+    private static final String REDIRECT_PAGE = "redirect.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,43 +45,53 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
+            response.setContentType("text/html;charset=UTF-8");
             String username = request.getParameter("email");
             String password = request.getParameter("password");
             String url = ERROR_PAGE;
+
             UserDAOImpl dao = new UserDAOImpl();
+
             try {
                 UserDTO user = dao.checkLogin(username, password);
                 if (user != null) {
-                    String role = user.getRole();
-                    switch (role) {
-                        case "Admin":
-                            url = ADMIN_PAGE;
-                            session.setAttribute("USERNAME", user.getUsername());
-                            break;
-                        case "Member":
-                            url = HOME_PAGE;
-                            session.setAttribute("USERNAME", user.getUsername());
-                            break;
-                        case "Staff":
-                            url = STAFF_PAGE;
-                            session.setAttribute("USERNAME", user.getUsername());
-                            break;
-                        case "Manager":
-                            url = MANAGER_PAGE;
-                            session.setAttribute("USERNAME", user.getUsername());
-                            break;
-                        default:
-                            throw new AssertionError();
-                    }
+                    url = determinePageByRole(user.getRole());
+                    initializeSession(request, user);
                 }
             } catch (Exception ex) {
-                ex.getMessage();
+                log("LoginController Exception: " + ex.getMessage(), ex);
             } finally {
-                RequestDispatcher dist = request.getRequestDispatcher(url);
-                dist.forward(request, response);
+                RequestDispatcher dispatcher = request.getRequestDispatcher(REDIRECT_PAGE);
+                request.setAttribute("targetUrl", url);
+                dispatcher.forward(request, response);
             }
         }
+    }
+
+    private String determinePageByRole(String role) {
+        switch (role) {
+            case RoleConstants.ADMIN:
+                return ADMIN_PAGE;
+            case RoleConstants.MEMBER:
+                return HOME_PAGE;
+            case RoleConstants.STAFF:
+                return STAFF_PAGE;
+            case RoleConstants.MANAGER:
+                return MANAGER_PAGE;
+            default:
+                return ERROR_PAGE;
+        }
+    }
+
+    private void initializeSession(HttpServletRequest request, UserDTO user) {
+        HttpSession session = request.getSession(true);
+        session.setAttribute("USERNAME", user.getUsername());
+        session.setAttribute("ROLE", user.getRole());
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "LoginController handles user authentication and role-based redirection.";
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -109,15 +122,9 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
     /**
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
