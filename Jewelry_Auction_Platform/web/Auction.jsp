@@ -113,6 +113,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 auction-item">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="https://a.1stdibscdn.com/archivesE/upload/1121189/j_130196821629192638945/13019682_datamatics.jpg" alt="Item image" class="card-img-top img-fluid">
+                                <div class="card-body">
+                                    <h6 class="card-title">14k Solid Gold Patek Watch - Schauffhausen IWC 'Pristine Condition'</h6>
+                                    <p class="card-text">Product Brand: IWC</p>
+                                    <p class="card-text">Auction ID: 15678</p>
+                                    <p class="card-text">Time left: 4d 20h</p>
+                                    <button class="btn btn-primary">Bid Now</button>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Repeat similar blocks for more auction items -->
                     </div>
                 </div>
