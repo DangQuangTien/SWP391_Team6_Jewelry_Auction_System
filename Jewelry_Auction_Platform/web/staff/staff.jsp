@@ -103,7 +103,7 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="val" items="${listValuationRequest}" varStatus="loop">
+                <c:forEach var="val" items="${listValuationRequest}" varStatus="loop" >
                     <tr>
                         <td>${loop.index + 1}</td>
                         <td><img src="${val.photo}" alt="Photo"></td>
@@ -117,7 +117,7 @@
                             <form action="${pageContext.request.contextPath}/staff/valuation.jsp">
                                 <input type="hidden" name="photoURL" value="${val.photo}">
                                 <input type="hidden" name="valuationID" value="${val.valuationID}">
-                                <input type="submit" class="submit-btn" value="Valuate">
+                                <input type="submit" class="submit-btn" value="Evaluate">
                             </form>
                         </td>
                     </tr>
