@@ -1,37 +1,8 @@
-.header-information {
-    background-color: #ffffff;
-    border-bottom: 2px solid black;
-}
-
-.nav-link.active {
-    color: red !important;
-    text-decoration: underline;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
-    text-decoration-color: red;
-}
-
-.dropdown-item:hover {
-    color: red !important;
-    text-decoration: underline;
-}
-
-.bo.border-bottom {
-    width: full;
-    border-color: red;
-    border-width: 2px;
-}
-
-body {
-    background: #f5f5f5;
-    margin-top: 20px;
-}
 
 .ui-w-80 {
     width: 80px !important;
     height: auto;
+    margin-right: 30px;
 }
 
 .btn-default {
@@ -58,20 +29,9 @@ label.btn {
     color: #babbbc !important;
 }
 
-.btn-facebook {
-    border-color: rgba(0, 0, 0, 0);
-    background: #3B5998;
-    color: #fff;
-}
-
-.btn-instagram {
-    border-color: rgba(0, 0, 0, 0);
-    background: #000;
-    color: #fff;
-}
-
 .card {
     background-clip: padding-box;
+    margin-bottom: 30px;
     box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
 }
 
@@ -133,35 +93,4 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 .light-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
-}
-
-footer {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    justify-items: center;
-}
-
-.footer-text--title {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.footer-follow--us {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: center;
-}
-
-.follow_us--text {
-    font-size: 20px;
-    font-weight: 400;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
