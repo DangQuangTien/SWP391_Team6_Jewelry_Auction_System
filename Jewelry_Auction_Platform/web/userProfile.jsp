@@ -8,83 +8,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="./style/userProfile.css">
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="component/header.css">
+    <link rel="stylesheet" type="text/css" href="component/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <style>
-        .header-information {
-            transition: top 0.3s;
-        }
-        
-        .navbar-sticky {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-    </style>
+
+
 </head>
-
-<body>
-    <header class="header-information bg-light">
-        <div class="w-100 container">
-            <div class="row align-items-center">
-                <!-- Social Icons -->
-                <div class="col text-center">
-                    <i class="fab fa-facebook-f fa-2x social-icon"></i>
-                    <i class="fab fa-twitter fa-2x social-icon ms-4"></i>
-                    <i class="fab fa-instagram fa-2x social-icon ms-4"></i>
-                </div>
-
-                <!-- Logo -->
-                <div class="col text-center">
-                    <img src="./images/logo/auction_jewelry.png" width="120" height="150" />
-                </div>
-
-                <!-- Search and User Profile -->
-                <div class="col d-flex">
-                    <form class="d-flex">
-                        <input class="form-control" type="search" placeholder="Search Product..." aria-label="Search">
-                        <button class="btn btn-outline-success ms-2" type="submit">Search</button>
-                    </form>
-                    <i class="fas fa-user-circle fa-2x ms-4"></i>
-                </div>
-            </div>
-        </div>
-
-    </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-sticky border-bottom">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0 gap-5 item-menu fw-bold">
+ <!-- Header Section -->
+ <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Jewelry Auctions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.jsp">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Auction.jsp">Auction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="seller/selling.html">Sell</a>
+                </li>
+                <!-- JSP Conditional Rendering -->
+                <%
+                    String username = (String) session.getAttribute("USERNAME");
+                    if (username == null) {
+                %>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Auction
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">All</a></li>
-                            <li><a class="dropdown-item" href="#">Jewelry</a></li>
-                            <li><a class="dropdown-item" href="#">Gem</a></li>
-                            <li><a class="dropdown-item" href="#">Material</a></li>
-                        </ul>
+                        <a class="nav-link" href="login.jsp">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sell</a>
+                        <a class="nav-link" href="register.jsp">Register</a>
                     </li>
+                <%
+                    } else {
+                %>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+                <%
+                    }
+                %>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
+                    <div id="bell-box" style="display: none;">
+                        <!-- Notifications -->
+                        <button id="notificationButton">Show Notification</button>
+                        <div id="notificationPopup" class="popup">
+                            New message received!
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search for anything" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
+</header>
+<body>
+  
+    
     <main>
         <div class="container light-style flex-grow-1 container-p-y">
             <h4 class="font-weight-bold py-3 mb-4">
@@ -152,15 +143,15 @@
         </div>
     </main>
 
-    <footer class="container align-items-center ">
-        <div class="footer-text--title ">
-            <span class=" ">Jewelry Auction Online</span>
-        </div>
-        <div class="footer-follow--us d-flex align-items-center ">
-            <span class="me-3 fw-bold follow_us--text ">Follow Us</span>
-            <i class="fab fa-facebook-f fa-2x social-icon "></i>
-            <i class="fab fa-twitter fa-2x social-icon ms-4 "></i>
-            <i class="fab fa-instagram fa-2x social-icon ms-4 "></i>
+    <!-- Footer Section -->
+    <footer class="bg-light text-center py-3 mt-auto">
+        <div>
+            <h6>Jewelry Auction</h6>
+            <a href="register.jsp">Register</a> |
+            <a href="login.jsp">Login</a> |
+            <a href="#">Help & FAQ</a> |
+            <a href="#">Support</a> |
+            <a href="#">Sitemap</a>
         </div>
     </footer>
 
