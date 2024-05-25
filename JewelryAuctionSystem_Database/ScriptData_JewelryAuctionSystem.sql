@@ -134,6 +134,7 @@ create table valuation (
 	status bit default 0
 )
 select * from valuation
+delete from valuation
 go
 create trigger autogenerate_valuationId on valuation instead of insert
 as 
@@ -144,19 +145,39 @@ begin
     select @newvaluationId, [name], email, phonenumber, communication, [description], photos, memberId
     from inserted;
 end;
-create table Jewelry (
-	jewelryID varchar(50) not null primary key,
-	categoryID nvarchar(50) not null,
-	jewelryCode nvarchar(50) not null,
-	jewelryName nvarchar(255) not null,
-	artist nvarchar(255),
-	minPrice decimal(18,2) not null,
-	maxPrice decimal(18,2) not null,
-	dimesion nvarchar(255),
-	circa nvarchar(255),
-	valuationId varchar(50),
-	constraint fk_valuationId foreign key (valuationId) references valuation(valuationId)
 
-)
+create sequence jewelryID_sequence
+start with 0
+increment by 1;
+
+CREATE TABLE Jewelry (
+    jewelryID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    categoryID NVARCHAR(50) NOT NULL,
+    categoryName NVARCHAR(50) NOT NULL,
+    jewelryCode AS 'lot' + RIGHT('000000' + CAST(jewelryID AS VARCHAR(6)), 6) PERSISTED,
+    jewelryName NVARCHAR(255),
+    artist NVARCHAR(255),
+    circa NVARCHAR(50),
+    material NVARCHAR(255),
+    dial NVARCHAR(255),
+    braceletMaterial NVARCHAR(255),
+    caseDimensions NVARCHAR(100),
+    braceletSize NVARCHAR(50),
+    serialNumber NVARCHAR(100),
+    referenceNumber NVARCHAR(100),
+    caliber NVARCHAR(100),
+    movement NVARCHAR(100),
+    [condition] NVARCHAR(100),
+    metal NVARCHAR(100),
+    gemstones NVARCHAR(255),
+    measurements NVARCHAR(100),
+    weight DECIMAL(18,2),
+    stamped NVARCHAR(100),
+    ringSize NVARCHAR(50),
+    minPrice DECIMAL(18,2),
+    maxPrice DECIMAL(18,2),
+    valuationId VARCHAR(50),
+    CONSTRAINT fk_valuationId FOREIGN KEY (valuationId) REFERENCES valuation(valuationId)
+);
 
 
