@@ -10,80 +10,82 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Staff</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h3, h2 {
-            color: #4CAF50;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background-color: #fff;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        img {
-            max-width: 100px;
-            max-height: 100px;
-        }
-        .submit-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-    </style>
-    <script>
-        function confirmLogout(event) {
-            if (!confirm("Are you sure you want to log out?")) {
-                event.preventDefault();
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Staff</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                background-color: #f9f9f9;
+                color: #333;
             }
+            h3, h2 {
+                color: #4CAF50;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                background-color: #fff;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            img {
+                max-width: 100px;
+                max-height: 100px;
+            }
+            .submit-btn {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .submit-btn:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <script>
+            function confirmLogout(event) {
+                if (!confirm("Are you sure you want to log out?")) {
+                    event.preventDefault();
+                }
+            }
+        </script>
+    </head>
+    <%
+        String greeting = "day!";
+        try {
+            LocalTime now = LocalTime.now();
+            int hour = now.getHour();
+            if (hour < 12) {
+                greeting = "Morning!";
+            } else if (hour < 17) {
+                greeting = "Afternoon!";
+            } else {
+                greeting = "Night!";
+            }
+        } catch (Exception ex) {
+            ex.getMessage();
         }
-    </script>
-</head>
-<%
-    String greeting = "day!";
-    try {
-        LocalTime now = LocalTime.now();
-        int hour = now.getHour();
-        if (hour < 12) {
-            greeting = "Morning!";
-        } else if (hour < 17) {
-            greeting = "Afternoon!";
-        } else {
-            greeting = "Night!";
-        }
-    } catch (Exception ex) {
-        ex.getMessage();
-    }
-%>
-<body>
-    <h3>Good <%= greeting %> Welcome back, Staff</h3>
-    <form action="${pageContext.request.contextPath}/MainController" method="POST">
-        <input type="submit" name="action" class="submit-btn" value="Valuation Request">
-    </form>
+    %>
+    <body>
+        <h3>Good <%= greeting%> Welcome back, Staff</h3>
+        <form action="${pageContext.request.contextPath}/MainController" method="POST">
+            <input type="submit" name="action" class="submit-btn" value="Valuation Request">
+        </form>
     <br>
     <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
         <input type="submit" name="action" class="submit-btn" value="Log out">
@@ -110,7 +112,10 @@
                 <c:forEach var="val" items="${listValuationRequest}" varStatus="loop" >
                     <tr>
                         <td>${loop.index + 1}</td>
-                        <td><img src="${val.photo}" alt="Photo"></td>
+                        <td>
+                            <c:set var="photoArray" value="${fn:split(val.photo, ';')}" />
+                            <img src="${photoArray[0]}" alt="Photo">
+                        </td>
                         <td>${val.name}</td>
                         <td>${val.email}</td>
                         <td>${val.phone}</td>

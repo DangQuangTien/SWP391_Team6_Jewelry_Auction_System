@@ -49,6 +49,7 @@ public class ValuationRequestServlet extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             String url = ERROR_PAGE;
             boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+            StringBuilder photos = new StringBuilder();
             try {
                 if (!isMultipart) {
                 } else {
@@ -72,11 +73,13 @@ public class ValuationRequestServlet extends HttpServlet {
                                 String itemName = item.getName();
                                 fileName = itemName.substring(itemName.lastIndexOf("\\") + 1);
                                 File imageDir = new File(getServletContext().getRealPath("/") + "images");
+                                
                                 if (!imageDir.exists()) {
                                     imageDir.mkdirs();
                                 }
                                 String RealPath = "E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/images/" + fileName;
                                 File savedFile = new File(RealPath);
+                                photos.append("images/").append(fileName).append(";");
                                 item.write(savedFile);
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -89,16 +92,15 @@ public class ValuationRequestServlet extends HttpServlet {
                     String email = (String) params.get("email");
                     String phone = (String) params.get("phone");
                     String communication = (String) params.get("communication");
-                    String photos = "images/" + fileName;
                     String description = (String) params.get("description");
                     String username = (String) session.getAttribute("USERNAME");
                     UserDAOImpl dao = new UserDAOImpl();
                     try {
                         boolean result;
                         if (username != null) {
-                            result = dao.insertValuationRequest(name, email, phone, communication, photos, description, username);
+                            result = dao.insertValuationRequest(name, email, phone, communication, photos.toString(), description, username);
                         } else {
-                            result = dao.insertValuationRequest(name, email, phone, communication, photos, description, "Guest");
+                            result = dao.insertValuationRequest(name, email, phone, communication, photos.toString(), description, "Guest");
                         }
                         if (result == true) {
                             url = HOME_PAGE;

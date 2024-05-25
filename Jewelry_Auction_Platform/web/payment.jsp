@@ -1,3 +1,5 @@
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +30,7 @@
                         <a class="nav-link" href="seller/valuation.jsp">Sell</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
+                        <a class="nav-link" href="MainController?action=Profile&username="></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>

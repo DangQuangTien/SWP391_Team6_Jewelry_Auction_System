@@ -2,6 +2,8 @@
 <%@page import="entity.product.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%-- 
     Document   : valuation
     Created on : May 23, 2024, 9:20:58 AM
@@ -22,12 +24,19 @@
                     event.preventDefault();
                 }
             }
+            function cancelValuation(event) {
+                if (!confirm("Are you certain you want to candel this appraisal?")) {
+                    event.preventDefault();
+                }
+            }
         </script>
     </head>
     <body>
         <h1>Jewelry Appraisal</h1>
         <%
-            String url = request.getParameter("photoURL");
+            String photos = (String) request.getParameter("photoURL");
+            String[] photoArray = photos.split(";");
+
             ArrayList<Category> listCategory = new ArrayList<>();
             try {
                 UserDAOImpl dao = new UserDAOImpl();
@@ -36,7 +45,14 @@
                 e.printStackTrace();
             }
         %>
-    <img style="width: 200px; height: 200px; display: block; margin: auto;" src="${pageContext.request.contextPath}/<%= url%>"/>
+        <div class="image-grid">
+            <% for (String photo : photoArray) {%>
+            <div class="image-item">
+                <img src="${pageContext.request.contextPath}/<%= photo%>" alt="Photo" class="grid-image">
+            </div>
+            <% } %>
+        </div>
+    <br>
     <form action="${pageContext.request.contextPath}/MainController" onsubmit="confirmValuation(event)">
         <div>
             <label for="category">Category</label>
@@ -46,6 +62,7 @@
                 <% }%>
             </select>
         </div>
+
         <div>
             <label for="jewelryName">Jewelry Name</label>
             <input type="text" id="jewelryName" name="jewelryName" value="">
@@ -101,11 +118,6 @@
                 <label for="condition">Condition</label>
                 <input type="text" id="condition" name="condition" value="">
             </div>
-            <div>
-                <label for="minPrice">Estimate</label>
-                <input type="number" id="minPrice" name="minPrice" placeholder="Min">
-                <input type="number" id="maxPrice" name="maxPrice" placeholder="Max">
-            </div>
         </div>
 
         <div id="braceletFields" class="form-section">
@@ -135,50 +147,21 @@
                 <input type="text" id="braceletStamped" name="stamped" value="">
             </div>
             <div>
-                <label for="braceletMinPrice">Estimate</label>
-                <input type="number" id="braceletMinPrice" name="minPrice" placeholder="Min">
-                <input type="number" id="braceletMaxPrice" name="maxPrice" placeholder="Max">
-            </div>
-        </div>
-
-        <div id="ringFields" class="form-section">
-            <h3>Ring Details</h3>
-            <div>
-                <label for="ringMetal">Metal</label>
-                <input type="text" id="ringMetal" name="metal" value="">
-            </div>
-            <div>
-                <label for="ringGemstones">Gemstone(s)</label>
-                <input type="text" id="ringGemstones" name="gemstones" value="">
-            </div>
-            <div>
-                <label for="ringMeasurements">Measurements</label>
-                <input type="text" id="ringMeasurements" name="measurements" value="">
-            </div>
-            <div>
-                <label for="ringSize">Ring Size</label>
+                <label style="color: red" for="ringSize">Ring Size (for rings)</label>
                 <input type="text" id="ringSize" name="ringSize" value="">
             </div>
-            <div>
-                <label for="ringWeight">Weight</label>
-                <input type="text" id="ringWeight" name="weight" value=""/>
-            </div>
-            <div>
-                <label for="ringCondition">Condition</label>
-                <input type="text" id="ringCondition" name="condition" value="">
-            </div>
-            <div>
-                <label for="ringStamped">Stamped</label>
-                <input type="text" id="ringStamped" name="stamped" value="">
-            </div>
-            <div>
-                <label for="ringMinPrice">Estimate</label>
-                <input type="number" id="ringMinPrice" name="minPrice" placeholder="Min">
-                <input type="number" id="ringMaxPrice" name="maxPrice" placeholder="Max">
-            </div>
+        </div>
+        <div>
+            <label for="Price">Estimate</label>
+            <input type="number" id="minPrice" name="minPrice" placeholder="Min">
+            <input type="number" id="maxPrice" name="maxPrice" placeholder="Max">
         </div>
 
         <input type="submit" value="Submit">
+
+    </form>
+    <form action="${pageContext.request.contextPath}/ProcessValuationRequest" onsubmit="cancelValuation(event)"> 
+        <input style="background-color: red" type="submit" value="Cancel">
     </form>
 </body>
 </html>
