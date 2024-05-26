@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Jewelry_Auction_PlatformPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entity.Role</class>
+    <class>entity.Users</class>
+    <class>entity.Valuation</class>
+    <class>entity.Jewelry</class>
+    <class>entity.Category</class>
+    <class>entity.Address</class>
+    <class>entity.Staff</class>
+    <class>entity.Admin</class>
+    <class>entity.Manager</class>
+    <class>entity.Member1</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost\MSSQL:1433;databaseName=Jewelry_Auction_System;encrypt=true;trustServerCertificate=true"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="12345"/>
+    </properties>
+  </persistence-unit>
+</persistence>

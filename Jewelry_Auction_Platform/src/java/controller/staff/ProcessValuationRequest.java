@@ -5,7 +5,7 @@
 package controller.staff;
 
 import dao.UserDAOImpl;
-import entity.valuation.Valuation;
+import entity.Valuation;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
