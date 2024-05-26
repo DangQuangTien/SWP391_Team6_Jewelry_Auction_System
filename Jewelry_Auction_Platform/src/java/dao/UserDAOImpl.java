@@ -5,8 +5,8 @@
 package dao;
 
 import dto.UserDTO;
-import entity.product.Category;
-import entity.valuation.Valuation;
+import entity.Category;
+import entity.Valuation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +18,7 @@ import utils.DBUtils;
  *
  * @author User
  */
-public class UserDAOImpl implements UserDao {
+public class UserDAOImpl implements UserDAO {
 
     Connection conn = null;
     PreparedStatement ps = null;
@@ -52,14 +52,14 @@ public class UserDAOImpl implements UserDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 Valuation val = new Valuation();
-                val.setValuationID(rs.getString(1));
+                val.setValuationId(rs.getString(1));
                 val.setName(rs.getString(2));
                 val.setEmail(rs.getString(3));
-                val.setPhone(rs.getString(4));
+                val.setPhonenumber(rs.getString(4));
                 val.setCommunication(rs.getString(5));
                 val.setDescription(rs.getString(6));
-                val.setPhoto(rs.getString(7));
-                val.setStatus(rs.getInt(9));
+                val.setPhotos(rs.getString(7));
+                val.setStatus(rs.getBoolean(9));
                 lst.add(val);
             }
             return lst;
