@@ -1,113 +1,81 @@
-<%-- 
-    Document   : admin
-    Created on : May 21, 2024, 2:18:47 PM
-    Author     : User
---%>
+<!DOCTYPE html>
+<html lang="en">
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/styles.css">
+    <title>Admin System</title>
+</head>
 
-            .control-bar {
-                background-color: #333;
-                overflow: hidden;
-            }
-
-            .control-bar ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                display: flex;
-            }
-
-            .control-bar li {
-                flex: 1;
-            }
-
-            .control-bar li a,
-            .control-bar li form input[type="submit"] {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                background: none;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                height: 100%;
-            }
-
-            .control-bar li a:hover,
-            .control-bar li form input[type="submit"]:hover {
-                background-color: #111;
-            }
-
-            .content {
-                padding: 16px;
-            }
-
-            .content h1 {
-                margin-top: 50px;
-            }
-
-        </style>
-        <script>
-            function confirmLogout(event) {
-                if (!confirm("Are you sure you want to log out?")) {
-                    event.preventDefault();
-                }
-            }
-        </script>
-    </head>
-    <body>
-    <nav class="control-bar">
-        <ul>
-            <li><a href="#user-management">User Management</a></li>
-            <li><a href="#role-permission-management">Role and Permission Management</a></li>
-            <li><a href="#monitoring-reporting">Monitoring and Reporting</a></li>
-            <li><a href="#content-management">Content Management</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="#user-support">User Support</a></li>
-            <li><a href="#system-configuration">System Configuration</a></li>
-            <li>
-                <form action="${pageContext.request.contextPath}/MainController" method="GET" onsubmit="confirmLogout(event)">
-                    <input type="submit" name="action" value="Log out">
-                </form>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="content">
-        <h1 id="user-management">User Management</h1>
-        <p>Details about user management...</p>
-
-        <h1 id="role-permission-management">Role and Permission Management</h1>
-        <p>Details about role and permission management...</p>
-
-        <h1 id="monitoring-reporting">Monitoring and Reporting</h1>
-        <p>Details about monitoring and reporting...</p>
-
-        <h1 id="content-management">Content Management</h1>
-        <p>Details about content management...</p>
-
-        <h1 id="security">Security</h1>
-        <p>Details about security...</p>
-
-        <h1 id="user-support">User Support</h1>
-        <p>Details about user support...</p>
-
-        <h1 id="system-configuration">System Configuration</h1>
-        <p>Details about system configuration...</p>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 d-flex flex-column justify-content-between bg-dark min-vh-100">
+                <div class="mt-4">
+                    <a href="" class="text-white d-none d-sm-inline text-decoration-none d-flex align-items-center justify-content-center ms-auto me-auto mx-auto" role="button">
+                        <img src="../images/logo/auction_jewelry.png" width="100" height="100" alt="">
+                    </a>
+                    <hr class="text-white d-none d-sm-block" />
+                    <ul class="nav nav-pills flex-column mt-4 mt-sm-0" id="menu">
+                        <li class="nav-item mb-0 my-sm-0 my-0">
+                            <a class="nav-link text-white" href="admin.jsp" aria-current="page">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span class="ms-2 d-none d-sm-inline">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-0 my-sm-0 my-0">
+                            <a class="nav-link text-white" href="#" aria-current="page">
+                                <i class="fa fa-user"></i>
+                                <span class="ms-2 d-none d-sm-inline">User Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-item disable mb-0 my-sm-0 my-0">
+                            <a class="nav-link text-white" data-bs-toggle="collapse" href="#sidemenu" aria-current="page">
+                                <i class="fa fa-gem"></i>
+                                <span class="ms-2 d-none d-sm-inline">Products</span>
+                                <i class="fa fa-caret-down ms-auto"></i>
+                            </a>
+                            <ul class="nav collapse ms-1 flex-column flex" id="sidemenu" data-bs-parent="#menu ">
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="# " aria-current="page ">Item 1</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="# ">Item 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mb-0 my-sm-0 my-0">
+                            <a class="nav-link text-white " href="# " aria-current="page ">
+                                <i class="fa fa-gavel"></i>
+                                <span class="ms-2 d-none d-sm-inline">Jewelry Management</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="btn border-none outline-none text-white dropdown-toggle " type="button " id="triggerId " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user "></i>
+                        <span class="text-white ms-2 d-none d-sm-inline">Admin</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="triggerId">
+                        <a class="dropdown-item" href="adminProfile.jsp">Profile</a>
+                        <a class="dropdown-item" href="#">Change Password</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <main class="col-9 main-content m-0 p-0">
+                This is Admin Home
+            </main>
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js " integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js " integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+ " crossorigin="anonymous "></script>
 </body>
+
 </html>
