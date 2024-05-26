@@ -15,8 +15,8 @@
         <div class="row">
             <div class="col-2 d-flex flex-column justify-content-between bg-dark min-vh-100">
                 <div class="mt-4">
-                    <a href="" class="text-white d-none d-sm-inline text-decoration-none d-flex align-items-center justify-content-center ms-auto me-auto mx-auto" role="button">
-                        <img src="../images/logo/auction_jewelry.png" width="100" height="100" alt="">
+                    <a href="" class="text-white text-decoration-none d-flex align-items-center justify-content-center sidebar-logo" role="button">
+                        <img src="../images/logo/auction_jewelry.png" alt="Logo">
                     </a>
                     <hr class="text-white d-none d-sm-block" />
                     <ul class="nav nav-pills flex-column mt-4 mt-sm-0" id="menu">
