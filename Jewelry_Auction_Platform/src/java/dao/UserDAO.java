@@ -5,15 +5,15 @@
 package dao;
 
 import dto.UserDTO;
-import entity.product.Category;
-import entity.valuation.Valuation;
+import entity.Category;
+import entity.Valuation;
 import java.util.ArrayList;
 
 /**
  *
  * @author User
  */
-public interface UserDao {
+public interface UserDAO {
 
     UserDTO checkLogin(String username, String password);
     ArrayList<Category> listCategory ();
