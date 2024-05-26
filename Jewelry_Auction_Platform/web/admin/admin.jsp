@@ -67,8 +67,12 @@
                     </div>
                 </div>
             </div>
-            <main class="col-9 main-content m-0 p-0">
-                This is Admin Home
+            <main class="col-10 p-0">
+                <div class="bg-dark w-100">
+                    <div class="title navbar">
+                        <h2 class="text-white">Dashboard Management</h2>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
