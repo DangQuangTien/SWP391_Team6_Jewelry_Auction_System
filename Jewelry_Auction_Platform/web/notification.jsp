@@ -9,43 +9,7 @@
     <link rel="stylesheet" type="text/css" href="component/notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-        .container-fluid {
-            flex-grow: 1;
-        }
-        .notification-item {
-            border-bottom: 1px solid #e9ecef;
-            padding: 10px 0;
-            cursor: pointer;
-        }
-        .notification-item h6 {
-            margin: 0;
-            font-size: 1rem;
-        }
-        .notification-item p {
-            margin: 5px 0;
-            color: #6c757d;
-        }
-        .notification-item small {
-            color: #adb5bd;
-        }
-        .main-content {
-            padding: 20px;
-        }
-        .navbar-brand, .form-inline {
-            flex-grow: 1;
-        }
-        .notification-buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-    </style>
+
 </head>
 <body>
     <!-- Header Section -->
