@@ -13,7 +13,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 d-flex flex-column justify-content-between bg-dark min-vh-100">
+            <div class="col-2 d-flex flex-column justify-content-between bg-dark min-vh-100 sidebar">
                 <div class="mt-4">
                     <a href="" class="text-white text-decoration-none d-flex align-items-center justify-content-center sidebar-logo" role="button">
                         <img src="../images/logo/auction_jewelry.png" alt="Logo">
@@ -55,20 +55,25 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dropdown">
-                    <a class="btn border-none outline-none text-white dropdown-toggle " type="button " id="triggerId " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user "></i>
-                        <span class="text-white ms-2 d-none d-sm-inline">Admin</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <a class="dropdown-item" href="adminProfile.jsp">Profile</a>
-                        <a class="dropdown-item" href="#">Change Password</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+
+            </div>
+            <main class="col-10 main-content m-0 p-0">
+                <div class="bg-dark w-100 d-flex justify-content-between">
+                    <div class="title navbar">
+                        <h2 class="text-white ps-4">Admin Profile</h2>
+                    </div>
+                    <div class="dropdown me-5">
+                        <a class="btn border-none outline-none text-white dropdown-toggle " type="button " id="triggerId " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user "></i>
+                            <h6 class="text-white ms-2 d-none d-sm-inline">Admin</h6>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="adminProfile.jsp">Profile</a>
+                            <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <main class="col-9 main-content m-0 p-0">
-
                 <div class="container light-style flex-grow-1 container-p-y">
                     <h4 class="font-weight-bold py-3 mb-2">
                         Account settings
