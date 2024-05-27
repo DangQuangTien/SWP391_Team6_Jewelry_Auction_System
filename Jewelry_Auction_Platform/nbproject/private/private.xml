@@ -3,7 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Hiii/Desktop/CODE/swp391/system/SWP391_Team6_Jewelry_Auction_System/Jewelry_Auction_Platform/web/staff/valuation.jsp</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/staff/valuation.jsp</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/entity/user/ValuationRequest.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/controller/staff/InsertJewelryController.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/staff/asset/app.js</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/staff/asset/styles.css</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/dto/UserDTO.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/controller/user/MainController.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/dao/UserDao.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/seller/selling.html</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/dao/UserDAOImpl.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/entity/valuation/Valuation.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/seller/response.jsp</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/seller/request.jsp</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/controller/staff/ProcessValuationRequest.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/entity/valuation/Notification.java</file>
+            <file>file:/E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/src/java/controller/user/authentication/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
