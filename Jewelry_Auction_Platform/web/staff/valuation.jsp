@@ -58,7 +58,7 @@
             <label for="category">Category</label>
             <select id="category" name="category" onchange="showFormFields()">
                 <% for (Category category : listCategory) {%>
-                <option value="<%= category.getCategoryName()%>"><%= category.getCategoryName()%></option>
+                <option value="<%= category.getCategoryID()%>"><%= category.getCategoryName()%></option>
                 <% }%>
             </select>
         </div>
@@ -156,9 +156,8 @@
             <input type="number" id="minPrice" name="minPrice" placeholder="Min">
             <input type="number" id="maxPrice" name="maxPrice" placeholder="Max">
         </div>
-
-        <input type="submit" value="Submit">
-
+                <input type="hidden" name="valuationID" value="<%= (String)request.getParameter("valuationID") %>">
+                <input type="submit" name="action" value="Submit">
     </form>
     <form action="${pageContext.request.contextPath}/ProcessValuationRequest" onsubmit="cancelValuation(event)"> 
         <input style="background-color: red" type="submit" value="Cancel">

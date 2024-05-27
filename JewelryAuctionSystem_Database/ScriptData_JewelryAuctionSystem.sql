@@ -145,39 +145,132 @@ begin
     select @newvaluationId, [name], email, phonenumber, communication, [description], photos, memberId
     from inserted;
 end;
-
-create sequence jewelryID_sequence
+--notification
+create sequence notificationId_sequence
 start with 0
 increment by 1;
+create table [Notification](
+	notificationId varchar(50) not null primary key,
+	valuationId varchar(50),
+	content nvarchar(MAX)
+	foreign key (valuationId) references Valuation(valuationID)
+)
+go
+create trigger autogenerate_notificationId on [Notification] instead of insert
+as 
+begin
+	declare @newnotificationId nvarchar(50);
+	set  @newnotificationId = 'No' + cast(next value for notificationId_sequence as nvarchar(50));
+	insert into [Notification] (notificationId, valuationId, content)
+    select @newnotificationId, valuationId, content
+    from inserted;
+end;
+go
+CREATE SEQUENCE jewelryID_sequence
+    AS BIGINT
+    START WITH 1
+    INCREMENT BY 1;
+go
+CREATE TRIGGER autogenerate_jewelryID
+ON Jewelry
+INSTEAD OF INSERT
+AS 
+BEGIN
+    DECLARE @newjewelryID NVARCHAR(50);
 
+    INSERT INTO Jewelry (
+        jewelryID, categoryID, jewelryName, artist, circa, material, dial, braceletMaterial,
+        caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
+    )
+    SELECT 
+        'Lot' + CAST(NEXT VALUE FOR jewelryID_sequence AS NVARCHAR(50)),
+        categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, 
+        caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
+    FROM inserted;
+END;
+go
 CREATE TABLE Jewelry (
-    jewelryID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-    categoryID NVARCHAR(50) NOT NULL,
-    categoryName NVARCHAR(50) NOT NULL,
-    jewelryCode AS 'lot' + RIGHT('000000' + CAST(jewelryID AS VARCHAR(6)), 6) PERSISTED,
-    jewelryName NVARCHAR(255),
+    jewelryID varchar(50) NOT NULL PRIMARY KEY,
+	categoryID NVARCHAR(50),
+    jewelryName NVARCHAR(500),
     artist NVARCHAR(255),
     circa NVARCHAR(50),
-    material NVARCHAR(255),
-    dial NVARCHAR(255),
-    braceletMaterial NVARCHAR(255),
-    caseDimensions NVARCHAR(100),
+    material NVARCHAR(500),
+    dial NVARCHAR(500),
+    braceletMaterial NVARCHAR(500),
+    caseDimensions NVARCHAR(500),
     braceletSize NVARCHAR(50),
-    serialNumber NVARCHAR(100),
-    referenceNumber NVARCHAR(100),
-    caliber NVARCHAR(100),
-    movement NVARCHAR(100),
-    [condition] NVARCHAR(100),
-    metal NVARCHAR(100),
-    gemstones NVARCHAR(255),
-    measurements NVARCHAR(100),
-    weight DECIMAL(18,2),
-    stamped NVARCHAR(100),
+    serialNumber NVARCHAR(255),
+    referenceNumber NVARCHAR(255),
+    caliber NVARCHAR(255),
+    movement NVARCHAR(255),
+    [condition] NVARCHAR(500),
+    metal NVARCHAR(255),
+    gemstones NVARCHAR(500),
+    measurements NVARCHAR(500),
+    [weight] varchar(255),
+    stamped NVARCHAR(255),
     ringSize NVARCHAR(50),
-    minPrice DECIMAL(18,2),
-    maxPrice DECIMAL(18,2),
+    minPrice varchar(255),
+    maxPrice varchar(255),
     valuationId VARCHAR(50),
-    CONSTRAINT fk_valuationId FOREIGN KEY (valuationId) REFERENCES valuation(valuationId)
+    FOREIGN KEY (valuationId) REFERENCES valuation(valuationId),
+	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
+);
+select * from category
+select * from Jewelry j, Valuation v where v.valuationId = j.valuationId and v.memberId = 'Member01';
+select * from valuation
+delete from category where categoryID = 'category10'
+INSERT INTO Jewelry (
+    categoryID,
+    jewelryName,
+    artist,
+    circa,
+    material,
+    dial,
+    braceletMaterial,
+    caseDimensions,
+    braceletSize,
+    serialNumber,
+    referenceNumber,
+    caliber,
+    movement,
+    condition,
+    metal,
+    gemstones,
+    measurements,
+    weight,
+    stamped,
+    ringSize,
+    minPrice,
+    maxPrice,
+    valuationID
+) VALUES (
+    'category9',
+    'BREITLING CHRONOMAT EVOLUTION IN STEEL',
+    'Breitling',
+    '2000s',
+    'Stainless steel',
+    'Slate grey dial with three chronograph sub registers in silver guilloche. Applied Arabic numerals. Date aperture at the "3" hour marker.',
+    'Original Breitling bracelet in steel',
+    '46 mm in diameter',
+    '8 inches',
+    '2538907',
+    'A13356',
+    '7750',
+    'Automatic',
+    'Dial is in excellent condition. Case is excellent, with minor scratches under magnification. Movement is running at time of cataloging. Overall, the present example is in excellent condition.',
+    '', -- metal
+    '', -- gemstones
+    '', -- measurements
+    '', -- weight
+    '', -- stamped
+    '', -- ringSize
+    '4500',
+    '4600',
+    'val14'
 );
 
 

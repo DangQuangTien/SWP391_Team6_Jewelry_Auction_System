@@ -4,8 +4,12 @@
  */
 package controller.staff;
 
+import dao.UserDAOImpl;
+import entity.valuation.Valuation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "InsertJewelryController", urlPatterns = {"/InsertJewelryController"})
 public class InsertJewelryController extends HttpServlet {
+
+    private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
+    private static final String STAFF_PAGE = "/staff/staff.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +39,44 @@ public class InsertJewelryController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet InsertJewelryController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet InsertJewelryController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String url = ERROR_PAGE;
+            String category = request.getParameter("category");
+            String jewelryName = request.getParameter("jewelryName");
+            String artist = request.getParameter("artist");
+            String circa = request.getParameter("circa");
+            String material = request.getParameter("material");
+            String dial = request.getParameter("dial");
+            String braceletMaterial = request.getParameter("braceletMaterial");
+            String caseDimensions = request.getParameter("caseDimensions");
+            String braceletSize = request.getParameter("braceletSize");
+            String serialNumber = request.getParameter("serialNumber");
+            String referenceNumber = request.getParameter("referenceNumber");
+            String caliber = request.getParameter("caliber");
+            String movement = request.getParameter("movement");
+            String condition = request.getParameter("condition");
+            String metal = request.getParameter("metal");
+            String gemstones = request.getParameter("gemstones");
+            String measurements = request.getParameter("measurements");
+            String weight = request.getParameter("weight");
+            String stamped = request.getParameter("stamped");
+            String ringSize = request.getParameter("ringSize");
+            String minPrice = request.getParameter("minPrice");
+            String maxPrice = request.getParameter("maxPrice");
+            String valuationID = request.getParameter("valuationID");
+            UserDAOImpl dao = new UserDAOImpl();
+            try {
+                boolean result = dao.insertJewelry(category, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, condition, metal, gemstones, measurements, weight, stamped, ringSize, minPrice, maxPrice, valuationID);
+                if (result) {
+                    url = STAFF_PAGE;
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace(); // Print the stack trace for debugging
+                // Handle the exception appropriately, such as logging it
+            } finally {
+                RequestDispatcher dist = request.getRequestDispatcher(url);
+                dist.forward(request, response);
+            }
+
         }
     }
 
