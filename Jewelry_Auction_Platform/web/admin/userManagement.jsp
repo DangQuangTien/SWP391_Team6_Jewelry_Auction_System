@@ -91,7 +91,9 @@
                                 <tr>
                                     <th>User ID</th>
                                     <th>Name</th>
+                                    <th>Phone</th>
                                     <th>Email Address</th>
+                                    <th>Address</th>
                                     <th>Role</th>
                                 </tr>
                             </thead>
@@ -99,49 +101,65 @@
                                 <tr>
                                     <td>39281813</td>
                                     <td>Lenny Phillips</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Staff</td>
                                 </tr>
                                 <tr>
                                     <td>12939312</td>
                                     <td>Cillian Gallagher</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Customer</td>
                                 </tr>
                                 <tr>
                                     <td>93829323</td>
                                     <td>Zain Stone</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Staff</td>
                                 </tr>
                                 <tr>
                                     <td>83272832</td>
                                     <td>Ben Thompson</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Admin</td>
                                 </tr>
                                 <tr>
                                     <td>26372838</td>
                                     <td>Elias Cox</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Customer</td>
                                 </tr>
                                 <tr>
                                     <td>62736232</td>
                                     <td>Roman Houghton</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Customer</td>
                                 </tr>
                                 <tr>
                                     <td>09283923</td>
                                     <td>Maximilian Chapman</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Staff</td>
                                 </tr>
                                 <tr>
                                     <td>59382932</td>
                                     <td>Henry Cavill</td>
+                                    <td>0123456789</td>
                                     <td>xxxx@gmail.com</td>
+                                    <td>Quận 9, Thành phố Hồ Chí Minh</td>
                                     <td>Staff</td>
                                 </tr>
                             </tbody>
