@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0">
-                            <a class="nav-link text-white" href="#" aria-current="page">
+                            <a class="nav-link text-white" href="userManagement.jsp" aria-current="page">
                                 <i class="fa fa-user"></i>
                                 <span class="ms-2 d-none d-sm-inline">User Management</span>
                             </a>
