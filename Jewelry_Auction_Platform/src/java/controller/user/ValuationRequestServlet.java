@@ -78,6 +78,7 @@ public class ValuationRequestServlet extends HttpServlet {
                                     imageDir.mkdirs();
                                 }
                                 String RealPath = "E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/images/" + fileName;
+                                //E:/Project/SWP391_Team6_Jewelry_Auction_System-main/Jewelry_Auction_Platform/web/images/
                                 File savedFile = new File(RealPath);
                                 photos.append("images/").append(fileName).append(";");
                                 item.write(savedFile);

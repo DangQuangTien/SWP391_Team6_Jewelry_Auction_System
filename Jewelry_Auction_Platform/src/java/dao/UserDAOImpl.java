@@ -7,6 +7,7 @@ package dao;
 import dto.UserDTO;
 import entity.product.Category;
 import entity.product.Jewelry;
+import entity.request_shipment.RequestShipment;
 import entity.valuation.Valuation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -61,7 +62,8 @@ public class UserDAOImpl implements UserDao {
                 val.setCommunication(rs.getString(5));
                 val.setDescription(rs.getString(6));
                 val.setPhoto(rs.getString(7));
-                val.setStatus(rs.getInt(9));
+                val.setStatus_evaluate(rs.getInt(9));
+                val.setStatus_shipment(rs.getInt(10));
                 lst.add(val);
             }
             return lst;
@@ -203,6 +205,50 @@ public class UserDAOImpl implements UserDao {
             ex.printStackTrace();
         }
         return jewelryList;
+    }
+
+    @Override
+    public List<RequestShipment> displayRequestShipment(String userID) {
+        String query = "select n.notificationID, n.content from Notification n, Valuation v, Users u, Member m where u.userID = ? and n.valuationID = v.valuationID and u.userID = m.userID";
+        List<RequestShipment> listRequestShipment = new ArrayList<>();
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, userID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                RequestShipment request = new RequestShipment();
+                request.setId(rs.getString(1));
+                request.setContent(rs.getString(2));
+                listRequestShipment.add(request);
+            }
+            return listRequestShipment;
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return null;
+    }
+
+    @Override
+    public boolean requestShipment(String valuationID, String content) {
+        String query = "Insert Into Notification (valuationID, content) values (?, ?);";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, valuationID);
+            ps.setString(2, content);
+            int result = ps.executeUpdate();
+            return result > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean confirmReceipt(String valuationID) {
+        return false;
     }
 
 }
