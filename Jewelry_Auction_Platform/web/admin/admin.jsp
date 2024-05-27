@@ -32,20 +32,11 @@
                                 <span class="ms-2 d-none d-sm-inline">User Management</span>
                             </a>
                         </li>
-                        <li class="nav-item disable mb-0 my-sm-0 my-0">
-                            <a class="nav-link text-white" data-bs-toggle="collapse" href="#sidemenu" aria-current="page">
-                                <i class="fa fa-gem"></i>
-                                <span class="ms-2 d-none d-sm-inline">Products</span>
-                                <i class="fa fa-caret-down ms-auto"></i>
+                        <li class="nav-item mb-0 my-sm-0 my-0 ">
+                            <a class="nav-link text-white " href="# " aria-current="page ">
+                                <i class="fa fa-user "></i>
+                                <span class="ms-2 d-none d-sm-inline ">Products</span>
                             </a>
-                            <ul class="nav collapse ms-1 flex-column flex" id="sidemenu" data-bs-parent="#menu ">
-                                <li class="nav-item ">
-                                    <a class="nav-link " href="# " aria-current="page ">Item 1</a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link " href="# ">Item 2</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0">
                             <a class="nav-link text-white " href="# " aria-current="page ">
