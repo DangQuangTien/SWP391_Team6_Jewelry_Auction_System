@@ -1,28 +1,27 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f2f2f2; /* Light background color */
+    background-color: #f2f2f2;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333; /* Darker text color */
+    color: #333;
 }
 
 form {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ddd; /* Light border color */
+    border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #fff; /* White background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 form div {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 label {
@@ -32,18 +31,18 @@ label {
 }
 
 input[type="text"], input[type="number"], select {
-    width: calc(100% - 16px);
-    padding: 10px;
-    border: 1px solid #ccc; /* Light border color */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 10px;
-    transition: border-color 0.3s ease; /* Smooth transition */
+    transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="number"]:focus, select:focus {
     outline: none;
-    border-color: #4CAF50; /* Focus border color */
+    border-color: #4CAF50;
 }
 
 input[type="submit"] {
@@ -54,11 +53,11 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049; /* Darker hover color */
+    background-color: #45a049;
 }
 
 .form-section {
@@ -69,6 +68,7 @@ input[type="submit"]:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 20px;
+    margin-bottom: 20px;
 }
 
 .image-item {
@@ -84,10 +84,16 @@ input[type="submit"]:hover {
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: transform 0.3s ease; /* Smooth transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .grid-image:hover {
-    transform: scale(1.5); /* Scale up on hover */
+    transform: scale(1.5);
 }
+
+.estimate-group {
+    display: flex;
+    gap: 10px;
+}
+
