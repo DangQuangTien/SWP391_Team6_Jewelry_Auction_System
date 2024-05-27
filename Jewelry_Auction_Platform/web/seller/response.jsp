@@ -13,6 +13,48 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Notification</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                color: #333;
+            }
+            h1 {
+                text-align: center;
+                color: #444;
+                margin-top: 20px;
+            }
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+                color: #333;
+                font-weight: bold;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+            p {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 1.2em;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -24,7 +66,7 @@
         <%
             if (listJewelry != null && !listJewelry.isEmpty()) {
         %>
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>Jewelry ID</th>
