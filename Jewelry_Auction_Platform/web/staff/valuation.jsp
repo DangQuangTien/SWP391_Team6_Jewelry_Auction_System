@@ -16,7 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Valuation Form</title>
-        <link rel="stylesheet" type="text/css" href="asset/styles.css">
+        
         <script type="text/javascript" src="asset/app.js"></script>
         <script>
             function confirmValuation(event) {
@@ -32,6 +32,7 @@
         </script>   
     <link rel="stylesheet" type="text/css" href="component/header.css">
     <link rel="stylesheet" type="text/css" href="component/footer.css">
+    <link rel="stylesheet" type="text/css" href="asset/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
