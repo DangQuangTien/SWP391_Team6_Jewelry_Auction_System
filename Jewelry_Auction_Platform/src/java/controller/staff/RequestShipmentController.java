@@ -5,10 +5,8 @@
 package controller.staff;
 
 import dao.UserDAOImpl;
-import entity.valuation.Valuation;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "InsertJewelryController", urlPatterns = {"/InsertJewelryController"})
-public class InsertJewelryController extends HttpServlet {
+@WebServlet(name = "RequestShipmentController", urlPatterns = {"/RequestShipmentController"})
+public class RequestShipmentController extends HttpServlet {
 
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
     private static final String STAFF_PAGE = "ProcessValuationRequest";
@@ -40,42 +38,48 @@ public class InsertJewelryController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             String url = ERROR_PAGE;
-            String category = request.getParameter("category");
-            String jewelryName = request.getParameter("jewelryName");
-            String artist = request.getParameter("artist");
-            String circa = request.getParameter("circa");
-            String material = request.getParameter("material");
-            String dial = request.getParameter("dial");
-            String braceletMaterial = request.getParameter("braceletMaterial");
-            String caseDimensions = request.getParameter("caseDimensions");
-            String braceletSize = request.getParameter("braceletSize");
-            String serialNumber = request.getParameter("serialNumber");
-            String referenceNumber = request.getParameter("referenceNumber");
-            String caliber = request.getParameter("caliber");
-            String movement = request.getParameter("movement");
-            String condition = request.getParameter("condition");
-            String metal = request.getParameter("metal");
-            String gemstones = request.getParameter("gemstones");
-            String measurements = request.getParameter("measurements");
-            String weight = request.getParameter("weight");
-            String stamped = request.getParameter("stamped");
-            String ringSize = request.getParameter("ringSize");
-            String minPrice = request.getParameter("minPrice");
-            String maxPrice = request.getParameter("maxPrice");
             String valuationID = request.getParameter("valuationID");
-            UserDAOImpl dao = new UserDAOImpl();
+            String name = request.getParameter("name");
+            String content = "<div class=\"container\">\n"
+                    + "<h1>Dear " + name + ",</h1>\n"
+                    + "<p>We appreciate your recent purchase of jewelry from our store. To ensure a smooth delivery process, please follow these instructions:</p>\n"
+                    + "<ul>\n"
+                    + "<li>\n"
+                    + "<strong>Ship To:</strong>\n"
+                    + "<br>[Your Company Name]\n"
+                    + "<br>[Your Address]\n"
+                    + "<br>[City, State, ZIP Code]\n"
+                    + "</li>\n"
+                    + "<li>\n"
+                    + "<strong>Shipping Instructions:</strong>\n"
+                    + "<br>- Securely package the jewelry in a padded box or envelope.\n"
+                    + "<br>- Use bubble wrap or tissue paper for protection.\n"
+                    + "<br>- Choose your preferred shipping method.\n"
+                    + "<br>- Insure valuable items and obtain a tracking number.\n"
+                    + "<br>- Include a copy of your purchase receipt or invoice.\n"
+                    + "<br>- Provide your phone number and email address.\n"
+                    + "<br>- We'll cover the shipping costs if applicable.\n"
+                    + "</li>\n"
+                    + "</ul>\n"
+                    + "<p>Once packaged, no need to reply to this email. We'll keep you updated on the delivery status. Thank you for choosing our store.</p>\n"
+                    + "<p>Best regards,<br>\n"
+                    + "[Your Name]<br>\n"
+                    + "[Your Title]<br>\n"
+                    + "[Your Company Name]<br>\n"
+                    + "[Contact Information]</p>\n"
+                    + "</div>";
+
             try {
-                boolean result = dao.insertJewelry(category, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, condition, metal, gemstones, measurements, weight, stamped, ringSize, minPrice, maxPrice, valuationID);
+                UserDAOImpl dao = new UserDAOImpl();
+                boolean result = dao.requestShipment(valuationID, content);
                 if (result) {
                     url = STAFF_PAGE;
                 }
             } catch (Exception ex) {
-                ex.printStackTrace(); // Print the stack trace for debugging
-                // Handle the exception appropriately, such as logging it
+                ex.getMessage();
             } finally {
                 response.sendRedirect(url);
             }
-
         }
     }
 

@@ -7,6 +7,7 @@ package dao;
 import dto.UserDTO;
 import entity.product.Category;
 import entity.product.Jewelry;
+import entity.request_shipment.RequestShipment;
 import entity.valuation.Valuation;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +32,7 @@ public interface UserDao {
                              String ringSize, String minPrice, String maxPrice, 
                              String valuationID);
     List<Jewelry> getJewelryByUserID(String userID);
-
+    boolean requestShipment(String valuationID, String content);
+    List<RequestShipment> displayRequestShipment(String userID);
+    boolean confirmReceipt(String valuationID);
 }
