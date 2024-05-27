@@ -17,12 +17,13 @@ public class Valuation {
     private String communication;
     private String description;
     private String photo;
-    private int status;
+    private int status_evaluate;
+    private int status_shipment;
 
     public Valuation() {
     }
 
-    public Valuation(String valuationID, String name, String email, String phone, String communication, String description, String photo, int status) {
+    public Valuation(String valuationID, String name, String email, String phone, String communication, String description, String photo, int status_evaluate, int status_shipment) {
         this.valuationID = valuationID;
         this.name = name;
         this.email = email;
@@ -30,7 +31,8 @@ public class Valuation {
         this.communication = communication;
         this.description = description;
         this.photo = photo;
-        this.status = status;
+        this.status_evaluate = status_evaluate;
+        this.status_shipment = status_shipment;
     }
 
     public String getValuationID() {
@@ -89,12 +91,20 @@ public class Valuation {
         this.photo = photo;
     }
 
-    public int getStatus() {
-        return status;
+    public int getStatus_evaluate() {
+        return status_evaluate;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatus_evaluate(int status_evaluate) {
+        this.status_evaluate = status_evaluate;
+    }
+
+    public int getStatus_shipment() {
+        return status_shipment;
+    }
+
+    public void setStatus_shipment(int status_shipment) {
+        this.status_shipment = status_shipment;
     }
 
 }

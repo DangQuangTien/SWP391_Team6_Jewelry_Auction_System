@@ -37,3 +37,63 @@ select * from valuation
 
 insert into valuation ([name], email, phonenumber, communication, [description], photos, memberId) values ('Unknown', 'unknown123@gmail.com', '0909091235', 'Text', 'None', 'None', (select m.memberID from Users u, [Member] m where u.userID = m.userID and u.username = ''))
 select * from Users
+select * from category
+select * from Jewelry j, Valuation v,[Member] m where v.valuationId = j.valuationId and m.memberID = v.memberID and m.userID = 'User1' ;
+select * from [Member] where userID = 'User1'
+select * from valuation
+delete from category where categoryID = 'category10'
+INSERT INTO Jewelry (
+    categoryID,
+    jewelryName,
+    artist,
+    circa,
+    material,
+    dial,
+    braceletMaterial,
+    caseDimensions,
+    braceletSize,
+    serialNumber,
+    referenceNumber,
+    caliber,
+    movement,
+    condition,
+    metal,
+    gemstones,
+    measurements,
+    weight,
+    stamped,
+    ringSize,
+    minPrice,
+    maxPrice,
+    valuationID
+) VALUES (
+    'category9',
+    'BREITLING CHRONOMAT EVOLUTION IN STEEL',
+    'Breitling',
+    '2000s',
+    'Stainless steel',
+    'Slate grey dial with three chronograph sub registers in silver guilloche. Applied Arabic numerals. Date aperture at the "3" hour marker.',
+    'Original Breitling bracelet in steel',
+    '46 mm in diameter',
+    '8 inches',
+    '2538907',
+    'A13356',
+    '7750',
+    'Automatic',
+    'Dial is in excellent condition. Case is excellent, with minor scratches under magnification. Movement is running at time of cataloging. Overall, the present example is in excellent condition.',
+    '', -- metal
+    '', -- gemstones
+    '', -- measurements
+    '', -- weight
+    '', -- stamped
+    '', -- ringSize
+    '4500',
+    '4600',
+    'val14'
+);
+select * from jewelry
+SELECT j.*
+FROM Jewelry j
+JOIN Valuation v ON j.valuationID = v.valuationID
+JOIN [Member] m ON v.memberID = m.memberID
+WHERE m.userID = 'User1';
