@@ -10,7 +10,7 @@ function showFormFields() {
     watchFields.style.display = "none";
     braceletFields.style.display = "none";
 
-    if (category === "Watch") {
+    if (category === "category9") {
         watchFields.style.display = "block";
     } else {
         braceletFields.style.display = "block";
