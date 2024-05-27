@@ -18,3 +18,19 @@
     overflow-y: auto;
     max-height: 100%;
 }
+
+.table .text-green {
+    color: white;
+    border: 1px solid #015e18;
+    background-color: #0bbb37;
+    font-weight: bold;
+    width: 50px;
+}
+
+.table .text-red {
+    color: white;
+    border: 1px solid #ff0000;
+    background-color: #e02d2d;
+    font-weight: bold;
+    width: 50px;
+}
