@@ -31,7 +31,7 @@ select * from Staff
 select * from Manager
 select * from Users
 
-insert into valuation ([name], email, phonenumber, communication, [description], photos) values 
+insert into valuation ([name], email, phonenumber, communication, [description], photos, memberId) values 
 ('Unknown', 'unknown123@gmail.com', '0909091234', 'Text', 'None', 'None')
 select * from valuation
 
