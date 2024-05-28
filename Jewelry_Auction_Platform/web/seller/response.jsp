@@ -31,14 +31,26 @@
                 color: #4CAF50;
             }
             table {
-                width: 100%;
+                width: 90%;
+                margin: 20px auto;
                 border-collapse: collapse;
-                margin-bottom: 20px;
-                border: 1px solid #ddd;
                 background-color: #fff;
-                padding: 0;
-                color: #333;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                border: 1px solid #ddd;
             }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                border-right: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                border-top: 1px solid #ddd;
+            }
+
             h1 {
                 text-align: center;
                 color: #444;
@@ -51,14 +63,7 @@
                 background-color: #fff;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             }
-            th, td {
-                padding: 10px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
+
             tr:hover {
                 background-color: #f5f5f5;
             }
@@ -85,6 +90,10 @@
         </style>
     </head>
     <body>
+    <a href="${pageContext.request.contextPath}/home.jsp">Home</a> |
+    <a href="${pageContext.request.contextPath}/Auction.jsp">Auction</a> |
+    <a href="${pageContext.request.contextPath}/seller/selling.html">Sell</a> |
+    <a href="${pageContext.request.contextPath}/bidder/profile.jsp">Profile</a>
         <div class="container">
             <h1>Overall Assessment for your requests</h1>
             <%
@@ -153,9 +162,9 @@
             <p class="no-jewelry">No jewelry found</p>
             <% } %>
             <h1>Request to ship jewelry</h1>
-            <% 
+            <%
                 List<RequestShipment> listRequestShipment = dao.displayRequestShipment(userID);
-                if (listRequestShipment != null && !listRequestShipment.isEmpty()) { 
+                if (listRequestShipment != null && !listRequestShipment.isEmpty()) {
             %>
             <p id="requestMessage" class="no-jewelry">You have a request for shipment. Please click to check.</p>
             <input type="button" class="action-btn" value="View Detail" onclick="toggleRequestShipment()">
@@ -167,12 +176,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% 
+                    <%
                         int i = 1;
-                        for (RequestShipment r : listRequestShipment) { 
+                        for (RequestShipment r : listRequestShipment) {
                     %>
                     <tr>
-                        <td><%= i++ %></td>
+                        <td><%= i++%></td>
                         <td><%= r.getContent()%></td>
                     </tr>
                     <% } %>
@@ -180,7 +189,7 @@
             </table>
             <% } else { %>
             <p class="no-jewelry">There is no request shipment</p>
-            <% } %>
+            <% }%>
         </div>
         <script>
             function toggleRequestShipment() {
