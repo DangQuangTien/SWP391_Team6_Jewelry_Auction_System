@@ -308,18 +308,63 @@
         <title>Notification</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        
         <style>
-            body {
+           body {
                 font-family: Arial, sans-serif;
-                background-color: #f2ecec;
-                padding-top: 20px;
+                margin: 0;
+                padding: 20px;
+                background-color: #f7f7f7;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #4CAF50;
+            }
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                border: 1px solid #ddd;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                border-right: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                border-top: 1px solid #ddd;
+            }
+
+            h1 {
+                text-align: center;
+                color: #444;
+                margin-top: 20px;
+            }
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            tr:hover {
+                background-color: #f5f5f5;
             }
             .no-jewelry {
                 text-align: center;
                 font-style: italic;
                 color: #888;
-                margin-top: 20px;
             }
             .action-btn {
                 background-color: #4CAF50;
@@ -336,13 +381,9 @@
             .hidden {
                 display: none;
             }
-            .navbar-nav .nav-link, .navbar-brand {
-                color: black !important;
-            }
         </style>
     </head>
     <body>
-<<<<<<< HEAD
     <a href="${pageContext.request.contextPath}/home.jsp">Home</a> |
     <a href="${pageContext.request.contextPath}/Auction.jsp">Auction</a> |
     <a href="${pageContext.request.contextPath}/seller/selling.html">Sell</a> |
@@ -466,6 +507,7 @@
     </script>
 </body>
 </html>
+<<<<<<< HEAD
 >>>>>>> 290e9fd (Some features)
 =======
         <header>
@@ -611,3 +653,5 @@
     </body>
 </html>
 >>>>>>> d343842 (modified:   Jewelry_Auction_Platform/web/seller/request.jsp)
+=======
+>>>>>>> 38dd614 (modify response page)
