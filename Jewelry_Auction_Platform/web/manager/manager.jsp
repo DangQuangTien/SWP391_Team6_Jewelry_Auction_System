@@ -4,6 +4,11 @@
     Author     : User
 --%>
 
+<%@page import="entity.product.Jewelry"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.UserDAOImpl"%>
+<%@page import="java.time.LocalTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
 <html>
@@ -17,11 +22,172 @@
                 }
             }
         </script>
+        <style>
+            h3 {
+                font-size: 2em;
+                color: #4CAF50;
+                text-align: center;
+                padding: 20px;
+                border-radius: 10px;
+                background: linear-gradient(135deg, #ff6f91, #ff9671, #ffc75f, #f9f871, #d65db1, #845ec2, #2c73d2, #0081cf, #0089ba, #008e9b, #00c9a7);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                animation: wave 3s linear infinite;
+            }
+
+            @keyframes wave {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                25% {
+                    transform: translateY(-5px);
+                }
+                50% {
+                    transform: translateY(0);
+                }
+                75% {
+                    transform: translateY(5px);
+                }
+            }
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                border: 1px solid #ddd;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                border-right: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                border-top: 1px solid #ddd;
+            }
+             tr:hover {
+                background-color: #f5f5f5;
+            }
+
+            .submit-btn {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .submit-btn:hover {
+                background-color: #45a049;
+            }
+            
+            .action-btn {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .action-btn:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
+    <%
+        String greeting = "day!";
+        try {
+            LocalTime now = LocalTime.now();
+            int hour = now.getHour();
+            if (hour < 12) {
+                greeting = "Morning!";
+            } else if (hour < 17) {
+                greeting = "Afternoon!";
+            } else {
+                greeting = "Evening!";
+            }
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+    %>
     <body>
-        <h1>Welcome back Manager</h1>
+        <h3>Good <%= greeting%> Welcome back, Manager</h3>
     </body>
     <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
-        <input type="submit" name="action" value="Log out">
+        <input type="submit" name="action" class="submit-btn" value="Log out">
+        <%
+            UserDAOImpl dao = new UserDAOImpl();
+            List<Jewelry> listJewelry = dao.displayAllJewelry();
+            if (listJewelry != null && !listJewelry.isEmpty()) {
+        %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Jewelry Name</th>
+                    <th>Artist</th>
+                    <th>Circa</th>
+                    <th>Material</th>
+                    <th>Dial</th>
+                    <th>Bracelet Material</th>
+                    <th>Case Dimensions</th>
+                    <th>Bracelet Size</th>
+                    <th>Serial Number</th>
+                    <th>Reference Number</th>
+                    <th>Caliber</th>
+                    <th>Movement</th>
+                    <th>Condition</th>
+                    <th>Metal</th>
+                    <th>Gemstones</th>
+                    <th>Measurements</th>
+                    <th>Weight</th>
+                    <th>Stamped</th>
+                    <th>Ring Size</th>
+                    <th>Min Price</th>
+                    <th>Max Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (Jewelry jewelry : listJewelry) {%>
+                <tr>
+                    <% String[] photoArray = jewelry.getPhotos().split(";");%>
+                    <td><img style="width: 200px; height: 200px" src="${pageContext.request.contextPath}/<%= photoArray[0]%>"></td>
+                    <td><%= jewelry.getJewelryName()%></td>
+                    <td><%= jewelry.getArtist()%></td>
+                    <td><%= jewelry.getCirca()%></td>
+                    <td><%= jewelry.getMaterial()%></td>
+                    <td><%= jewelry.getDial()%></td>
+                    <td><%= jewelry.getBraceletMaterial()%></td>
+                    <td><%= jewelry.getCaseDimensions()%></td>
+                    <td><%= jewelry.getBraceletSize()%></td>
+                    <td><%= jewelry.getSerialNumber()%></td>
+                    <td><%= jewelry.getReferenceNumber()%></td>
+                    <td><%= jewelry.getCaliber()%></td>
+                    <td><%= jewelry.getMovement()%></td>
+                    <td><%= jewelry.getCondition()%></td>
+                    <td><%= jewelry.getMetal()%></td>
+                    <td><%= jewelry.getGemstones()%></td>
+                    <td><%= jewelry.getMeasurements()%></td>
+                    <td><%= jewelry.getWeight()%></td>
+                    <td><%= jewelry.getStamped()%></td>
+                    <td><%= jewelry.getRingSize()%></td>
+                    <td><%= jewelry.getMinPrice()%></td>
+                    <td><%= jewelry.getMaxPrice()%></td>
+                    <td><input type="button" class="action-btn" value="Confirm"></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p class="no-jewelry">No jewelry found</p>
+        <% }%>
     </form>
 </html>
