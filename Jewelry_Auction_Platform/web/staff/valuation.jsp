@@ -29,52 +29,12 @@
                     window.location.href = "${pageContext.request.contextPath}/ProcessValuationRequest";
                 }
             }
-
-
         </script>   
         <link rel="stylesheet" type="text/css" href="component/header.css">
         <link rel="stylesheet" type="text/css" href="component/footer.css">
         <link rel="stylesheet" type="text/css" href="asset/styles.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <style>
-            .submit-btn,
-            .cancel-btn {
-                padding: 10px 20px;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
-                width: 100%;
-                display: inline-block;
-                text-align: center;
-                box-sizing: border-box;
-                margin-right: 4%;
-            }
-
-            .submit-btn {
-                background-color: #007bff;
-                color: white;
-            }
-
-            .cancel-btn {
-                background-color: red;
-                color: white;
-            }
-
-            .submit-btn:hover,
-            .cancel-btn:hover {
-                filter: brightness(0.8);
-            }
-
-            /* Clearfix cho các nút */
-            .row::after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-        </style>
     </head>
     <body>
 
