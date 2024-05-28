@@ -16,7 +16,7 @@
 <body>
     <!-- Header Section -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Jewelry Auctions</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -125,7 +125,7 @@
     <div class="pagination"></div>
 
     <!-- Footer Section -->
-    <footer class="text-center py-3 mt-auto">
+    <footer class="bg-light text-center py-3 mt-auto">
         <div>
             <h6>Jewelry Auction</h6>
             <a href="register.jsp">Register</a> |
