@@ -173,56 +173,59 @@
     </main>
 
     <!-- START OF FOOTER -->
-    <footer class="text-center py-3 mt-20">
-        <div>
-            <h6>Jewelry Auction</h6>
-            <a href="register.jsp">Register</a> |
-            <a href="login.jsp">Login</a> |
-            <a href="#">Help & FAQ</a> |
-            <a href="#">Support</a> |
-            <a href="#">Sitemap</a>
-        </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script>
-        angular.module('valuationApp', [])
-            .controller('ValuationController', ['$scope', function($scope) {
-                $scope.user = {};
-                $scope.files = [];
+    <<<<<<< HEAD <footer class="text-center py-3 mt-20">
+        =======
+        <footer class="text-center py-3 mt-auto">
+            >>>>>>> d76c258 (home edit)
+            <div>
+                <h6>Jewelry Auction</h6>
+                <a href="register.jsp">Register</a> |
+                <a href="login.jsp">Login</a> |
+                <a href="#">Help & FAQ</a> |
+                <a href="#">Support</a> |
+                <a href="#">Sitemap</a>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script>
+            angular.module('valuationApp', [])
+                .controller('ValuationController', ['$scope', function($scope) {
+                    $scope.user = {};
+                    $scope.files = [];
 
-                $scope.handleFileSelect = function(element) {
-                    $scope.$apply(function() {
-                        for (var i = 0; i < element.files.length; i++) {
-                            let file = element.files[i];
-                            let reader = new FileReader();
+                    $scope.handleFileSelect = function(element) {
+                        $scope.$apply(function() {
+                            for (var i = 0; i < element.files.length; i++) {
+                                let file = element.files[i];
+                                let reader = new FileReader();
 
-                            reader.onload = (function(file) {
-                                return function(e) {
-                                    $scope.$apply(function() {
-                                        $scope.files.push({
-                                            name: file.name,
-                                            url: e.target.result
+                                reader.onload = (function(file) {
+                                    return function(e) {
+                                        $scope.$apply(function() {
+                                            $scope.files.push({
+                                                name: file.name,
+                                                url: e.target.result
+                                            });
                                         });
-                                    });
-                                };
-                            })(file);
+                                    };
+                                })(file);
 
-                            reader.readAsDataURL(file);
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    };
+
+                    $scope.removeFile = function(index) {
+                        $scope.files.splice(index, 1);
+                    };
+
+                    $scope.submitForm = function(isValid) {
+                        if (isValid) {
+                            // Handle form submission
                         }
-                    });
-                };
-
-                $scope.removeFile = function(index) {
-                    $scope.files.splice(index, 1);
-                };
-
-                $scope.submitForm = function(isValid) {
-                    if (isValid) {
-                        // Handle form submission
-                    }
-                };
-            }]);
-    </script>
+                    };
+                }]);
+        </script>
 </body>
 
 </html>
