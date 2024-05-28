@@ -307,4 +307,36 @@ public class UserDAOImpl implements UserDao {
         return listJewelry;
     }
 
+    @Override
+    public boolean confirmToAuction_Manager(String valuationID) {
+        String query = "UPDATE JEWELRY SET STATUSFROMMANAGER = 1 WHERE VALUATIONID = ?";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, valuationID);
+            int result = ps.executeUpdate();
+            return result > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean confirmToAuction_Seller(String valuationID) {
+        String query = "UPDATE JEWELRY SET STATUSFROMSELLER = 1 WHERE VALUATIONID = ?";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, valuationID);
+            int result = ps.executeUpdate();
+            return result > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
+        return false;
+    }
+
 }
