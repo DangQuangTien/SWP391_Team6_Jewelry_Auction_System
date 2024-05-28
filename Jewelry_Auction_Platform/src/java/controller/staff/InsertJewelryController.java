@@ -63,9 +63,10 @@ public class InsertJewelryController extends HttpServlet {
             String minPrice = request.getParameter("minPrice");
             String maxPrice = request.getParameter("maxPrice");
             String valuationID = request.getParameter("valuationID");
+            String photos = request.getParameter("photoURL");
             UserDAOImpl dao = new UserDAOImpl();
             try {
-                boolean result = dao.insertJewelry(category, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, condition, metal, gemstones, measurements, weight, stamped, ringSize, minPrice, maxPrice, valuationID);
+                boolean result = dao.insertJewelry(category, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, condition, metal, gemstones, measurements, weight, stamped, ringSize, minPrice, maxPrice, valuationID, photos);
                 if (result) {
                     url = STAFF_PAGE;
                 }

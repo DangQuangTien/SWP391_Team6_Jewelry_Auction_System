@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entity.product;
+
 /**
  *
  * @author User
  */
 public class Jewelry {
+
     private String jewelryID;
     private String categoryName;
     private String jewelryName;
@@ -32,12 +34,14 @@ public class Jewelry {
     private String minPrice;
     private String maxPrice;
     private String valuationId;
-    private String notificationId;
+    private String status_From_Seller;
+    private String status_From_Manager;
+    private String photos;
 
     public Jewelry() {
     }
 
-    public Jewelry(String jewelryID, String categoryName, String jewelryName, String artist, String circa, String material, String dial, String braceletMaterial, String caseDimensions, String braceletSize, String serialNumber, String referenceNumber, String caliber, String movement, String condition, String metal, String gemstones, String measurements, String weight, String stamped, String ringSize, String minPrice, String maxPrice, String valuationId, String notificationId) {
+    public Jewelry(String jewelryID, String categoryName, String jewelryName, String artist, String circa, String material, String dial, String braceletMaterial, String caseDimensions, String braceletSize, String serialNumber, String referenceNumber, String caliber, String movement, String condition, String metal, String gemstones, String measurements, String weight, String stamped, String ringSize, String minPrice, String maxPrice, String valuationId, String status_From_Seller, String status_From_Manager, String photos) {
         this.jewelryID = jewelryID;
         this.categoryName = categoryName;
         this.jewelryName = jewelryName;
@@ -62,7 +66,9 @@ public class Jewelry {
         this.minPrice = minPrice;
         this.maxPrice = maxPrice;
         this.valuationId = valuationId;
-        this.notificationId = notificationId;
+        this.status_From_Seller = status_From_Seller;
+        this.status_From_Manager = status_From_Manager;
+        this.photos = photos;
     }
 
     public String getJewelryID() {
@@ -257,13 +263,28 @@ public class Jewelry {
         this.valuationId = valuationId;
     }
 
-    public String getNotificationId() {
-        return notificationId;
+    public String getStatus_From_Seller() {
+        return status_From_Seller;
     }
 
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
+    public void setStatus_From_Seller(String status_From_Seller) {
+        this.status_From_Seller = status_From_Seller;
     }
-    
-    
+
+    public String getStatus_From_Manager() {
+        return status_From_Manager;
+    }
+
+    public void setStatus_From_Manager(String status_From_Manager) {
+        this.status_From_Manager = status_From_Manager;
+    }
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
+
 }

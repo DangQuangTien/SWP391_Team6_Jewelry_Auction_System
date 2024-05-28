@@ -111,7 +111,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h2 class="card-title">Fill In The Detail</h2>
-                        <form action="${pageContext.request.contextPath}/MainController" onsubmit="confirmValuation(event)" method="POST">
+                        <form action="${pageContext.request.contextPath}/MainController" onsubmit="confirmValuation(event)" method="GET">
                             <div>
                                 <label for="category">Category</label>
                                 <select id="category" name="category" onchange="showFormFields()">
@@ -219,6 +219,7 @@
                             </div>
 
                             <input type="hidden" name="valuationID" value="<%= (String) request.getParameter("valuationID")%>">
+                            <input type="hidden" name="photoURL" value="<%= (String) request.getParameter("photoURL")%>">
                             <input type="submit" name="action" value="Submit" class="submit-btn">
                             <button type="button" class="cancel-btn" onclick="cancelValuation()">Cancel</button>
                         </form>                    
