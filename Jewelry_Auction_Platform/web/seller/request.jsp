@@ -173,10 +173,8 @@
     </main>
 
     <!-- START OF FOOTER -->
-    <<<<<<< HEAD <footer class="text-center py-3 mt-20">
-        =======
+    <footer class="text-center py-3 mt-20">
         <footer class="text-center py-3 mt-auto">
-            >>>>>>> d76c258 (home edit)
             <div>
                 <h6>Jewelry Auction</h6>
                 <a href="register.jsp">Register</a> |
