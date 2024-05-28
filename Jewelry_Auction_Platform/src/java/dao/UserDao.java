@@ -36,4 +36,6 @@ public interface UserDao {
     List<RequestShipment> displayRequestShipment(String userID);
     boolean confirmReceipt(String valuationID);
     List<Jewelry> displayAllJewelry();
+    boolean confirmToAuction_Manager(String valuationID);
+    boolean confirmToAuction_Seller(String valuationID);
 }
