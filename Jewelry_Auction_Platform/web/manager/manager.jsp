@@ -21,6 +21,11 @@
                     event.preventDefault();
                 }
             }
+            function confirmAuction(event) {
+                if (!confirm("Do you confirm approving this bid?")) {
+                    event.preventDefault();
+                }
+            }
         </script>
         <style>
             h3 {
@@ -70,7 +75,7 @@
                 background-color: #f2f2f2;
                 border-top: 1px solid #ddd;
             }
-             tr:hover {
+            tr:hover {
                 background-color: #f5f5f5;
             }
 
@@ -86,7 +91,7 @@
             .submit-btn:hover {
                 background-color: #45a049;
             }
-            
+
             .action-btn {
                 background-color: #4CAF50;
                 color: white;
@@ -100,6 +105,9 @@
                 background-color: #45a049;
             }
         </style>
+        <script>
+
+        </script>
     </head>
     <%
         String greeting = "day!";
@@ -122,72 +130,86 @@
     </body>
     <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
         <input type="submit" name="action" class="submit-btn" value="Log out">
-        <%
-            UserDAOImpl dao = new UserDAOImpl();
-            List<Jewelry> listJewelry = dao.displayAllJewelry();
-            if (listJewelry != null && !listJewelry.isEmpty()) {
-        %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Photo</th>
-                    <th>Jewelry Name</th>
-                    <th>Artist</th>
-                    <th>Circa</th>
-                    <th>Material</th>
-                    <th>Dial</th>
-                    <th>Bracelet Material</th>
-                    <th>Case Dimensions</th>
-                    <th>Bracelet Size</th>
-                    <th>Serial Number</th>
-                    <th>Reference Number</th>
-                    <th>Caliber</th>
-                    <th>Movement</th>
-                    <th>Condition</th>
-                    <th>Metal</th>
-                    <th>Gemstones</th>
-                    <th>Measurements</th>
-                    <th>Weight</th>
-                    <th>Stamped</th>
-                    <th>Ring Size</th>
-                    <th>Min Price</th>
-                    <th>Max Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (Jewelry jewelry : listJewelry) {%>
-                <tr>
-                    <% String[] photoArray = jewelry.getPhotos().split(";");%>
-                    <td><img style="width: 200px; height: 200px" src="${pageContext.request.contextPath}/<%= photoArray[0]%>"></td>
-                    <td><%= jewelry.getJewelryName()%></td>
-                    <td><%= jewelry.getArtist()%></td>
-                    <td><%= jewelry.getCirca()%></td>
-                    <td><%= jewelry.getMaterial()%></td>
-                    <td><%= jewelry.getDial()%></td>
-                    <td><%= jewelry.getBraceletMaterial()%></td>
-                    <td><%= jewelry.getCaseDimensions()%></td>
-                    <td><%= jewelry.getBraceletSize()%></td>
-                    <td><%= jewelry.getSerialNumber()%></td>
-                    <td><%= jewelry.getReferenceNumber()%></td>
-                    <td><%= jewelry.getCaliber()%></td>
-                    <td><%= jewelry.getMovement()%></td>
-                    <td><%= jewelry.getCondition()%></td>
-                    <td><%= jewelry.getMetal()%></td>
-                    <td><%= jewelry.getGemstones()%></td>
-                    <td><%= jewelry.getMeasurements()%></td>
-                    <td><%= jewelry.getWeight()%></td>
-                    <td><%= jewelry.getStamped()%></td>
-                    <td><%= jewelry.getRingSize()%></td>
-                    <td><%= jewelry.getMinPrice()%></td>
-                    <td><%= jewelry.getMaxPrice()%></td>
-                    <td><input type="button" class="action-btn" value="Confirm"></td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
-        <% } else { %>
-        <p class="no-jewelry">No jewelry found</p>
-        <% }%>
     </form>
+
+    <%
+        UserDAOImpl dao = new UserDAOImpl();
+        List<Jewelry> listJewelry = dao.displayAllJewelry();
+        if (listJewelry != null && !listJewelry.isEmpty()) {
+    %>
+    <table>
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Jewelry Name</th>
+                <th>Artist</th>
+                <th>Circa</th>
+                <th>Material</th>
+                <th>Dial</th>
+                <th>Bracelet Material</th>
+                <th>Case Dimensions</th>
+                <th>Bracelet Size</th>
+                <th>Serial Number</th>
+                <th>Reference Number</th>
+                <th>Caliber</th>
+                <th>Movement</th>
+                <th>Condition</th>
+                <th>Metal</th>
+                <th>Gemstones</th>
+                <th>Measurements</th>
+                <th>Weight</th>
+                <th>Stamped</th>
+                <th>Ring Size</th>
+                <th>Min Price</th>
+                <th>Max Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>                        
+
+            <% for (Jewelry jewelry : listJewelry) {%>
+        <form action="${pageContext.request.contextPath}/MainController" method="GET" onsubmit="confirmAuction(event)">
+            <tr>
+                <% String[] photoArray = jewelry.getPhotos().split(";");%>
+                <td><img style="width: 200px; height: 200px" src="${pageContext.request.contextPath}/<%= photoArray[0]%>"></td>
+                <td><%= jewelry.getJewelryName()%></td>
+                <td><%= jewelry.getArtist()%></td>
+                <td><%= jewelry.getCirca()%></td>
+                <td><%= jewelry.getMaterial()%></td>
+                <td><%= jewelry.getDial()%></td>
+                <td><%= jewelry.getBraceletMaterial()%></td>
+                <td><%= jewelry.getCaseDimensions()%></td>
+                <td><%= jewelry.getBraceletSize()%></td>
+                <td><%= jewelry.getSerialNumber()%></td>
+                <td><%= jewelry.getReferenceNumber()%></td>
+                <td><%= jewelry.getCaliber()%></td>
+                <td><%= jewelry.getMovement()%></td>
+                <td><%= jewelry.getCondition()%></td>
+                <td><%= jewelry.getMetal()%></td>
+                <td><%= jewelry.getGemstones()%></td>
+                <td><%= jewelry.getMeasurements()%></td>
+                <td><%= jewelry.getWeight()%></td>
+                <td><%= jewelry.getStamped()%></td>
+                <td><%= jewelry.getRingSize()%></td>
+                <td><%= jewelry.getMinPrice()%></td>
+                <td><%= jewelry.getMaxPrice()%></td>
+                <% if (!jewelry.getStatus_From_Manager().equals("1")) {%>
+                <td>
+                    <input type="hidden" name="valuationID" value="<%= jewelry.getValuationId()%>">
+                    <input type="submit" class="action-btn"  name="action" value="Confirm to Auction">
+                </td>
+                <%  } else { %>
+                <td style="color: red">Confirmed</td>
+                <% } %>
+            </tr>
+        </form>
+
+        <% } %>
+    </tbody>
+
+</table>
+
+<% } else { %>
+<p class="no-jewelry">No jewelry found</p>
+<% }%>
 </html>

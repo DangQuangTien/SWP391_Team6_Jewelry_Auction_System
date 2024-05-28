@@ -4,6 +4,7 @@
  */
 package controller.user;
 
+import dao.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -17,18 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
+@WebServlet(name = "ConfirmAuctionSellerController", urlPatterns = {"/ConfirmAuctionSellerController"})
+public class ConfirmAuctionSellerController extends HttpServlet {
 
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT_CONTROLLER = "LogoutController";
-    private static final String PROFILE_CONTROLLER = "ProfileController";
-    private static final String PROCESS_VALUATION_CONTROLLER = "ProcessValuationRequest";
-    private static final String INSERT_JEWELRY_CONTROLLER = "InsertJewelryController";
-    private static final String REQUEST_SHIPMENT_CONTROLLER = "RequestShipmentController";
-    private static final String CONFIRM_RECEIPT_CONTROLLER = "ConfirmReceiptController";
-    private static final String CONFIRM_AUCTION_SELLER_CONTROLLER = "ConfirmAuctionSellerController";
-    private static final String CONFIRM_AUCTION_MANAGER_CONTROLLER = "ConfirmAuctionManagerController";
+    private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
+    private static final String USER_PAGE = "/seller/response.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,44 +37,21 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("action");
-            String url = "/WEB-INF/jsp/index.jsp";
-            switch (action) {
-                case "Log in":
-                    url = LOGIN_CONTROLLER;
-                    break;
-                case "Log out":
-                    url = LOGOUT_CONTROLLER;
-                    break;
-                case "Profile":
-                    url = PROFILE_CONTROLLER;
-                    break;
-                case "Sell":
-                    url = "/seller/selling.html";
-                    break;
-                case "Valuation Request":
-                    url = PROCESS_VALUATION_CONTROLLER;
-                    break;
-                case "Submit":
-                    url = INSERT_JEWELRY_CONTROLLER;
-                    break;
-                case "Request to Ship":
-                    url = REQUEST_SHIPMENT_CONTROLLER;
-                    break;
-                case "Confirm Receipt":
-                    url = CONFIRM_RECEIPT_CONTROLLER;
-                    break;
-                case "Confirm":
-                    url = CONFIRM_AUCTION_SELLER_CONTROLLER;
-                    break;
-                case "Confirm to Auction":
-                    url = CONFIRM_AUCTION_MANAGER_CONTROLLER;
-                    break;
-                default:
-                    break;
+            /* TODO output your page here. You may use following sample code. */
+            String url = ERROR_PAGE;
+            String valuationID = request.getParameter("valuationID");
+            try {
+                UserDAOImpl dao = new UserDAOImpl();
+                boolean result = dao.confirmToAuction_Seller(valuationID);
+                if (result) {
+                    url = USER_PAGE;
+                }
+            } catch (Exception ex) {
+                ex.getMessage();
+            } finally {
+                RequestDispatcher dist = request.getRequestDispatcher(url);
+                dist.forward(request, response);
             }
-            RequestDispatcher dist = request.getRequestDispatcher(url);
-            dist.forward(request, response);
         }
     }
 
