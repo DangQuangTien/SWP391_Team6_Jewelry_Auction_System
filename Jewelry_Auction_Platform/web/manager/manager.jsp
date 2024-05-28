@@ -127,7 +127,7 @@
     %>
     <body>
         <h3>Good <%= greeting%> Welcome back, Manager</h3>
-    </body>
+    <a href="auctionManagement.jsp">Auction Management</a><br><br>
     <form action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
         <input type="submit" name="action" class="submit-btn" value="Log out">
     </form>
@@ -212,4 +212,6 @@
 <% } else { %>
 <p class="no-jewelry">No jewelry found</p>
 <% }%>
+</body>
+
 </html>
