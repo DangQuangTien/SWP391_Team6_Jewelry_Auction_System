@@ -97,3 +97,15 @@ FROM Jewelry j
 JOIN Valuation v ON j.valuationID = v.valuationID
 JOIN [Member] m ON v.memberID = m.memberID
 WHERE m.userID = 'User1';
+ALTER TABLE Jewelry
+ADD photos NVARCHAR(MAX);
+select n.notificationID, n.content from Notification n, Valuation v, Users u, Member m where u.userID = 'User1' and n.valuationID = v.valuationID and u.userID = m.userID
+select * from Users
+delete from Notification
+delete from valuation
+delete from Jewelry
+insert into Notification (valuationId, content) values ('val21','Ship to this address');
+SELECT * FROM VALUATION
+select * from Notification
+select * from Jewelry
+UPDATE VALUATION SET STATUS_SHIPMENT = 0 WHERE VALUATIONID = 'VAL35'

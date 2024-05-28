@@ -184,6 +184,8 @@ CREATE SEQUENCE jewelryID_sequence
     START WITH 1
     INCREMENT BY 1;
 go
+DROP TRIGGER IF EXISTS autogenerate_jewelryID;
+go
 CREATE TRIGGER autogenerate_jewelryID
 ON Jewelry
 INSTEAD OF INSERT
@@ -194,13 +196,13 @@ BEGIN
     INSERT INTO Jewelry (
         jewelryID, categoryID, jewelryName, artist, circa, material, dial, braceletMaterial,
         caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
-        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId, photos
     )
     SELECT 
         'Lot' + CAST(NEXT VALUE FOR jewelryID_sequence AS NVARCHAR(50)),
         categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, 
         caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
-        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId, photos
     FROM inserted;
 END;
 go
@@ -234,14 +236,4 @@ CREATE TABLE Jewelry (
     FOREIGN KEY (valuationId) REFERENCES valuation(valuationId),
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
 );
-
-select n.notificationID, n.content, n.status_shipment from Notification n, Valuation v, Users u, Member m where u.userID = 'User1' and n.valuationID = v.valuationID and u.userID = m.userID
-select * from Users
-delete from Notification
-delete from valuation
-delete from Jewelry
-insert into Notification (valuationId, content) values ('val21','Ship to this address');
-SELECT * FROM VALUATION
-select * from Notification
-select * from Jewelry
-Update Jew
+select * from staff
