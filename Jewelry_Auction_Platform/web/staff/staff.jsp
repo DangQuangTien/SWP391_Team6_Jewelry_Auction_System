@@ -190,15 +190,22 @@
                     </td>
                     <td>
                         <div align="center">
-                            <c:if test="${val.status_shipment == 0}">
-                                <form action="${pageContext.request.contextPath}/MainController" method="GET" onsubmit="confirmReceipt(event)">
-                                    <input type="hidden" name="valuationID" value="${val.valuationID}">
-                                    <input type="submit" name="action" class="submit-btn" value="Confirm Receipt">
-                                </form>
-                            </c:if>
-                            <c:if test="${val.status_shipment != 0}">
-                                <input type="submit" class="submit-btn" value="Confirm Receipt" disabled>
-                            </c:if>
+                            <c:choose>
+                                <c:when test="${val.status_shipment == 1}">
+                                    <p style="color: red"> Received </p>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:if test="${val.status_shipment == 0}">
+                                        <form action="${pageContext.request.contextPath}/MainController" method="GET" onsubmit="confirmReceipt(event)">
+                                            <input type="hidden" name="valuationID" value="${val.valuationID}">
+                                            <input type="submit" name="action" class="submit-btn" value="Confirm Receipt">
+                                        </form>
+                                    </c:if>
+                                    <c:if test="${val.status_shipment != 0}">
+                                        <input type="submit" class="submit-btn" value="Confirm Receipt" disabled>
+                                    </c:if>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </td>
                 </tr>
