@@ -163,7 +163,7 @@
 
                     <td>
                         <div align="center">
-                            <form action="${pageContext.request.contextPath}/staff/valuation.jsp">
+                            <form action="${pageContext.request.contextPath}/staff/valuation.jsp" method="POST">
                                 <input type="hidden" name="photoURL" value="${val.photo}">
                                 <input type="hidden" name="valuationID" value="${val.valuationID}">
                                 <c:choose>
