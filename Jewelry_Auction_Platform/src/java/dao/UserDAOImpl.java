@@ -248,6 +248,17 @@ public class UserDAOImpl implements UserDao {
 
     @Override
     public boolean confirmReceipt(String valuationID) {
+        String query = "UPDATE VALUATION SET STATUS_SHIPMENT = 1 WHERE VALUATIONID = ?";
+        try {
+            conn = DBUtils.getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, valuationID);
+            int result = ps.executeUpdate();
+            return result > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getMessage();
+        }
         return false;
     }
 
