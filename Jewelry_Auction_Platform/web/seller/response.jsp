@@ -114,6 +114,7 @@
                 </thead>
                 <tbody>
                     <% for (Jewelry jewelry : listJewelry) {%>
+                    <form action="${pageContext.request.contextPath}/MainController">
                     <tr>
                         <% String[] photoArray = jewelry.getPhotos().split(";");%>
                         <td><img class="img-fluid" src="${pageContext.request.contextPath}/<%= photoArray[0]%>" alt="Jewelry Image"></td>
@@ -145,6 +146,7 @@
                 <td style="color: red">Confirmed</td>
                 <% } %>
                 </tr>
+                 </form>
                 <% } %>
                 </tbody>
             </table>

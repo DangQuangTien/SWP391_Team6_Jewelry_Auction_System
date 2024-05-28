@@ -32,7 +32,7 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/Auction.jsp">Auction</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="seller/selling.html">Sell</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/seller/selling.html">Sell</a>
                         </li>
                         <!-- JSTL Conditional Rendering -->
                         <c:choose>
