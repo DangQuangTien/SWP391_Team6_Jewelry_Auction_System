@@ -30,9 +30,10 @@ public interface UserDao {
                              String condition, String metal, String gemstones, 
                              String measurements, String weight, String stamped, 
                              String ringSize, String minPrice, String maxPrice, 
-                             String valuationID);
+                             String valuationID, String photos);
     List<Jewelry> getJewelryByUserID(String userID);
     boolean requestShipment(String valuationID, String content);
     List<RequestShipment> displayRequestShipment(String userID);
     boolean confirmReceipt(String valuationID);
+    List<Jewelry> displayAllJewelry();
 }

@@ -105,6 +105,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Photo</th>
                         <th>Jewelry Name</th>
                         <th>Artist</th>
                         <th>Circa</th>
@@ -132,6 +133,8 @@
                 <tbody>
                     <% for (Jewelry jewelry : listJewelry) {%>
                     <tr>
+                        <% String[] photoArray = jewelry.getPhotos().split(";"); %>
+                        <td><img style="width: 200px; height: 200px" src="${pageContext.request.contextPath}/<%= photoArray[0] %>"></td>
                         <td><%= jewelry.getJewelryName()%></td>
                         <td><%= jewelry.getArtist()%></td>
                         <td><%= jewelry.getCirca()%></td>
