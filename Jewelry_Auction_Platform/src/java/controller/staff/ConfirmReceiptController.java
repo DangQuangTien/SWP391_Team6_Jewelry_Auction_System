@@ -4,6 +4,7 @@
  */
 package controller.staff;
 
+import dao.UserDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,7 +36,19 @@ public class ConfirmReceiptController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            
+            String url = ERROR_PAGE;
+            String valuationID = request.getParameter("valuationID");
+            try {
+                UserDAOImpl dao = new UserDAOImpl();
+                boolean result = dao.confirmReceipt(valuationID);
+                if (result) {
+                    url = STAFF_PAGE;
+                }
+            } catch (Exception ex) {
+                ex.getMessage();
+            } finally {
+                response.sendRedirect(url);
+            }
         }
     }
 
