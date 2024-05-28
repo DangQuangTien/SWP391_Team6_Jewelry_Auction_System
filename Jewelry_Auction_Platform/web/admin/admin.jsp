@@ -27,25 +27,16 @@
                             </a>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0">
-                            <a class="nav-link text-white" href="#" aria-current="page">
+                            <a class="nav-link text-white" href="userManagement.jsp" aria-current="page">
                                 <i class="fa fa-user"></i>
                                 <span class="ms-2 d-none d-sm-inline">User Management</span>
                             </a>
                         </li>
-                        <li class="nav-item disable mb-0 my-sm-0 my-0">
-                            <a class="nav-link text-white" data-bs-toggle="collapse" href="#sidemenu" aria-current="page">
-                                <i class="fa fa-gem"></i>
-                                <span class="ms-2 d-none d-sm-inline">Products</span>
-                                <i class="fa fa-caret-down ms-auto"></i>
+                        <li class="nav-item mb-0 my-sm-0 my-0 ">
+                            <a class="nav-link text-white " href="# " aria-current="page ">
+                                <i class="fa fa-user "></i>
+                                <span class="ms-2 d-none d-sm-inline ">Products</span>
                             </a>
-                            <ul class="nav collapse ms-1 flex-column flex" id="sidemenu" data-bs-parent="#menu ">
-                                <li class="nav-item ">
-                                    <a class="nav-link " href="# " aria-current="page ">Item 1</a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link " href="# ">Item 2</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0">
                             <a class="nav-link text-white " href="# " aria-current="page ">
@@ -74,6 +65,76 @@
                         </div>
                     </div>
                 </div>
+                <div class="container light-style flex-grow-1 container-p-y ">
+                    <h4 class="font-weight-bold py-3 mb-2 ">
+                        List of Users
+                    </h4>
+                    <div class="row my-4">
+
+                        <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-6">
+                            <div class="card">
+                                <h5 class="card-header">Revenue</h5>
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6 mb-4 mb-lg-0">
+                            <div class="card">
+                                <h5 class="card-header">Items Auctioned</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title">345k</h5>
+                                    <p class="card-text">Feb 1 - Apr 1, United States</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mt-5 mb-lg-0 col-lg-6">
+                            <div class="card">
+                                <h5 class="card-header">Numbers of auctions</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title">43</h5>
+                                    <p class="card-text">Feb 1 - Apr 1, United States</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mt-5 mb-lg-0 col-lg-6">
+                            <div class="card">
+                                <h5 class="card-header">Bidder Activity</h5>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">UserID</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Auction</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">39281823</th>
+                                                <td>$ 6500</td>
+                                                <td>12</td>
+                                                <td class="text-green">Active</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">39281345</th>
+                                                <td>$ 3500</td>
+                                                <td>12</td>
+                                                <td class="text-green">Active</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">54281124</th>
+                                                <td>$ 5200</td>
+                                                <td>12</td>
+                                                <td class="text-red">Block</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
     </div>
@@ -81,6 +142,23 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js " integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r " crossorigin="anonymous "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js " integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+ " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('revenueChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'Revenue' + ' ' + '2024',
+                    backgroundColor: 'rgb(16, 235, 31)',
+                    borderColor: 'rgb(16, 235, 31)',
+                    data: [500, 550, 580, 720, 830, 1245, 2260, 1770, 2980, 1290, 2000, 4200]
+                }]
+            },
+            options: {}
+        });
+    </script>
 </body>
 
 </html>

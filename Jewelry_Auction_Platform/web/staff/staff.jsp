@@ -160,7 +160,6 @@
                     <td style="color: ${val.status_evaluate == 1 && val.status_shipment == 1 ? 'green' : 'red'}">
                         ${val.status_evaluate == 1 && val.status_shipment == 1 ? 'Done' : 'Pending...'}
                     </td>
-
                     <td>
                         <div align="center">
                             <form action="${pageContext.request.contextPath}/staff/valuation.jsp">
