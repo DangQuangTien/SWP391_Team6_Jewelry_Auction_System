@@ -20,7 +20,7 @@
         <style>
             body {
                 font-family: Arial, sans-serif;
-                background-color: #f2ecec;
+                background-color: #ffffff;
                 padding-top: 20px;
             }
             .no-jewelry {
