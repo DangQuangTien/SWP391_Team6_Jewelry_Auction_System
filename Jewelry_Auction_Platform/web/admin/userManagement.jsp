@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin User Management</title>
     <link rel="icon" href="../images/logo/auction_jewelry.png">
-    <link rel="icon" href="../images/logo/auction_jewelry.png">
     <link rel="stylesheet" href="./style/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.3.1/css/searchPanes.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/select/2.0.2/css/select.bootstrap5.css">
-    <link rel="stylesheaet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
@@ -37,7 +36,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0 ">
-                            <a class="nav-link text-white " href="# " aria-current="page ">
+                            <a class="nav-link text-white" href="userManagement.jsp" aria-current="page ">
                                 <i class="fa fa-user "></i>
                                 <span class="ms-2 d-none d-sm-inline ">User Management</span>
                             </a>
@@ -49,7 +48,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0 ">
-                            <a class="nav-link text-white " href="# " aria-current="page ">
+                            <a class="nav-link text-white" href="JewelryManagement.jsp" aria-current="page ">
                                 <i class="fa fa-gavel "></i>
                                 <span class="ms-2 d-none d-sm-inline ">Jewelry Management</span>
                             </a>
