@@ -21,25 +21,25 @@
                     </a>
                     <hr class="text-white d-none d-sm-block" />
                     <ul class="nav nav-pills flex-column mt-4 mt-sm-0" id="menu">
-                        <li class="nav-item mb-0 my-sm-0 my-0">
+                        <li class="nav-item mb-0 my-sm-0 my-0" id="dashboard">
                             <a class="nav-link text-white" href="admin.jsp" aria-current="page">
                                 <i class="fas fa-tachometer-alt"></i>
                                 <span class="ms-2 d-none d-sm-inline">Dashboard</span>
                             </a>
                         </li>
                         <li class="nav-item mb-0 my-sm-0 my-0">
-                            <a class="nav-link text-white" href="userManagement.jsp" aria-current="page">
+                            <a class="nav-link text-white" href="userManagement.jsp" aria-current="page" id="userManagement">
                                 <i class="fa fa-user"></i>
                                 <span class="ms-2 d-none d-sm-inline">User Management</span>
                             </a>
                         </li>
-                        <li class="nav-item mb-0 my-sm-0 my-0 ">
-                            <a class="nav-link text-white " href="# " aria-current="page ">
+                        <li class="nav-item mb-0 my-sm-0 my-0" id="products">
+                            <a class="nav-link text-white " href="# " aria-current="page">
                                 <i class="fa fa-user "></i>
                                 <span class="ms-2 d-none d-sm-inline ">Products</span>
                             </a>
                         </li>
-                        <li class="nav-item mb-0 my-sm-0 my-0">
+                        <li class="nav-item mb-0 my-sm-0 my-0" id="JewelryManagement">
                             <a class="nav-link text-white " href="JewelryManagement.jsp" aria-current="page ">
                                 <i class="fa fa-gavel"></i>
                                 <span class="ms-2 d-none d-sm-inline">Jewelry Management</span>
@@ -159,6 +159,17 @@
             },
             options: {}
         });
+        var url = window.location.href;
+        var navItems = document.querySelectorAll('.nav-item');
+
+        navItems.forEach(function(navItem) {
+            navItem.classList.remove('active');
+        });
+        if (url.includes('admin.jsp')) {
+            document.getElementById('dashboard').classList.add('active');
+        } else if (url.includes('userManagement.jsp')) {
+            document.getElementById('userManagement').classList.add('active');
+        }
     </script>
 </body>
 

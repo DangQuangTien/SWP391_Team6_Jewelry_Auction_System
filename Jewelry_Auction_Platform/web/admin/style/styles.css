@@ -2,6 +2,14 @@
     background: #eec6c6;
 }
 
+.nav-item {
+    text-align: left;
+}
+
+.nav-item.active {
+    background-color: #007bff;
+}
+
 .sidebar-logo {
     display: flex;
     justify-content: center;
