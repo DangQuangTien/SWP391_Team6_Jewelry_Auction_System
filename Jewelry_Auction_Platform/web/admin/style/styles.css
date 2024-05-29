@@ -34,3 +34,19 @@
     font-weight: bold;
     width: 50px;
 }
+
+.display .text-received {
+    color: white;
+    border: 1px solid #015e18;
+    background-color: #0bbb37;
+    font-weight: bold;
+    width: 50px;
+}
+
+.display .text-pending {
+    color: white;
+    border: 1px solid #ff6f21;
+    background-color: #ff6f21;
+    font-weight: bold;
+    width: 50px;
+}
