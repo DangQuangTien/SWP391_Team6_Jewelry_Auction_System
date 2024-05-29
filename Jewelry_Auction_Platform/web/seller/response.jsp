@@ -47,6 +47,11 @@
             .navbar-nav .nav-link, .navbar-brand {
                 color: black !important;
             }
+            .container-fluid {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
         </style>
     </head>
     <body>
@@ -75,7 +80,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
         <h1 class="text-center text-success">Overall Assessment for your requests</h1>
         <%
             String userID = (String) session.getAttribute("USERID");
@@ -199,4 +204,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
