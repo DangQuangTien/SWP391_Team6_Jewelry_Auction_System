@@ -75,6 +75,8 @@
                 font-family: Arial, sans-serif;
                 background-color: #ffffff;
                 padding-top: 20px;
+                height: 100%;
+                margin: 0;
             }
             .no-jewelry {
                 text-align: center;
@@ -104,6 +106,11 @@
                 height: 100%;
                 display: flex;
                 flex-direction: column;
+            }
+            .content {
+                flex: 1;
+                overflow-y: auto;
+                padding: 20px;
             }
         </style>
     </head>
