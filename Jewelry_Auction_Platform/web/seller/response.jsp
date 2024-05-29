@@ -1,4 +1,5 @@
 <%@page import="entity.request_shipment.RequestShipment"%>
+<<<<<<< HEAD
     <%@page import="java.util.ArrayList"%>
         <%@page import="java.util.List"%>
             <%@page import="entity.product.Jewelry"%>
@@ -56,6 +57,62 @@
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <a class="navbar-brand" href="#">Jewelry Auctions</a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+=======
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.product.Jewelry"%>
+<%@page import="dao.UserDAOImpl"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Notification</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #ffffff;
+                padding-top: 20px;
+            }
+            .no-jewelry {
+                text-align: center;
+                font-style: italic;
+                color: #888;
+                margin-top: 20px;
+            }
+            .action-btn {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .action-btn:hover {
+                background-color: #45a049;
+            }
+            .hidden {
+                display: none;
+            }
+            .navbar-nav .nav-link, .navbar-brand {
+                color: black !important;
+            }
+            .container-fluid {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Jewelry Auctions</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> 4cceb0e (	modified:   Jewelry_Auction_Platform/web/manager/manager.jsp)
                 <span class="navbar-toggler-icon"></span>
             </button>
                                     <div class="collapse navbar-collapse" id="navbarNav">
@@ -77,9 +134,15 @@
                                 </nav>
                             </header>
 
+<<<<<<< HEAD
                             <div class="container">
                                 <h1 class="text-center text-success">Overall Assessment for your requests</h1>
                                 <%
+=======
+    <div class="container-fluid">
+        <h1 class="text-center text-success">Overall Assessment for your requests</h1>
+        <%
+>>>>>>> 4cceb0e (	modified:   Jewelry_Auction_Platform/web/manager/manager.jsp)
             String userID = (String) session.getAttribute("USERID");
             UserDAOImpl dao = new UserDAOImpl();
             List<Jewelry> listJewelry = dao.getJewelryByUserID(userID);
@@ -234,6 +297,7 @@
                                                     <% }%>
                             </div>
 
+<<<<<<< HEAD
                             <script>
                                 function toggleRequestShipment() {
                                     var requestShipment = document.getElementById("requestShipment");
@@ -450,3 +514,16 @@
 
                             </html>
                             >>>>>>> d343842 (modified: Jewelry_Auction_Platform/web/seller/request.jsp) ======= >>>>>>> 38dd614 (modify response page) ======= >>>>>>> 42ceae8 ( modified: Jewelry_Auction_Platform/web/seller/response.jsp)
+=======
+    <script>
+        function toggleRequestShipment() {
+            var requestShipment = document.getElementById("requestShipment");
+            requestShipment.classList.toggle("hidden");
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+>>>>>>> 4cceb0e (	modified:   Jewelry_Auction_Platform/web/manager/manager.jsp)
