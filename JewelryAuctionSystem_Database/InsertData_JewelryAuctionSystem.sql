@@ -109,3 +109,6 @@ SELECT * FROM VALUATION
 select * from Notification
 select * from Jewelry
 UPDATE VALUATION SET STATUS_SHIPMENT = 0 WHERE VALUATIONID = 'VAL35'
+
+select * from users
+select * from Role
