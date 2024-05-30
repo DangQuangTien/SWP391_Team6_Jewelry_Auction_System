@@ -145,7 +145,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="auctionManagement.jsp">Auction Management</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/manager/auctionManagement.jsp">Auction Management</a>
                         </li>
                     </ul>
                     <form class="form-inline" action="${pageContext.request.contextPath}/MainController" method="POST" onsubmit="confirmLogout(event)">
