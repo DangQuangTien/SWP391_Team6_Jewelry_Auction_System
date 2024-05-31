@@ -81,7 +81,7 @@
 
 .auction-item button {
     display: block;
-    background-color: #4CAF50;
+    background-color: #dc3545;
     color: white;
     font-size: 14px;
     margin-bottom: 5px;
@@ -140,5 +140,6 @@
 }
 
 .pagination button:hover {
-    background-color: #d6a9a9;
+    background-color: #dc3545;
+    color: white;
 }

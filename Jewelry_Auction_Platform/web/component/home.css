@@ -36,6 +36,11 @@
     justify-content: center;
 }
 
+.btn {
+    background-color: #dc3545;
+    color: white;
+}
+
 .slideshow-container {
     display: flex;
     position: relative;
