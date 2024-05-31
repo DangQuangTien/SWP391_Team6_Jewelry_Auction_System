@@ -171,7 +171,7 @@
                                         <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 159234</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                         <h5 class="card-title">14K Rose Gold Full Round Moissanite Diamond Ring</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 294819</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                                         <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 159234</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@
                                         <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 159234</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
