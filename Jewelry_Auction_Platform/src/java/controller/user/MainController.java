@@ -24,6 +24,7 @@ public class MainController extends HttpServlet {
     private static final String LOGOUT_CONTROLLER = "LogoutController";
     private static final String PROFILE_CONTROLLER = "ProfileController";
     private static final String PROCESS_VALUATION_CONTROLLER = "ProcessValuationRequest";
+    private static final String INSERT_JEWELRY_CONTROLLER = "InsertJewelryController";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,6 +56,9 @@ public class MainController extends HttpServlet {
                     break;
                 case "Valuation Request":
                     url = PROCESS_VALUATION_CONTROLLER;
+                    break;
+                    case "Submit":
+                    url = INSERT_JEWELRY_CONTROLLER;
                     break;
                 default:
                     break;

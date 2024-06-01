@@ -86,6 +86,7 @@ public class LoginController extends HttpServlet {
     private void initializeSession(HttpServletRequest request, UserDTO user) {
         HttpSession session = request.getSession(true);
         session.setAttribute("USERNAME", user.getUsername());
+        session.setAttribute("USERID", user.getUserID());
         session.setAttribute("ROLE", user.getRole());
     }
 

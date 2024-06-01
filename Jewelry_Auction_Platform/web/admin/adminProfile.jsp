@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
+    <title>Admin Profile</title>
     <link rel="icon" href="../images/logo/auction_jewelry.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
@@ -52,7 +52,7 @@
             <main class="col-10 main-content m-0 p-0">
                 <div class="bg-dark w-100 d-flex justify-content-between">
                     <div class="title navbar">
-                        <h2 class="text-white ps-4">Admin Dashboard</h2>
+                        <h2 class="text-white ps-4">Admin Profile</h2>
                     </div>
                     <div class="dropdown me-5">
                         <a class="btn border-none outline-none text-white dropdown-toggle " type="button " id="triggerId " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,76 +66,69 @@
                         </div>
                     </div>
                 </div>
-                <div class="container light-style flex-grow-1 container-p-y ">
-                    <h4 class="font-weight-bold py-3 mb-2 ">
-                        List of Users
+                <div class="container light-style flex-grow-1 container-p-y">
+                    <h4 class="font-weight-bold py-3 mb-2">
+                        Account settings
                     </h4>
-                    <div class="row my-4">
-
-                        <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-6">
-                            <div class="card">
-                                <h5 class="card-header">Revenue</h5>
-                                <canvas id="revenueChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6 mb-4 mb-lg-0">
-                            <div class="card">
-                                <h5 class="card-header">Items Auctioned</h5>
-                                <div class="card-body">
-                                    <h5 class="card-title">345k</h5>
-                                    <p class="card-text">Feb 1 - Apr 1, United States</p>
+                    <div class="card overflow-hidden px-4 py-2">
+                        <div class="row no-gutters row-bordered row-border-light">
+                            <div class="col-md-3 pt-0">
+                                <div class="list-group list-group-flush account-settings-links">
+                                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">Info</a>
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-social-links">Social links</a>
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-connections">Connections</a>
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notifications</a>
+                                </div>
+                                <div class="text-right mt-3 ms-4">
+                                    <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
+                                    <button type="button" class="btn btn-default">Cancel</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-6 mt-5 mb-lg-0 col-lg-6">
-                            <div class="card">
-                                <h5 class="card-header">Numbers of auctions</h5>
-                                <div class="card-body">
-                                    <h5 class="card-title">43</h5>
-                                    <p class="card-text">Feb 1 - Apr 1, United States</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 mt-5 mb-lg-0 col-lg-6">
-                            <div class="card">
-                                <h5 class="card-header">Bidder Activity</h5>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">UserID</th>
-                                                <th scope="col">Amount</th>
-                                                <th scope="col">Auction</th>
-                                                <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">39281823</th>
-                                                <td>$ 6500</td>
-                                                <td>12</td>
-                                                <td class="text-green">Active</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">39281345</th>
-                                                <td>$ 3500</td>
-                                                <td>12</td>
-                                                <td class="text-green">Active</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">54281124</th>
-                                                <td>$ 5200</td>
-                                                <td>12</td>
-                                                <td class="text-red">Block</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="col-md-9">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade active show" id="account-general">
+                                        <div class="card-body media align-items-center">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avata" width="100" height="100" class="d-block ui-w-80">
+                                            <div class="media-body">
+                                                <label class="btn btn-outline-primary">
+                                            Upload new photo
+                                            <input type="file" class="account-settings-fileinput">
+                                        </label> &nbsp;
+                                                <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                                <div class="text-black small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
+                                            </div>
+                                        </div>
+                                        <hr class="border-light m-0">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label class="form-label fw-bold mb-2">Username</label>
+                                                <input type="text" class="form-control mb-1" value="thanhtaik17fptu" />
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <label class="form-label fw-bold mb-2">Name</label>
+                                                <input type="text" class="form-control" value="Nguyễn Thành Tài">
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <label class="form-label fw-bold mb-2">E-mail</label>
+                                                <input type="text" class="form-control mb-1" value="thanhtai@mail.com">
+                                                <div class="alert alert-warning mt-3">
+                                                    Your email is not confirmed. Please check your inbox.<br>
+                                                    <a href="javascript:void(0)">Resend confirmation</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <label class="form-label fw-bold mb-2">Company</label>
+                                                <input type="text" class="form-control" value="Company Ltd.">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
     </div>
@@ -143,22 +136,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js " integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r " crossorigin="anonymous "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js " integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+ " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('revenueChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                datasets: [{
-                    label: 'Revenue' + ' ' + '2024',
-                    backgroundColor: 'rgb(16, 235, 31)',
-                    borderColor: 'rgb(16, 235, 31)',
-                    data: [500, 550, 580, 720, 830, 1245, 2260, 1770, 2980, 1290, 2000, 4200]
-                }]
-            },
-            options: {}
-        });
         var url = window.location.href;
         var navItems = document.querySelectorAll('.nav-item');
 

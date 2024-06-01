@@ -6,12 +6,14 @@ package dao;
 
 import dto.UserDTO;
 import entity.product.Category;
+import entity.product.Jewelry;
 import entity.valuation.Valuation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import utils.DBUtils;
 
 /**
@@ -118,4 +120,89 @@ public class UserDAOImpl implements UserDao {
         }
         return false;
     }
+
+    @Override
+    public boolean insertJewelry(String category, String jewelryName, String artist, String circa, String material, String dial, String braceletMaterial, String caseDimensions, String braceletSize, String serialNumber, String referenceNumber, String caliber, String movement, String condition, String metal, String gemstones, String measurements, String weight, String stamped, String ringSize, String minPrice, String maxPrice, String valuationID) {
+        String query = "INSERT INTO Jewelry (categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try ( Connection conn = DBUtils.getConnection();  PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, category);
+            ps.setString(2, jewelryName);
+            ps.setString(3, artist);
+            ps.setString(4, circa);
+            ps.setString(5, material);
+            ps.setString(6, dial);
+            ps.setString(7, braceletMaterial);
+            ps.setString(8, caseDimensions);
+            ps.setString(9, braceletSize);
+            ps.setString(10, serialNumber);
+            ps.setString(11, referenceNumber);
+            ps.setString(12, caliber);
+            ps.setString(13, movement);
+            ps.setString(14, condition);
+            ps.setString(15, metal);
+            ps.setString(16, gemstones);
+            ps.setString(17, measurements);
+            ps.setString(18, weight);
+            ps.setString(19, stamped);
+            ps.setString(20, ringSize);
+            ps.setString(21, minPrice);
+            ps.setString(22, maxPrice);
+            ps.setString(23, valuationID);
+
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public List<Jewelry> getJewelryByUserID(String userID) {
+        List<Jewelry> jewelryList = new ArrayList<>();
+        String query = "SELECT j.* FROM Jewelry j "
+                + "JOIN Valuation v ON j.valuationID = v.valuationID "
+                + "JOIN [Member] m ON v.memberID = m.memberID "
+                + "WHERE m.userID = ?";
+        try ( Connection conn = DBUtils.getConnection();  PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, userID);
+            try ( ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Jewelry jewelry = new Jewelry();
+                    jewelry.setJewelryID(rs.getString("jewelryID"));
+                    jewelry.setCategoryName(rs.getString("categoryID"));
+                    jewelry.setJewelryName(rs.getString("jewelryName"));
+                    jewelry.setArtist(rs.getString("artist"));
+                    jewelry.setCirca(rs.getString("circa"));
+                    jewelry.setMaterial(rs.getString("material"));
+                    jewelry.setDial(rs.getString("dial"));
+                    jewelry.setBraceletMaterial(rs.getString("braceletMaterial"));
+                    jewelry.setCaseDimensions(rs.getString("caseDimensions"));
+                    jewelry.setBraceletSize(rs.getString("braceletSize"));
+                    jewelry.setSerialNumber(rs.getString("serialNumber"));
+                    jewelry.setReferenceNumber(rs.getString("referenceNumber"));
+                    jewelry.setCaliber(rs.getString("caliber"));
+                    jewelry.setMovement(rs.getString("movement"));
+                    jewelry.setCondition(rs.getString("condition"));
+                    jewelry.setMetal(rs.getString("metal"));
+                    jewelry.setGemstones(rs.getString("gemstones"));
+                    jewelry.setMeasurements(rs.getString("measurements"));
+                    jewelry.setWeight(rs.getString("weight"));
+                    jewelry.setStamped(rs.getString("stamped"));
+                    jewelry.setRingSize(rs.getString("ringSize"));
+                    jewelry.setMinPrice(rs.getString("minPrice"));
+                    jewelry.setMaxPrice(rs.getString("maxPrice"));
+                    jewelry.setValuationId(rs.getString("valuationID"));
+                    jewelryList.add(jewelry);
+                }
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return jewelryList;
+    }
+
 }

@@ -91,14 +91,7 @@
                             </c:otherwise>
                         </c:choose>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
-                            <div id="bell-box" style="display: none;">
-                                <!-- Notifications -->
-                                <button id="notificationButton">Show Notification</button>
-                                <div id="notificationPopup" class="popup">
-                                    New message received!
-                                </div>
-                            </div>
+                            <a class="nav-link" href="notification.jsp" id="bell-icon"><i class="fas fa-bell"></i></a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">

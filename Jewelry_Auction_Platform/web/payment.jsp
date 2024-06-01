@@ -1,3 +1,5 @@
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,17 +30,10 @@
                         <a class="nav-link" href="seller/valuation.jsp">Sell</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="MainController?action=Profile&username=<%= username %>"><%= username %></a>
+                        <a class="nav-link" href="MainController?action=Profile&username="></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="bell-icon"><i class="fas fa-bell"></i></a>
-                        <div id="bell-box" style="display: none;">
-                            <!-- Notifications -->
-                            <button id="notificationButton">Show Notification</button>
-                            <div id="notificationPopup" class="popup">
-                                New message received!
-                            </div>
-                        </div>
+                        <a class="nav-link" href="notification.jsp" id="bell-icon"><i class="fas fa-bell"></i></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

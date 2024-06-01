@@ -1,0 +1,60 @@
+.nav-pills li a:hover {
+    background: #eec6c6;
+}
+
+.nav-item {
+    text-align: left;
+}
+
+.nav-item.active {
+    background-color: #007bff;
+}
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.sidebar-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.sidebar {
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.table .text-green {
+    color: white;
+    border: 1px solid #015e18;
+    background-color: #0bbb37;
+    font-weight: bold;
+    width: 50px;
+}
+
+.table .text-red {
+    color: white;
+    border: 1px solid #ff0000;
+    background-color: #e02d2d;
+    font-weight: bold;
+    width: 50px;
+}
+
+.display .text-received {
+    color: white;
+    border: 1px solid #015e18;
+    background-color: #0bbb37;
+    font-weight: bold;
+    width: 50px;
+}
+
+.display .text-pending {
+    color: white;
+    border: 1px solid #ff6f21;
+    background-color: #ff6f21;
+    font-weight: bold;
+    width: 50px;
+}

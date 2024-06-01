@@ -19,6 +19,7 @@ public class ValuationRequest {
     private String photos;
     private String userID;
     private int status;
+    
 
     public ValuationRequest() {
     }

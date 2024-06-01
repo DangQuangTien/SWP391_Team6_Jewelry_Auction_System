@@ -134,6 +134,7 @@ create table valuation (
 	status bit default 0
 )
 select * from valuation
+delete from valuation
 go
 create trigger autogenerate_valuationId on valuation instead of insert
 as 
@@ -144,19 +145,132 @@ begin
     select @newvaluationId, [name], email, phonenumber, communication, [description], photos, memberId
     from inserted;
 end;
-create table Jewelry (
-	jewelryID varchar(50) not null primary key,
-	categoryID nvarchar(50) not null,
-	jewelryCode nvarchar(50) not null,
-	jewelryName nvarchar(255) not null,
-	artist nvarchar(255),
-	minPrice decimal(18,2) not null,
-	maxPrice decimal(18,2) not null,
-	dimesion nvarchar(255),
-	circa nvarchar(255),
+--notification
+create sequence notificationId_sequence
+start with 0
+increment by 1;
+create table [Notification](
+	notificationId varchar(50) not null primary key,
 	valuationId varchar(50),
-	constraint fk_valuationId foreign key (valuationId) references valuation(valuationId)
-
+	content nvarchar(MAX)
+	foreign key (valuationId) references Valuation(valuationID)
 )
+go
+create trigger autogenerate_notificationId on [Notification] instead of insert
+as 
+begin
+	declare @newnotificationId nvarchar(50);
+	set  @newnotificationId = 'No' + cast(next value for notificationId_sequence as nvarchar(50));
+	insert into [Notification] (notificationId, valuationId, content)
+    select @newnotificationId, valuationId, content
+    from inserted;
+end;
+go
+CREATE SEQUENCE jewelryID_sequence
+    AS BIGINT
+    START WITH 1
+    INCREMENT BY 1;
+go
+CREATE TRIGGER autogenerate_jewelryID
+ON Jewelry
+INSTEAD OF INSERT
+AS 
+BEGIN
+    DECLARE @newjewelryID NVARCHAR(50);
+
+    INSERT INTO Jewelry (
+        jewelryID, categoryID, jewelryName, artist, circa, material, dial, braceletMaterial,
+        caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
+    )
+    SELECT 
+        'Lot' + CAST(NEXT VALUE FOR jewelryID_sequence AS NVARCHAR(50)),
+        categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, 
+        caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
+    FROM inserted;
+END;
+go
+CREATE TABLE Jewelry (
+    jewelryID varchar(50) NOT NULL PRIMARY KEY,
+	categoryID NVARCHAR(50),
+    jewelryName NVARCHAR(500),
+    artist NVARCHAR(255),
+    circa NVARCHAR(50),
+    material NVARCHAR(500),
+    dial NVARCHAR(500),
+    braceletMaterial NVARCHAR(500),
+    caseDimensions NVARCHAR(500),
+    braceletSize NVARCHAR(50),
+    serialNumber NVARCHAR(255),
+    referenceNumber NVARCHAR(255),
+    caliber NVARCHAR(255),
+    movement NVARCHAR(255),
+    [condition] NVARCHAR(500),
+    metal NVARCHAR(255),
+    gemstones NVARCHAR(500),
+    measurements NVARCHAR(500),
+    [weight] varchar(255),
+    stamped NVARCHAR(255),
+    ringSize NVARCHAR(50),
+    minPrice varchar(255),
+    maxPrice varchar(255),
+    valuationId VARCHAR(50),
+    FOREIGN KEY (valuationId) REFERENCES valuation(valuationId),
+	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
+);
+select * from category
+select * from Jewelry j, Valuation v where v.valuationId = j.valuationId and v.memberId = 'Member01';
+select * from valuation
+delete from category where categoryID = 'category10'
+INSERT INTO Jewelry (
+    categoryID,
+    jewelryName,
+    artist,
+    circa,
+    material,
+    dial,
+    braceletMaterial,
+    caseDimensions,
+    braceletSize,
+    serialNumber,
+    referenceNumber,
+    caliber,
+    movement,
+    condition,
+    metal,
+    gemstones,
+    measurements,
+    weight,
+    stamped,
+    ringSize,
+    minPrice,
+    maxPrice,
+    valuationID
+) VALUES (
+    'category9',
+    'BREITLING CHRONOMAT EVOLUTION IN STEEL',
+    'Breitling',
+    '2000s',
+    'Stainless steel',
+    'Slate grey dial with three chronograph sub registers in silver guilloche. Applied Arabic numerals. Date aperture at the "3" hour marker.',
+    'Original Breitling bracelet in steel',
+    '46 mm in diameter',
+    '8 inches',
+    '2538907',
+    'A13356',
+    '7750',
+    'Automatic',
+    'Dial is in excellent condition. Case is excellent, with minor scratches under magnification. Movement is running at time of cataloging. Overall, the present example is in excellent condition.',
+    '', -- metal
+    '', -- gemstones
+    '', -- measurements
+    '', -- weight
+    '', -- stamped
+    '', -- ringSize
+    '4500',
+    '4600',
+    'val14'
+);
 
 

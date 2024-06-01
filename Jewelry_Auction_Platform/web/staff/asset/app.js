@@ -6,16 +6,12 @@ function showFormFields() {
     var category = document.getElementById("category").value;
     var watchFields = document.getElementById("watchFields");
     var braceletFields = document.getElementById("braceletFields");
-    var ringFields = document.getElementById("ringFields");
 
     watchFields.style.display = "none";
     braceletFields.style.display = "none";
-    ringFields.style.display = "none";
 
-    if (category === "Watch") {
+    if (category === "category9") {
         watchFields.style.display = "block";
-    } else if (category === "Ring") {
-        ringFields.style.display = "block";
     } else {
         braceletFields.style.display = "block";
     }
