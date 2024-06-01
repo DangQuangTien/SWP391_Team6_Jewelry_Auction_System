@@ -2,34 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entity.valuation;
+package entity.user;
 
 /**
  *
  * @author User
  */
-public class Valuation {
+public class ValuationRequest {
 
     private String valuationID;
     private String name;
     private String email;
-    private String phone;
+    private String phoneNumber;
     private String communication;
     private String description;
-    private String photo;
+    private String photos;
+    private String userID;
     private int status;
+    
 
-    public Valuation() {
+    public ValuationRequest() {
     }
 
-    public Valuation(String valuationID, String name, String email, String phone, String communication, String description, String photo, int status) {
+    public ValuationRequest(String valuationID, String name, String email, String phoneNumber, String communication, String description, String photos, String userID, int status) {
         this.valuationID = valuationID;
         this.name = name;
         this.email = email;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
         this.communication = communication;
         this.description = description;
-        this.photo = photo;
+        this.photos = photos;
+        this.userID = userID;
         this.status = status;
     }
 
@@ -57,12 +60,12 @@ public class Valuation {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getCommunication() {
@@ -73,20 +76,20 @@ public class Valuation {
         this.communication = communication;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhotos() {
+        return photos;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public int getStatus() {
@@ -95,6 +98,14 @@ public class Valuation {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

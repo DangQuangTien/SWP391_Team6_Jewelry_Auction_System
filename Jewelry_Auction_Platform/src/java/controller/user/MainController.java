@@ -25,10 +25,6 @@ public class MainController extends HttpServlet {
     private static final String PROFILE_CONTROLLER = "ProfileController";
     private static final String PROCESS_VALUATION_CONTROLLER = "ProcessValuationRequest";
     private static final String INSERT_JEWELRY_CONTROLLER = "InsertJewelryController";
-    private static final String REQUEST_SHIPMENT_CONTROLLER = "RequestShipmentController";
-    private static final String CONFIRM_RECEIPT_CONTROLLER = "ConfirmReceiptController";
-    private static final String CONFIRM_AUCTION_SELLER_CONTROLLER = "ConfirmAuctionSellerController";
-    private static final String CONFIRM_AUCTION_MANAGER_CONTROLLER = "ConfirmAuctionManagerController";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -61,20 +57,8 @@ public class MainController extends HttpServlet {
                 case "Valuation Request":
                     url = PROCESS_VALUATION_CONTROLLER;
                     break;
-                case "Submit":
+                    case "Submit":
                     url = INSERT_JEWELRY_CONTROLLER;
-                    break;
-                case "Request to Ship":
-                    url = REQUEST_SHIPMENT_CONTROLLER;
-                    break;
-                case "Confirm Receipt":
-                    url = CONFIRM_RECEIPT_CONTROLLER;
-                    break;
-                case "Confirm":
-                    url = CONFIRM_AUCTION_SELLER_CONTROLLER;
-                    break;
-                case "Confirm to Auction":
-                    url = CONFIRM_AUCTION_MANAGER_CONTROLLER;
                     break;
                 default:
                     break;

@@ -121,7 +121,7 @@ create sequence valuationId_sequence
 start with 0
 increment by 1;
 go
-create table Valuation (
+create table valuation (
 	valuationId varchar(50) not null primary key,
 	[name] nvarchar(255) not null, 
 	email nvarchar(255) not null,
@@ -130,22 +130,12 @@ create table Valuation (
 	[description] nvarchar(max),
 	photos varchar(255),
 	memberId varchar(50),
-	status_evaluate bit default 0,
-	status_shipment bit default 0,
 	foreign key (memberId) references [Member](memberId),
+	status bit default 0
 )
+select * from valuation
+delete from valuation
 go
-CREATE TRIGGER update_valuation_status
-ON Jewelry
-AFTER INSERT
-AS
-BEGIN
-    UPDATE v
-    SET v.status_evaluate = 1
-    FROM valuation v
-    JOIN inserted i ON v.valuationId = i.valuationId;
-END;
-GO
 create trigger autogenerate_valuationId on valuation instead of insert
 as 
 begin
@@ -159,15 +149,12 @@ end;
 create sequence notificationId_sequence
 start with 0
 increment by 1;
-go
------------------------------------------------------------------------------
 create table [Notification](
 	notificationId varchar(50) not null primary key,
 	valuationId varchar(50),
-	content nvarchar(MAX),
+	content nvarchar(MAX)
 	foreign key (valuationId) references Valuation(valuationID)
 )
------------------------------------------------------------------------------
 go
 create trigger autogenerate_notificationId on [Notification] instead of insert
 as 
@@ -184,8 +171,6 @@ CREATE SEQUENCE jewelryID_sequence
     START WITH 1
     INCREMENT BY 1;
 go
-DROP TRIGGER IF EXISTS autogenerate_jewelryID;
-go
 CREATE TRIGGER autogenerate_jewelryID
 ON Jewelry
 INSTEAD OF INSERT
@@ -196,13 +181,13 @@ BEGIN
     INSERT INTO Jewelry (
         jewelryID, categoryID, jewelryName, artist, circa, material, dial, braceletMaterial,
         caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
-        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId, photos
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
     )
     SELECT 
         'Lot' + CAST(NEXT VALUE FOR jewelryID_sequence AS NVARCHAR(50)),
         categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, 
         caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], 
-        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId, photos
+        metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId
     FROM inserted;
 END;
 go
@@ -231,9 +216,61 @@ CREATE TABLE Jewelry (
     minPrice varchar(255),
     maxPrice varchar(255),
     valuationId VARCHAR(50),
-	statusFromSeller bit default 0,
-	statusFromManager bit default 0,
     FOREIGN KEY (valuationId) REFERENCES valuation(valuationId),
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
 );
-select * from staff
+select * from category
+select * from Jewelry j, Valuation v where v.valuationId = j.valuationId and v.memberId = 'Member01';
+select * from valuation
+delete from category where categoryID = 'category10'
+INSERT INTO Jewelry (
+    categoryID,
+    jewelryName,
+    artist,
+    circa,
+    material,
+    dial,
+    braceletMaterial,
+    caseDimensions,
+    braceletSize,
+    serialNumber,
+    referenceNumber,
+    caliber,
+    movement,
+    condition,
+    metal,
+    gemstones,
+    measurements,
+    weight,
+    stamped,
+    ringSize,
+    minPrice,
+    maxPrice,
+    valuationID
+) VALUES (
+    'category9',
+    'BREITLING CHRONOMAT EVOLUTION IN STEEL',
+    'Breitling',
+    '2000s',
+    'Stainless steel',
+    'Slate grey dial with three chronograph sub registers in silver guilloche. Applied Arabic numerals. Date aperture at the "3" hour marker.',
+    'Original Breitling bracelet in steel',
+    '46 mm in diameter',
+    '8 inches',
+    '2538907',
+    'A13356',
+    '7750',
+    'Automatic',
+    'Dial is in excellent condition. Case is excellent, with minor scratches under magnification. Movement is running at time of cataloging. Overall, the present example is in excellent condition.',
+    '', -- metal
+    '', -- gemstones
+    '', -- measurements
+    '', -- weight
+    '', -- stamped
+    '', -- ringSize
+    '4500',
+    '4600',
+    'val14'
+);
+
+
