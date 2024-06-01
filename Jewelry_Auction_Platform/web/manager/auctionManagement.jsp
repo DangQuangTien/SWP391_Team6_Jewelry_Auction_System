@@ -1,6 +1,6 @@
 <%-- 
-    Document   : shippingRequestForm
-    Created on : May 26, 2024, 3:41:08 PM
+    Document   : auctionManagement
+    Created on : May 28, 2024, 5:44:48 PM
     Author     : User
 --%>
 
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Auction Management</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
+        <h1>There is no auction!</h1>
+    <a href="createAuction.jsp">Create Auction</a>
+</body>
 </html>

@@ -39,6 +39,34 @@
                 flex: 1 1 200px; 
                 max-width: 300px; 
             }
+            
+                .banner img {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+                object-fit: cover;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .welcome-section {
+                text-align: center;
+                padding: 50px 20px;
+                background-color: #ffffff;
+                margin: 20px 0;
+                border-radius: 5px;
+            }
+
+            .welcome-section h2 {
+                font-size: 2.5rem;
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            .welcome-text {
+                font-size: 1.2rem;
+                color: #666;
+                line-height: 1.6;
+            }
+
         </style>
     </head>
     <body>
@@ -49,7 +77,7 @@
 
         <!-- START OF HEADER -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="#">Jewelry Auctions</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -101,12 +129,23 @@
                 </div>
             </nav>
         </header>
+        <section class="banner mb-4">
+            <img src="https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?cs=srgb&dl=pexels-pixabay-265906.jpg&fm=jpg" class="img-fluid" alt="Banner showcasing various jewelry pieces">
+        </section>
         <!-- END OF HEADER -->
         <main class="container mt-4">
-            <section class="banner mb-4">
-                <img src="https://www.limelight.pk/cdn/shop/collections/1200x330-Jewelry.webp?v=1674559019" class="img-fluid" alt="Banner showcasing various jewelry pieces">
-            </section>
+            <hr>
+        <!-- WELCOME SECTION -->
+<section class="welcome-section">
+    <h2>Welcome to Jewelry Auction</h2>
+    <p class="welcome-text">
+        We're delighted to have you explore our curated selection of fine jewelry. Each piece is a treasure waiting to be discovered. Join our community of connoisseurs and start your bidding journey today.
+    </p>
+</section>
 
+<hr>
+
+<br>
             <h2>Top Categories</h2>
             <c:if test="${not empty listCategory}">
                 <div class="category-container">
@@ -117,6 +156,9 @@
                     </c:forEach>
                 </div>
             </c:if>
+<br>
+            <hr>
+
             <h2>Upcoming Auction</h2>
             <section class="upcoming-auction">
                 <div class="container">
@@ -129,7 +171,7 @@
                                         <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 159234</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +184,7 @@
                                         <h5 class="card-title">14K Rose Gold Full Round Moissanite Diamond Ring</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 294819</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +199,7 @@
                                         <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 159234</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +212,7 @@
                                         <h5 class="card-title">Tiny Crystal Heart Pendant Necklace in Rose Gold</h5>
                                         <p class="card-text">Start: Wed, May 22, 12:00 PM GMT+3</p>
                                         <p class="card-text">Auction ID: 159234</p>
-                                        <button class="btn btn-primary">Notify me</button>
+                                        <button class="btn">Notify me</button>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +232,8 @@
                 </div>
             </section>
 
-
+            <br>
+            <hr>
             <section class="contact mt-5">
                 <h2>About Us</h2>
                 <p>Welcome to Jewelry Auctioned! We offer a wide range of discounted jewelry and gemstones directly from verified manufacturers worldwide. 
@@ -204,9 +247,10 @@
                 <p>Email Support: support@jewelryauction.com</p>
                 <p>Fill out the form below for more assistance.</p>
             </section>
+            <hr>
         </main>
         <!-- START OF FOOTER -->
-        <footer class="bg-light text-center py-3 mt-auto">
+        <footer class="text-center py-3 mt-auto">
             <div>
                 <h6>Jewelry Auction</h6>
                 <a href="register.jsp">Register</a> |

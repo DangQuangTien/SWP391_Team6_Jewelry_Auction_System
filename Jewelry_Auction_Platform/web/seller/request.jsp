@@ -131,16 +131,12 @@
         .error-message {
             color: red;
         }
-        footer {
-            background: #f8f9fa;
-            padding: 1rem 0;
-        }
     </style>
 </head>
 <body ng-controller="validateCtrl">
     <!-- START OF HEADER -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">Jewelry Auctions</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -151,7 +147,7 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/home.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>                
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Auction</a>
+                        <a class="nav-link" href="/Jewelry_Auction_Platform/web/Auction.jsp">Auction</a>
                     </li>
                 </ul>
             </div>
@@ -235,7 +231,7 @@
     </main>
 
     <!-- START OF FOOTER -->
-    <footer class="bg-light text-center py-3 mt-auto">
+    <footer class="text-center py-3 mt-auto">
         <div>
             <h6>Jewelry Auction</h6>
             <a href="register.jsp">Register</a> |
