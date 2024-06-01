@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertJewelryController extends HttpServlet {
 
     private static final String ERROR_PAGE = "/WEB-INF/jsp/index.jsp";
-    private static final String STAFF_PAGE = "ProcessValuationRequest";
+    private static final String STAFF_PAGE = "/staff/staff.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -63,10 +63,9 @@ public class InsertJewelryController extends HttpServlet {
             String minPrice = request.getParameter("minPrice");
             String maxPrice = request.getParameter("maxPrice");
             String valuationID = request.getParameter("valuationID");
-            String photos = request.getParameter("photoURL");
             UserDAOImpl dao = new UserDAOImpl();
             try {
-                boolean result = dao.insertJewelry(category, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, condition, metal, gemstones, measurements, weight, stamped, ringSize, minPrice, maxPrice, valuationID, photos);
+                boolean result = dao.insertJewelry(category, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, condition, metal, gemstones, measurements, weight, stamped, ringSize, minPrice, maxPrice, valuationID);
                 if (result) {
                     url = STAFF_PAGE;
                 }
@@ -74,7 +73,8 @@ public class InsertJewelryController extends HttpServlet {
                 ex.printStackTrace(); // Print the stack trace for debugging
                 // Handle the exception appropriately, such as logging it
             } finally {
-                response.sendRedirect(url);
+                RequestDispatcher dist = request.getRequestDispatcher(url);
+                dist.forward(request, response);
             }
 
         }

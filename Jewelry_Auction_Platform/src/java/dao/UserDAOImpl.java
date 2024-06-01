@@ -7,7 +7,6 @@ package dao;
 import dto.UserDTO;
 import entity.product.Category;
 import entity.product.Jewelry;
-import entity.request_shipment.RequestShipment;
 import entity.valuation.Valuation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,8 +61,7 @@ public class UserDAOImpl implements UserDao {
                 val.setCommunication(rs.getString(5));
                 val.setDescription(rs.getString(6));
                 val.setPhoto(rs.getString(7));
-                val.setStatus_evaluate(rs.getInt(9));
-                val.setStatus_shipment(rs.getInt(10));
+                val.setStatus(rs.getInt(9));
                 lst.add(val);
             }
             return lst;
@@ -124,8 +122,8 @@ public class UserDAOImpl implements UserDao {
     }
 
     @Override
-    public boolean insertJewelry(String category, String jewelryName, String artist, String circa, String material, String dial, String braceletMaterial, String caseDimensions, String braceletSize, String serialNumber, String referenceNumber, String caliber, String movement, String condition, String metal, String gemstones, String measurements, String weight, String stamped, String ringSize, String minPrice, String maxPrice, String valuationID, String photos) {
-        String query = "INSERT INTO Jewelry (categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId, photos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean insertJewelry(String category, String jewelryName, String artist, String circa, String material, String dial, String braceletMaterial, String caseDimensions, String braceletSize, String serialNumber, String referenceNumber, String caliber, String movement, String condition, String metal, String gemstones, String measurements, String weight, String stamped, String ringSize, String minPrice, String maxPrice, String valuationID) {
+        String query = "INSERT INTO Jewelry (categoryID, jewelryName, artist, circa, material, dial, braceletMaterial, caseDimensions, braceletSize, serialNumber, referenceNumber, caliber, movement, [condition], metal, gemstones, measurements, [weight], stamped, ringSize, minPrice, maxPrice, valuationId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try ( Connection conn = DBUtils.getConnection();  PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, category);
@@ -151,10 +149,12 @@ public class UserDAOImpl implements UserDao {
             ps.setString(21, minPrice);
             ps.setString(22, maxPrice);
             ps.setString(23, valuationID);
-            ps.setString(24, photos);
+
             int rowsAffected = ps.executeUpdate();
             return rowsAffected > 0;
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
         return false;
@@ -196,9 +196,6 @@ public class UserDAOImpl implements UserDao {
                     jewelry.setMinPrice(rs.getString("minPrice"));
                     jewelry.setMaxPrice(rs.getString("maxPrice"));
                     jewelry.setValuationId(rs.getString("valuationID"));
-                    jewelry.setStatus_From_Seller(rs.getString("statusFromSeller"));
-                    jewelry.setStatus_From_Manager(rs.getString("statusFromManager"));
-                    jewelry.setPhotos(rs.getString("photos"));
                     jewelryList.add(jewelry);
                 }
             }
@@ -206,137 +203,6 @@ public class UserDAOImpl implements UserDao {
             ex.printStackTrace();
         }
         return jewelryList;
-    }
-
-    @Override
-    public List<RequestShipment> displayRequestShipment(String userID) {
-        String query = "select n.notificationID, n.content from Notification n, Valuation v, Users u, Member m where u.userID = ? and n.valuationID = v.valuationID and u.userID = m.userID";
-        List<RequestShipment> listRequestShipment = new ArrayList<>();
-        try {
-            conn = DBUtils.getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, userID);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                RequestShipment request = new RequestShipment();
-                request.setId(rs.getString(1));
-                request.setContent(rs.getString(2));
-                listRequestShipment.add(request);
-            }
-            return listRequestShipment;
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.getMessage();
-        }
-        return null;
-    }
-
-    @Override
-    public boolean requestShipment(String valuationID, String content) {
-        String query = "Insert Into Notification (valuationID, content) values (?, ?);";
-        try {
-            conn = DBUtils.getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, valuationID);
-            ps.setString(2, content);
-            int result = ps.executeUpdate();
-            return result > 0;
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.getMessage();
-        }
-        return false;
-    }
-
-    @Override
-    public boolean confirmReceipt(String valuationID) {
-        String query = "UPDATE VALUATION SET STATUS_SHIPMENT = 1 WHERE VALUATIONID = ?";
-        try {
-            conn = DBUtils.getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, valuationID);
-            int result = ps.executeUpdate();
-            return result > 0;
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.getMessage();
-        }
-        return false;
-    }
-
-    @Override
-    public List<Jewelry> displayAllJewelry() {
-        List<Jewelry> listJewelry = new ArrayList<>();
-        String query = "SELECT * FROM JEWELRY";
-        try ( Connection conn = DBUtils.getConnection();  PreparedStatement ps = conn.prepareStatement(query)) {
-            try ( ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Jewelry jewelry = new Jewelry();
-                    jewelry.setJewelryID(rs.getString("jewelryID"));
-                    jewelry.setCategoryName(rs.getString("categoryID"));
-                    jewelry.setJewelryName(rs.getString("jewelryName"));
-                    jewelry.setArtist(rs.getString("artist"));
-                    jewelry.setCirca(rs.getString("circa"));
-                    jewelry.setMaterial(rs.getString("material"));
-                    jewelry.setDial(rs.getString("dial"));
-                    jewelry.setBraceletMaterial(rs.getString("braceletMaterial"));
-                    jewelry.setCaseDimensions(rs.getString("caseDimensions"));
-                    jewelry.setBraceletSize(rs.getString("braceletSize"));
-                    jewelry.setSerialNumber(rs.getString("serialNumber"));
-                    jewelry.setReferenceNumber(rs.getString("referenceNumber"));
-                    jewelry.setCaliber(rs.getString("caliber"));
-                    jewelry.setMovement(rs.getString("movement"));
-                    jewelry.setCondition(rs.getString("condition"));
-                    jewelry.setMetal(rs.getString("metal"));
-                    jewelry.setGemstones(rs.getString("gemstones"));
-                    jewelry.setMeasurements(rs.getString("measurements"));
-                    jewelry.setWeight(rs.getString("weight"));
-                    jewelry.setStamped(rs.getString("stamped"));
-                    jewelry.setRingSize(rs.getString("ringSize"));
-                    jewelry.setMinPrice(rs.getString("minPrice"));
-                    jewelry.setMaxPrice(rs.getString("maxPrice"));
-                    jewelry.setValuationId(rs.getString("valuationID"));
-                    jewelry.setStatus_From_Seller(rs.getString("statusFromSeller"));
-                    jewelry.setStatus_From_Manager(rs.getString("statusFromManager"));
-                    jewelry.setPhotos(rs.getString("photos"));
-                    listJewelry.add(jewelry);
-                }
-            }
-        } catch (SQLException | ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        return listJewelry;
-    }
-
-    @Override
-    public boolean confirmToAuction_Manager(String valuationID) {
-        String query = "UPDATE JEWELRY SET STATUSFROMMANAGER = 1 WHERE VALUATIONID = ?";
-        try {
-            conn = DBUtils.getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, valuationID);
-            int result = ps.executeUpdate();
-            return result > 0;
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.getMessage();
-        }
-        return false;
-    }
-
-    @Override
-    public boolean confirmToAuction_Seller(String valuationID) {
-        String query = "UPDATE JEWELRY SET STATUSFROMSELLER = 1 WHERE VALUATIONID = ?";
-        try {
-            conn = DBUtils.getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, valuationID);
-            int result = ps.executeUpdate();
-            return result > 0;
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.getMessage();
-        }
-        return false;
     }
 
 }
