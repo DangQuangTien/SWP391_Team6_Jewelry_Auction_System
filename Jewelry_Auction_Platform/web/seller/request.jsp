@@ -175,7 +175,7 @@
             </main>
 
             <!-- START OF FOOTER -->
-            <<<<<<< HEAD <footer class="text-center py-3 mt-20">
+            <footer class="text-center py-3 mt-20">
                 <footer class="text-center py-3 mt-auto">
                     <div>
                         <h6>Jewelry Auction</h6>
@@ -226,7 +226,6 @@
                             };
                         }]);
                 </script>
-                =======
                 <footer class="text-center py-3 mt-auto">
                     <div>
                         <h6>Jewelry Auction</h6>
@@ -277,7 +276,6 @@
                             };
                         }]);
                 </script>
-                >>>>>>> a0948ab (refactor: form request and navbar menu)
 </body>
 
 </html>
