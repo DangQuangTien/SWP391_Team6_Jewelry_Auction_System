@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let navbar = document.querySelector('.custom-navbar');
     let navbarToggler = document.querySelector('.navbar-toggler');
+
+    // Adding gradient overlay dynamically
+    let gradientOverlay = document.createElement('div');
+    gradientOverlay.classList.add('gradient-overlay');
+    navbar.appendChild(gradientOverlay);
+
     navbarToggler.addEventListener('click', function() {
         if (navbar.classList.contains('navbar-collapsed')) {
             navbar.classList.remove('navbar-collapsed');

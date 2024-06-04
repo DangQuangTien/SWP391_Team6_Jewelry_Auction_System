@@ -1,15 +1,28 @@
+/* General body style */
 body {
     background-color: #f8f9fa; 
 }
 
+/* Navbar style */
 .navbar {
     margin-bottom: 20px;
     transition: background-color 0.3s ease, height 0.3s ease;
 }
 
+/* Custom Navbar with gradient background */
 .custom-navbar {
     position: relative;
     transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-navbar .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: -1;
 }
 
 .navbar-bg {
@@ -22,39 +35,50 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: -1;
+    z-index: -2; /* Moved behind the gradient */
     transition: height 0.3s ease;
 }
 
-.custom-navbar.navbar-collapsed .navbar-bg {
+/* Navbar collapsed and extended state */
+.custom-navbar.navbar-collapsed .navbar-bg,
+.custom-navbar.navbar-collapsed .gradient-overlay {
     height: 56px; 
 }
 
-.custom-navbar.navbar-extended .navbar-bg {
+.custom-navbar.navbar-extended .navbar-bg,
+.custom-navbar.navbar-extended .gradient-overlay {
     height: 400px; 
 }
 
+/* Navbar brand style */
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
+    color: #fff; /* Ensure brand text is white for contrast */
     transition: transform 0.3s ease;
 }
 
+.navbar-brand.animate {
+    transform: scale(1.2);
+}
+
+/* Navbar link style */
 .navbar-nav .nav-item .nav-link {
-    color: #0b0101;
+    color: #fff; /* Make navbar links white */
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #fff; /* Inverse colors on hover for contrast */
 }
 
+/* Dropdown menu style */
 .navbar-nav .nav-item .dropdown-menu {
     color: #000;
     border-color: #000;
     transition: background-color 0.3s ease;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); 
     padding: 10px;
     border-radius: 5px; 
@@ -65,50 +89,43 @@ body {
     background-color: #000 !important; 
 }
 
-.navbar-nav .nav-item .dropdown-item:hover {
-    background-color: #e9ecef;
-    color: #0c0f13;
-}
-
-.navbar.sticky-top {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-outline-success {
-    color: #000; 
-    border-color: #000;
-}
-
-.btn-outline-success:hover {
-    color: #0f0101; 
-    background-color: #000;
-    border-color: #000; 
-}
-
-.btn-outline-success:focus, .btn-outline-success.focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5); 
-}
-
-.btn-outline-success:not(:disabled):not(.disabled).active, 
-.btn-outline-success:not(:disabled):not(.disabled):active,
-.show > .btn-outline-success.dropdown-toggle {
-    color: #030000; 
-    background-color: #000; 
-    border-color: #000; 
-}
-
-.btn-outline-success:not(:disabled):not(.disabled):active:focus, 
-.btn-outline-success:not(:disabled):not(.disabled).active:focus,
-.show > .btn-outline-success.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(12, 0, 0, 0.5); 
-}
-
 .dropdown-menu {
     max-height: 300px;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
 
+/* Button styles */
+.btn-outline-success {
+    color: #fff; 
+    border-color: #fff;
+}
+
+.btn-outline-success:hover {
+    color: #fff; 
+    background-color: #000;
+    border-color: #fff; 
+}
+
+.btn-outline-success:focus, .btn-outline-success.focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5); 
+}
+
+.btn-outline-success:not(:disabled):not(.disabled).active, 
+.btn-outline-success:not(:disabled):not(.disabled):active,
+.show > .btn-outline-success.dropdown-toggle {
+    color: #fff; 
+    background-color: #000; 
+    border-color: #fff; 
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-success:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5); 
+}
+
+/* Responsive styles */
 @media (max-width: 767px) {
     .navbar-nav {
         text-align: center;
@@ -124,8 +141,4 @@ body {
     .form-inline .btn {
         width: 25%;
     }
-}
-
-.navbar-brand.animate {
-    transform: scale(1.2);
 }
